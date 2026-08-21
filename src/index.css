@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-light: #F8F7F4;
+    --text-primary: #1C1C1C;
+    --text-secondary: #555555;
+    --accent-green: #4E6B5A;
+    --accent-terracotta: #B76E4A;
+    --border-light: #ECECEC;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Dark mode overrides */
+  .dark body {
+    background-color: #121312;
+    color: #F3F3F0;
+  }
+
+  h1, h2, h3, .font-heading {
+    font-family: 'Syne', sans-serif;
+  }
+
+  .font-serif-accent {
+    font-family: 'Cinzel', serif;
+  }
+
+  .font-serif {
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Artistic Flair Design Utilities */
+.bg-grid-dots {
+  background-image: radial-gradient(#1C1C1C 0.65px, transparent 0.65px);
+  background-size: 24px 24px;
+}
+
+.dark .bg-grid-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 0.65px, transparent 0.65px);
+  background-size: 24px 24px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1efeb;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #181918;
+}
+::-webkit-scrollbar-thumb {
+  background: #4E6B5A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B5344;
+}
+
+/* Custom utilities */
+.glass-nav {
+  background: rgba(248, 247, 244, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .glass-nav {
+  background: rgba(18, 19, 18, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(236, 236, 236, 0.8);
+}
+
+.dark .glass-card {
+  background: rgba(28, 29, 28, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Image comparison slider helper */
+.clip-comparison {
+  clip-path: polygon(0 0, var(--slider-pos, 50%) 0, var(--slider-pos, 50%) 100%, 0 100%);
+}
+
+/* Custom cursor hide default on desktop when enabled */
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor-active {
+    cursor: none;
+  }
+}
+
+

@@ -1,0 +1,8 @@
+{
+  "name": "Remix Triarch Ventures",
+  "description": "Multidisciplinary architecture, interior design, structural engineering, and construction consultancy studio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
