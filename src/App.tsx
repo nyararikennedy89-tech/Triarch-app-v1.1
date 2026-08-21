@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { SlidingPartnersRibbon } from './components/SlidingPartnersRibbon';
 import { Introduction } from './components/Introduction';
 import { ServicesSection } from './components/ServicesSection';
 import { ProjectsSection } from './components/ProjectsSection';
@@ -88,6 +89,9 @@ export default function App() {
           setIsConsultationOpen(true);
         }}
       />
+
+      {/* Infinite Sliding Partners & Material Brands Ribbon */}
+      <SlidingPartnersRibbon />
 
       {/* Section 2: Studio Introduction & Render vs Reality Slider */}
       <Introduction />
