@@ -112,7 +112,7 @@ export const siteConfig: SiteConfig = {
     inquiriesEmail: 'projects@triarchventures.com',
     careersEmail: 'careers@triarchventures.com',
     primaryPhone: '+254 (0) 714 965 505',
-    whatsAppPhone: '+254715965505',
+    whatsAppPhone: '+254714965505',
     whatsAppMessage: 'Hello Triarch Ventures, I would like to inquire about a new architectural and engineering project.',
   },
 
