@@ -10,6 +10,10 @@
     --border-light: #ECECEC;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: var(--bg-light);
@@ -96,11 +100,22 @@
   clip-path: polygon(0 0, var(--slider-pos, 50%) 0, var(--slider-pos, 50%) 100%, 0 100%);
 }
 
-/* Custom cursor hide default on desktop when enabled */
-@media (hover: hover) and (pointer: fine) {
-  .custom-cursor-active {
-    cursor: none;
-  }
+/* Interactive element cursors */
+button, a, [role="button"] {
+  cursor: pointer;
+}
+
+input, textarea, select {
+  cursor: text;
+}
+
+/* Custom interactive grab utilities */
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grab:active, .cursor-grabbing {
+  cursor: grabbing;
 }
 
 

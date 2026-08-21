@@ -11,7 +11,6 @@ import { WhyChooseSection } from './components/WhyChooseSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ResourcesSection } from './components/ResourcesSection';
 import { Footer } from './components/Footer';
-import { CustomCursor } from './components/CustomCursor';
 import { ConsultationWizardModal } from './components/ConsultationWizardModal';
 import { QuickSearchModal } from './components/QuickSearchModal';
 import { ProjectModal } from './components/ProjectModal';
@@ -68,10 +67,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F7F4] dark:bg-[#121312] text-[#1C1C1C] dark:text-[#F3F3F0] transition-colors duration-300 relative custom-cursor-active selection:bg-[#4E6B5A] selection:text-white">
-      {/* Custom Precision Architectural Cursor */}
-      <CustomCursor />
-
+    <div className="min-h-screen bg-[#F8F7F4] dark:bg-[#121312] text-[#1C1C1C] dark:text-[#F3F3F0] transition-colors duration-300 relative selection:bg-[#4E6B5A] selection:text-white">
       {/* Sticky Header Navigation */}
       <Navbar
         darkMode={darkMode}

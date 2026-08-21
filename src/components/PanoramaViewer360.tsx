@@ -411,14 +411,16 @@ export const PanoramaViewer360: React.FC<PanoramaViewer360Props> = ({
     isUserInteracting.current = false;
   };
 
-  // Zoom / Wheel FOV
+  // Zoom / Wheel FOV: only intercept when in fullscreen or when holding Ctrl/Cmd to avoid blocking page scroll
   const handleWheel = (event: React.WheelEvent) => {
-    event.preventDefault();
-    const newFov = Math.max(35, Math.min(95, fov + event.deltaY * 0.05));
-    setFov(newFov);
-    if (cameraRef.current) {
-      cameraRef.current.fov = newFov;
-      cameraRef.current.updateProjectionMatrix();
+    if (isFullscreen || event.ctrlKey || event.metaKey) {
+      event.preventDefault();
+      const newFov = Math.max(35, Math.min(95, fov + event.deltaY * 0.05));
+      setFov(newFov);
+      if (cameraRef.current) {
+        cameraRef.current.fov = newFov;
+        cameraRef.current.updateProjectionMatrix();
+      }
     }
   };
 
@@ -469,7 +471,6 @@ export const PanoramaViewer360: React.FC<PanoramaViewer360Props> = ({
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
       onWheel={handleWheel}
-      style={{ touchAction: 'none' }}
     >
       {/* 360 WebGL Canvas */}
       <canvas ref={canvasRef} className="w-full h-full cursor-grab active:cursor-grabbing block" />
