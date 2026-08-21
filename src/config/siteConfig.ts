@@ -9,7 +9,7 @@
  */
 
 export interface OfficeLocation {
-  id: 'Nairobi' | 'London' | 'Dubai' | string;
+  id: 'Nairobi' | 'Kiambu' | 'Nyeri' | string;
   city: string;
   country: string;
   address: string;
@@ -99,7 +99,7 @@ export const siteConfig: SiteConfig = {
   brand: {
     name: 'TRIARCH',
     subName: 'VENTURES',
-    establishedYear: 2014,
+    establishedYear: 2022,
     tagline: 'Design Spaces. Build Legacies.',
     shortDescription:
       'Multidisciplinary architecture, interior design, structural & MEP engineering, and construction consultancy studio delivering transformative built environments.',
@@ -111,8 +111,8 @@ export const siteConfig: SiteConfig = {
     primaryEmail: 'info@triarchventures.com',
     inquiriesEmail: 'projects@triarchventures.com',
     careersEmail: 'careers@triarchventures.com',
-    primaryPhone: '+254 (0) 700 882 233',
-    whatsAppPhone: '+254700882233',
+    primaryPhone: '+254 (0) 714 965 505',
+    whatsAppPhone: '+254715965505',
     whatsAppMessage: 'Hello Triarch Ventures, I would like to inquire about a new architectural and engineering project.',
   },
 
@@ -121,28 +121,28 @@ export const siteConfig: SiteConfig = {
       id: 'Nairobi',
       city: 'Nairobi, Kenya',
       country: 'Kenya',
-      address: 'Triarch Tower, 8th Floor, Ring Road Kilimani',
-      phone: '+254 (0) 700 882 233',
+      address: 'Pinetree Plaza, 4th Floor, Dr Kaburu',
+      phone: '+254 (0) 714 965 505',
       email: 'nairobi@triarchventures.com',
-      hours: 'Mon - Fri: 8:00 AM – 6:00 PM EAT',
+      hours: 'Mon - Fri: 8:00 AM – 5:00 PM EAT',
       isPrimary: true,
     },
-    London: {
-      id: 'London',
-      city: 'London W1J 7NT',
-      country: 'United Kingdom',
+    Kiambu: {
+      id: 'Kiambu',
+      city: 'Kiambu County',
+      country: 'Kenya',
       address: '12 Mayfair Architectural Chambers, Curzon St',
-      phone: '+44 (0) 20 7946 0912',
-      email: 'london@triarchventures.com',
+      phone: '+254 (0) 714 965 505',
+      email: 'kiambu@triarchventures.com',
       hours: 'Mon - Fri: 9:00 AM – 5:30 PM GMT',
     },
-    Dubai: {
-      id: 'Dubai',
-      city: 'Dubai, UAE',
-      country: 'United Arab Emirates',
+    Nyeri: {
+      id: 'Nyeri',
+      city: 'Nyeri County',
+      country: 'Kenya',
       address: 'DIFC Gate Precinct Building 4, Level 5',
-      phone: '+971 (0) 4 312 8890',
-      email: 'dubai@triarchventures.com',
+      phone: '+254 (0) 714 965 505',
+      email: 'nyeri@triarchventures.com',
       hours: 'Mon - Fri: 9:00 AM – 6:00 PM GST',
     },
   },
