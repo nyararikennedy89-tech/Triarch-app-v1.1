@@ -159,6 +159,7 @@ export const siteConfig: SiteConfig = {
       { name: 'Home', href: '#home' },
       { name: 'Projects', href: '#projects' },
       { name: '360° VR Tour', href: '#vr-showcase' },
+      { name: 'Kenya Hub', href: '#kenya-hub' },
       { name: 'Services', href: '#services' },
       { name: 'Design Process', href: '#process' },
       { name: 'Cost Estimator', href: '#estimator' },

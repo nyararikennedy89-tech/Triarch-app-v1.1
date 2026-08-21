@@ -97,7 +97,23 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                 <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-2">
                   Quick Navigation
                 </span>
-                <div className="grid grid-cols-2 gap-2 text-xs">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                  <a
+                    href="#kenya-hub"
+                    onClick={onClose}
+                    className="p-3 rounded-xl bg-[#F8F7F4] dark:bg-[#121312] border border-gray-200 dark:border-white/10 flex items-center gap-2 font-medium hover:border-[#4E6B5A]"
+                  >
+                    <span>🇰🇪</span>
+                    <span>Kenya Advisory</span>
+                  </a>
+                  <a
+                    href="#vr-showcase"
+                    onClick={onClose}
+                    className="p-3 rounded-xl bg-[#F8F7F4] dark:bg-[#121312] border border-gray-200 dark:border-white/10 flex items-center gap-2 font-medium hover:border-[#4E6B5A]"
+                  >
+                    <Building className="w-4 h-4 text-[#B76E4A]" />
+                    <span>360° VR Tour</span>
+                  </a>
                   <a
                     href="#estimator"
                     onClick={onClose}
