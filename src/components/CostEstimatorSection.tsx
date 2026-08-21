@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { EstimatorInput } from '../types';
-import { Calculator, Download, CheckCircle, Mail, DollarSign, Building, Sparkles } from 'lucide-react';
+import { Calculator, Download, CheckCircle, Mail, DollarSign, Building, Sparkles, FileText, ArrowDownToLine, Send } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
+import { generateCostEstimatePDF } from '../utils/pdfGenerator';
 
 interface CostEstimatorSectionProps {
   onSendEstimateToConsultation: (details: string) => void;
@@ -25,6 +26,8 @@ export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({ onSe
   const [userEmail, setUserEmail] = useState('');
   const [userName, setUserName] = useState('');
   const [estimateSent, setEstimateSent] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [downloadSuccess, setDownloadSuccess] = useState(false);
 
   // Rate per sq meter logic based on quality level (KES rates from siteConfig)
   const getBaseRatePerSqM = () => {
@@ -65,15 +68,39 @@ export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({ onSe
     return `KES ${(Math.round(amountKES / 1000) * 1000).toLocaleString()}`;
   };
 
+  const handleInstantDownloadPDF = (customClientName?: string) => {
+    setIsDownloading(true);
+    try {
+      generateCostEstimatePDF({
+        inputs,
+        currency,
+        totalAreaCost,
+        estimatedProfFees,
+        monthsEstimate,
+        clientName: customClientName || userName || 'Private Client',
+        clientEmail: userEmail,
+      });
+      setDownloadSuccess(true);
+      setTimeout(() => setDownloadSuccess(false), 4000);
+    } catch (err) {
+      console.error('Failed to generate PDF:', err);
+    } finally {
+      setIsDownloading(false);
+    }
+  };
+
   const handleSendEstimate = (e: React.FormEvent) => {
     e.preventDefault();
     if (!userEmail) return;
     
+    // Download the PDF immediately
+    handleInstantDownloadPDF(userName);
+
     setEstimateSent(true);
     setTimeout(() => {
       setEmailModalOpen(false);
       setEstimateSent(false);
-      const summary = `Estimated Cost: ${formatMoney(totalAreaCost)} (${inputs.builtAreaSqM} m² ${inputs.qualityLevel} ${inputs.projectType})`;
+      const summary = `Estimated Cost: ${formatMoney(totalAreaCost + estimatedProfFees)} (${inputs.builtAreaSqM} m² ${inputs.qualityLevel} ${inputs.projectType})`;
       onSendEstimateToConsultation(summary);
     }, 2000);
   };
@@ -310,15 +337,51 @@ export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({ onSe
               </div>
             </div>
 
-            {/* Email PDF Estimate CTA */}
-            <div className="pt-6 border-t border-white/15">
+            {/* Download & Share Actions */}
+            <div className="pt-6 border-t border-white/15 space-y-3">
+              {/* Primary Instant Download Button */}
+              <button
+                onClick={() => handleInstantDownloadPDF()}
+                disabled={isDownloading}
+                id="instant-download-pdf-btn"
+                className="w-full bg-[#B76E4A] hover:bg-[#a25c3a] active:scale-[0.99] text-white py-4 px-6 rounded-full font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-lg transition-all cursor-pointer disabled:opacity-75"
+              >
+                {isDownloading ? (
+                  <>
+                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    <span>Generating Official PDF...</span>
+                  </>
+                ) : (
+                  <>
+                    <Download className="w-4 h-4" />
+                    <span>Download Estimate PDF</span>
+                  </>
+                )}
+              </button>
+
+              {/* Secondary Option: Email / Personalized Copy */}
               <button
                 onClick={() => setEmailModalOpen(true)}
-                className="w-full bg-[#B76E4A] hover:bg-[#a25c3a] text-white py-4 rounded-full font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-colors"
+                className="w-full bg-white/10 hover:bg-white/15 text-gray-200 hover:text-white py-3 px-6 rounded-full font-medium text-xs tracking-wider flex items-center justify-center gap-2 border border-white/15 transition-colors cursor-pointer"
               >
-                <Download className="w-4 h-4" />
-                <span>Get Detailed Estimate PDF via Email</span>
+                <Mail className="w-3.5 h-3.5 text-[#B76E4A]" />
+                <span>Personalize & Email Estimate PDF</span>
               </button>
+
+              {/* Instant Download Success Banner */}
+              <AnimatePresence>
+                {downloadSuccess && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="p-3 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs flex items-center gap-2.5"
+                  >
+                    <CheckCircle className="w-4 h-4 shrink-0 text-emerald-400" />
+                    <span>Official architectural estimate PDF has been generated and downloaded.</span>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
           </div>
@@ -327,7 +390,7 @@ export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({ onSe
 
       </div>
 
-      {/* Email Modal */}
+      {/* Email / Personalized PDF Modal */}
       <AnimatePresence>
         {emailModalOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -351,29 +414,35 @@ export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({ onSe
                     <CheckCircle className="w-8 h-8" />
                   </div>
                   <h3 className="text-xl font-heading font-bold text-[#1C1C1C] dark:text-white">
-                    Estimate Sent Successfully!
+                    Estimate PDF Generated!
                   </h3>
                   <p className="text-xs text-[#555555] dark:text-gray-300">
-                    We have dispatched your custom BOQ summary to <strong>{userEmail}</strong>.
+                    Your personalized estimate has been downloaded and dispatched for <strong>{userEmail}</strong>.
                   </p>
+                  <button
+                    onClick={() => setEmailModalOpen(false)}
+                    className="mt-4 bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C] px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer"
+                  >
+                    Close
+                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleSendEstimate} className="space-y-4">
                   <div className="text-center mb-6">
                     <div className="w-12 h-12 rounded-full bg-[#4E6B5A]/10 text-[#4E6B5A] flex items-center justify-center mx-auto mb-3">
-                      <Mail className="w-6 h-6" />
+                      <FileText className="w-6 h-6" />
                     </div>
                     <h3 className="text-xl font-heading font-bold text-[#1C1C1C] dark:text-white">
-                      Receive Itemized Estimate
+                      Personalized PDF Estimate
                     </h3>
                     <p className="text-xs text-[#555555] dark:text-gray-400 mt-1">
-                      Enter your email below to receive a complete breakdown including statutory fees and structural quantities.
+                      Enter your details below to generate an official branded PDF estimate addressed to you.
                     </p>
                   </div>
 
                   <div>
                     <label className="block text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wider mb-1">
-                      Full Name
+                      Full Name / Entity
                     </label>
                     <input
                       type="text"
@@ -399,12 +468,22 @@ export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({ onSe
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full bg-[#4E6B5A] hover:bg-[#3B5344] text-white py-3.5 rounded-xl font-semibold text-xs uppercase tracking-wider shadow-md transition-colors"
-                  >
-                    Send Estimate PDF Now
-                  </button>
+                  <div className="pt-2 space-y-2">
+                    <button
+                      type="submit"
+                      className="w-full bg-[#4E6B5A] hover:bg-[#3B5344] text-white py-3.5 rounded-xl font-semibold text-xs uppercase tracking-wider shadow-md transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      <Download className="w-4 h-4" />
+                      <span>Download Personalized PDF</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setEmailModalOpen(false)}
+                      className="w-full text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 text-xs py-2 cursor-pointer"
+                    >
+                      Cancel
+                    </button>
+                  </div>
                 </form>
               )}
             </motion.div>
