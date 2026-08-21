@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Project } from '../types';
+import { Project, PanoramaRoom } from '../types';
+import { PanoramaViewer360 } from './PanoramaViewer360';
 import {
   X,
   MapPin,
@@ -12,7 +13,9 @@ import {
   HardHat,
   Sparkles,
   ArrowRight,
-  Info
+  Info,
+  Glasses,
+  Compass
 } from 'lucide-react';
 
 interface ProjectModalProps {
@@ -20,17 +23,34 @@ interface ProjectModalProps {
   onClose: () => void;
   onSelectProject: (project: Project) => void;
   allProjects: Project[];
+  initialTab?: 'overview' | 'blueprint' | 'renders' | 'progress' | 'materials' | 'vr-360';
 }
 
 export const ProjectModal: React.FC<ProjectModalProps> = ({
   project,
   onClose,
   onSelectProject,
-  allProjects
+  allProjects,
+  initialTab = 'overview'
 }) => {
-  const [activeTab, setActiveTab] = useState<'overview' | 'blueprint' | 'renders' | 'progress' | 'materials'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'blueprint' | 'renders' | 'progress' | 'materials' | 'vr-360'>(initialTab);
   const [activeHotspot, setActiveHotspot] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const panoramaRooms = project?.panoramaRooms || [];
+  const [selectedVRRoom, setSelectedVRRoom] = useState<PanoramaRoom>(
+    panoramaRooms[0] || {
+      id: 'default',
+      name: 'Main Space',
+      category: 'Living',
+      panoramaUrl: project?.heroImage || '',
+      thumbnailUrl: project?.heroImage || '',
+      floorLevel: 'Ground Floor',
+      areaSqM: 100,
+      description: 'Project Architectural Volume',
+      hotspots: []
+    }
+  );
 
   if (!project) return null;
 
@@ -101,6 +121,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           <div className="bg-white dark:bg-[#1A1B1A] border-b border-[#ECECEC] dark:border-white/10 px-6 py-3 flex items-center gap-2 overflow-x-auto shrink-0 scrollbar-none">
             {[
               { id: 'overview', label: 'Case Overview' },
+              { id: 'vr-360', label: '360° VR Room Tour', isHighlight: true },
               { id: 'blueprint', label: 'Interactive Floor Plan' },
               { id: 'renders', label: '3D Renders & Gallery' },
               { id: 'progress', label: 'Construction Log' },
@@ -109,19 +130,79 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap ${
+                className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
                   activeTab === tab.id
-                    ? 'bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C]'
+                    ? tab.isHighlight
+                      ? 'bg-[#B76E4A] text-white shadow-lg'
+                      : 'bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C]'
+                    : tab.isHighlight
+                    ? 'bg-[#B76E4A]/10 text-[#B76E4A] dark:bg-[#B76E4A]/20 hover:bg-[#B76E4A]/30 border border-[#B76E4A]/30'
                     : 'text-[#555555] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10'
                 }`}
               >
-                {tab.label}
+                {tab.isHighlight && <Glasses className="w-3.5 h-3.5" />}
+                <span>{tab.label}</span>
               </button>
             ))}
           </div>
 
           {/* Modal Tab Content */}
           <div className="p-6 sm:p-8 overflow-y-auto flex-1">
+            {/* TAB: 360 VR TOUR */}
+            {activeTab === 'vr-360' && (
+              <div className="space-y-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div>
+                    <h3 className="text-xl font-heading font-bold text-[#1C1C1C] dark:text-white flex items-center gap-2">
+                      <Glasses className="w-5 h-5 text-[#B76E4A]" />
+                      <span>360° Virtual Reality Room Tour</span>
+                    </h3>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                      Drag to rotate 360°, tap glowing markers to inspect specifications, or click "VR Mode" for stereoscopic headset viewing.
+                    </p>
+                  </div>
+
+                  {/* Room Switcher Pills */}
+                  {panoramaRooms.length > 0 && (
+                    <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+                      {panoramaRooms.map((r) => (
+                        <button
+                          key={r.id}
+                          onClick={() => setSelectedVRRoom(r)}
+                          className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                            selectedVRRoom.id === r.id
+                              ? 'bg-[#B76E4A] text-white shadow-md'
+                              : 'bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/20'
+                          }`}
+                        >
+                          {r.name}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {panoramaRooms.length > 0 ? (
+                  <div className="rounded-2xl overflow-hidden border border-[#ECECEC] dark:border-white/15 bg-black shadow-xl">
+                    <PanoramaViewer360
+                      room={selectedVRRoom}
+                      allRooms={panoramaRooms}
+                      onSelectRoom={setSelectedVRRoom}
+                      projectName={project.title}
+                      className="h-[420px] sm:h-[500px]"
+                    />
+                  </div>
+                ) : (
+                  <div className="p-8 rounded-2xl bg-white dark:bg-[#1C1D1C] border border-[#ECECEC] dark:border-white/10 text-center">
+                    <Glasses className="w-8 h-8 text-[#B76E4A] mx-auto mb-2" />
+                    <p className="text-sm text-gray-500">
+                      Full 360° VR room capture for this project is currently being processed by our 3D visualization studio.
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+
             {/* TAB 1: OVERVIEW */}
             {activeTab === 'overview' && (
               <div className="space-y-10">

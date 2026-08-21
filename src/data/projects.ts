@@ -83,6 +83,160 @@ export const PROJECTS_DATA: Project[] = [
       { name: 'Low-E Acoustic Glass', type: 'Glazing', finish: 'Anti-Reflective', source: 'Saint-Gobain', colorHex: '#2B4C59' },
       { name: 'Charred Yakisugi Cedar', type: 'Exterior Accents', finish: 'Carbonized Flame', source: 'Sustainable Plantation', colorHex: '#252525' }
     ],
+    panoramaRooms: [
+      {
+        id: 'nyeri-living-atrium',
+        name: 'Grand Atrium & Sunken Lounge',
+        category: 'Living & Atrium',
+        panoramaUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=2400&q=85',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=400&q=80',
+        floorLevel: 'Ground Floor',
+        areaSqM: 145,
+        description: '6.5m clear double-height volume with exposed post-tensioned ribs, sunken bio-ethanol hearth, and floor-to-ceiling forest view glazing.',
+        initialLookAt: { yaw: 25, pitch: -5 },
+        hotspots: [
+          {
+            id: 'hs-nyeri-glazing',
+            yaw: 35,
+            pitch: 8,
+            title: 'Triple-Glazed Low-E Curtain Wall',
+            description: 'Custom acoustic and solar control glass with motorized concealed sun baffles.',
+            specDetails: {
+              material: 'Saint-Gobain Planitherm Low-E',
+              manufacturer: 'Saint-Gobain Facade Systems',
+              architecturalNote: 'Limits solar heat gain by 68% while capturing 100% natural daylight.'
+            }
+          },
+          {
+            id: 'hs-nyeri-travertine',
+            yaw: 160,
+            pitch: -28,
+            title: 'Honed Navona Travertine',
+            description: 'Large-format continuous vein-cut Italian slabs with radiant hydronic subfloor heating.',
+            specDetails: {
+              material: 'Navona Classico Travertine',
+              manufacturer: 'Tuscan Quarries Ltd',
+              architecturalNote: 'Sealed with invisible matte impregnating sealer.'
+            }
+          },
+          {
+            id: 'hs-nyeri-to-kitchen',
+            yaw: 280,
+            pitch: -4,
+            title: 'Transition to Culinary Suite',
+            description: 'Seamless portal opening toward the gourmet quartz show kitchen.',
+            targetRoomId: 'nyeri-kitchen-suite'
+          },
+          {
+            id: 'hs-nyeri-to-pool',
+            yaw: 90,
+            pitch: -12,
+            title: 'Walk to Infinity Plunge Deck',
+            description: 'Pocketing glass sliding system opening 12 meters clear onto the basalt terrace.',
+            targetRoomId: 'nyeri-infinity-deck'
+          }
+        ]
+      },
+      {
+        id: 'nyeri-kitchen-suite',
+        name: 'Gourmet Chef Kitchen & Wine Cellar',
+        category: 'Culinary & Dining',
+        panoramaUrl: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=2400&q=85',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=400&q=80',
+        floorLevel: 'Ground Floor',
+        areaSqM: 85,
+        description: 'Monolithic Calacatta Gold waterfall island, hidden prep scullery, and climate-controlled sommelier vault.',
+        initialLookAt: { yaw: 110, pitch: 0 },
+        hotspots: [
+          {
+            id: 'hs-kitchen-island',
+            yaw: 115,
+            pitch: -18,
+            title: 'Calacatta Gold Quartz Monolith',
+            description: 'Bookmatched 3.6m seamless slab with integrated induction cooking zone.',
+            specDetails: {
+              material: 'Compac Calacatta Quartz (20mm)',
+              manufacturer: 'Compac Surfaces Spain',
+              architecturalNote: 'Zero-porosity surface impervious to citrus and wine acids.'
+            }
+          },
+          {
+            id: 'hs-kitchen-to-living',
+            yaw: 300,
+            pitch: 0,
+            title: 'Return to Grand Living Atrium',
+            description: 'Pass back into the main entertainment pavilion.',
+            targetRoomId: 'nyeri-living-atrium'
+          }
+        ]
+      },
+      {
+        id: 'nyeri-master-sanctuary',
+        name: 'Master Penthouse Sanctuary Suite',
+        category: 'Master Suite',
+        panoramaUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80',
+        floorLevel: 'Upper Level',
+        areaSqM: 110,
+        description: 'Suspended master suite framing panoramic views of Mount Kenya, featuring private bio-sauna and walk-in dressing lounge.',
+        initialLookAt: { yaw: 210, pitch: -2 },
+        hotspots: [
+          {
+            id: 'hs-master-timber',
+            yaw: 220,
+            pitch: 18,
+            title: 'Acoustic Teak Slat Ceiling',
+            description: 'FSC-certified plantation teak with integrated sound absorption mineral backing.',
+            specDetails: {
+              material: 'African Plantation Teak',
+              manufacturer: 'Triarch Custom Millwork Workshop',
+              architecturalNote: 'NRC rating 0.85 for intimate acoustic warmth.'
+            }
+          },
+          {
+            id: 'hs-master-to-deck',
+            yaw: 40,
+            pitch: -8,
+            title: 'Step Out to Private Upper Terrace',
+            description: 'Cantilevered balcony overlooking the forest canopy.',
+            targetRoomId: 'nyeri-infinity-deck'
+          }
+        ]
+      },
+      {
+        id: 'nyeri-infinity-deck',
+        name: 'Infinity Pool & Sunset Cantilever Deck',
+        category: 'Outdoor & Terrace',
+        panoramaUrl: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2400&q=85',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400&q=80',
+        floorLevel: 'Exterior Garden Tier',
+        areaSqM: 180,
+        description: '22-meter cantilevered magnesium saltwater pool with volcanic basalt tiles and sunken firepit lounge.',
+        initialLookAt: { yaw: 180, pitch: -10 },
+        hotspots: [
+          {
+            id: 'hs-deck-basalt',
+            yaw: 195,
+            pitch: -32,
+            title: 'Flamed Kenyan Basalt Coping',
+            description: 'Locally quarried volcanic stone with natural anti-slip wet grip texture.',
+            specDetails: {
+              material: 'Flamed Ol Doinyo Basalt',
+              manufacturer: 'Rift Valley Natural Stone',
+              architecturalNote: 'Naturally thermal-retaining to warm pool edges at sunset.'
+            }
+          },
+          {
+            id: 'hs-deck-to-living',
+            yaw: 10,
+            pitch: 5,
+            title: 'Enter Grand Living Pavilion',
+            description: 'Slide through frameless pocket doors.',
+            targetRoomId: 'nyeri-living-atrium'
+          }
+        ]
+      }
+    ],
     stats: [
       { label: 'Energy Reduction', value: '62%' },
       { label: 'Completion Time', value: '14 Months' },
@@ -120,6 +274,62 @@ export const PROJECTS_DATA: Project[] = [
       { name: 'Anodized Bronze Aluminum', type: 'Facade Fins', finish: 'Satin Anodized', source: 'Hydro Extrusions', colorHex: '#7C5E43' },
       { name: 'Ultra-Clear Triple Glazing', type: 'Curtain Wall', finish: 'Solar Control Coating', source: 'AGC Glass', colorHex: '#3A5F6F' }
     ],
+    panoramaRooms: [
+      {
+        id: 'nexus-sky-atrium',
+        name: 'Triple-Height Sky Atrium & Lobby',
+        category: 'Commercial & Atrium',
+        panoramaUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2400&q=85',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80',
+        floorLevel: '14th Floor Sky Lounge',
+        areaSqM: 420,
+        description: 'Biophilic indoor botanical atrium connecting executive floors with bespoke floating steel staircase.',
+        initialLookAt: { yaw: 45, pitch: 0 },
+        hotspots: [
+          {
+            id: 'hs-nexus-fins',
+            yaw: 60,
+            pitch: 12,
+            title: 'Dynamic Parametric Bronze Louvers',
+            description: 'Automated sun tracking louvers optimized to reduce cooling loads by 41%.',
+            specDetails: {
+              material: 'Anodized Architectural Aluminum',
+              manufacturer: 'Hydro Building Systems',
+              architecturalNote: 'Connected to centralized BMS with BACnet protocol.'
+            }
+          },
+          {
+            id: 'hs-nexus-to-boardroom',
+            yaw: 220,
+            pitch: -4,
+            title: 'Enter Executive Glass Boardroom',
+            description: 'Acoustically isolated conference pavilion with smart switchable privacy glass.',
+            targetRoomId: 'nexus-boardroom'
+          }
+        ]
+      },
+      {
+        id: 'nexus-boardroom',
+        name: 'Executive Panoramic Boardroom',
+        category: 'Executive Suite',
+        panoramaUrl: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=2400&q=85',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=400&q=80',
+        floorLevel: '18th Floor Penthouse',
+        areaSqM: 95,
+        description: 'Commanding 270-degree skyline views of Nairobi with custom walnut conference table and integrated acoustic ceiling baffles.',
+        initialLookAt: { yaw: 180, pitch: -5 },
+        hotspots: [
+          {
+            id: 'hs-boardroom-to-atrium',
+            yaw: 350,
+            pitch: 0,
+            title: 'Back to Sky Atrium',
+            description: 'Exit to the main reception sky garden.',
+            targetRoomId: 'nexus-sky-atrium'
+          }
+        ]
+      }
+    ],
     stats: [
       { label: 'LEED Rating', value: 'Platinum' },
       { label: 'Water Recycling', value: '88%' },
@@ -154,6 +364,33 @@ export const PROJECTS_DATA: Project[] = [
       { name: 'Stabilized Rammed Earth', type: 'Thermal Mass Walls', finish: 'Natural Layered Earth', source: 'On-site Excavated Clay', colorHex: '#B76E4A' },
       { name: 'FSC Teak & Eucalyptus', type: 'Decking & Trusses', finish: 'Natural Oil', source: 'Certified Sustainable Forests', colorHex: '#5C3A21' }
     ],
+    panoramaRooms: [
+      {
+        id: 'aethel-safari-suite',
+        name: 'Savannah Horizon Open-Air Suite',
+        category: 'Hospitality Villa',
+        panoramaUrl: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=2400&q=85',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=400&q=80',
+        floorLevel: 'Elevated Stilt Pavilion',
+        areaSqM: 160,
+        description: 'Frameless 180-degree game reserve vistas, canvas draped canopies, hand-carved stone tub, and private plunge pool.',
+        initialLookAt: { yaw: 90, pitch: -5 },
+        hotspots: [
+          {
+            id: 'hs-safari-rammed',
+            yaw: 120,
+            pitch: 5,
+            title: 'Layered Thermal Rammed Earth Wall',
+            description: 'Stabilized local red clay keeping interior suites 6°C cooler during midday heat.',
+            specDetails: {
+              material: 'Local Mara Rammed Clay',
+              manufacturer: 'On-site Triarch Soil Laboratory',
+              architecturalNote: 'Zero embodied transport emissions.'
+            }
+          }
+        ]
+      }
+    ],
     stats: [
       { label: 'Off-Grid Power', value: '100%' },
       { label: 'Site Disturbance', value: '<3%' },
@@ -187,6 +424,33 @@ export const PROJECTS_DATA: Project[] = [
     materials: [
       { name: 'Warm Micro-Cement', type: 'Plaster Wall Finish', finish: 'Hand-Troweled Silk', source: 'Ideal Work Italy', colorHex: '#D3CCC1' },
       { name: 'Smoked European Oak', type: 'Millwork & Panels', finish: 'Matte Lacquer', source: 'Hormann', colorHex: '#3D3128' }
+    ],
+    panoramaRooms: [
+      {
+        id: 'solarium-gallery-living',
+        name: 'Curated Minimalist Living Gallery',
+        category: 'Interior & Living',
+        panoramaUrl: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=2400&q=85',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=400&q=80',
+        floorLevel: 'Upper Duplex Level',
+        areaSqM: 130,
+        description: 'Micro-cement walls, concealed architectural linear lighting, and bespoke smoked oak joinery framing private art pieces.',
+        initialLookAt: { yaw: 0, pitch: 0 },
+        hotspots: [
+          {
+            id: 'hs-solarium-plaster',
+            yaw: 40,
+            pitch: 10,
+            title: 'Continuous Micro-Cement Seamless Coating',
+            description: 'Troweled Italian polymer micro-topping with silk matte protective sealer.',
+            specDetails: {
+              material: 'Ideal Work Microtopping 3mm',
+              manufacturer: 'Ideal Work S.r.l.',
+              architecturalNote: 'Eliminates all visible wall grout lines.'
+            }
+          }
+        ]
+      }
     ],
     stats: [
       { label: 'Ceiling Height', value: '3.8 m' },

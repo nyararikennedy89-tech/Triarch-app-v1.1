@@ -26,6 +26,33 @@ export interface ConstructionMilestone {
   imageUrl: string;
 }
 
+export interface PanoramaHotspot {
+  id: string;
+  pitch: number; // Vertical angle in degrees (-85 to +85)
+  yaw: number; // Horizontal angle in degrees (0 to 360)
+  title: string;
+  description: string;
+  targetRoomId?: string; // Optional teleport ID to another room
+  specDetails?: {
+    material?: string;
+    manufacturer?: string;
+    architecturalNote?: string;
+  };
+}
+
+export interface PanoramaRoom {
+  id: string;
+  name: string;
+  category: string;
+  panoramaUrl: string;
+  thumbnailUrl: string;
+  floorLevel: string;
+  areaSqM: number;
+  description: string;
+  hotspots: PanoramaHotspot[];
+  initialLookAt?: { yaw: number; pitch: number };
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -48,6 +75,7 @@ export interface Project {
   floorPlanHotspots: FloorPlanHotspot[];
   constructionGallery: ConstructionMilestone[];
   materials: MaterialSpec[];
+  panoramaRooms?: PanoramaRoom[];
   stats: {
     label: string;
     value: string;

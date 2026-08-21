@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { Introduction } from './components/Introduction';
 import { ServicesSection } from './components/ServicesSection';
 import { ProjectsSection } from './components/ProjectsSection';
+import { PanoramaShowcaseSection } from './components/PanoramaShowcaseSection';
 import { DesignProcessSection } from './components/DesignProcessSection';
 import { CostEstimatorSection } from './components/CostEstimatorSection';
 import { WhyChooseSection } from './components/WhyChooseSection';
@@ -37,7 +38,7 @@ export default function App() {
   // Track active visible section for navbar highlighting
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'projects', 'services', 'process', 'estimator', 'resources', 'about', 'contact'];
+      const sections = ['home', 'projects', 'vr-showcase', 'services', 'process', 'estimator', 'resources', 'about', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -101,6 +102,9 @@ export default function App() {
 
       {/* Section 4: Featured Projects Portfolio & Case Studies */}
       <ProjectsSection />
+
+      {/* Section 4B: 360° Virtual Reality Panoramic Room Viewer & Tour */}
+      <PanoramaShowcaseSection />
 
       {/* Section 5: Interactive 7-Step Design Process */}
       <DesignProcessSection />

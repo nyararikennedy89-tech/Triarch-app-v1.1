@@ -158,6 +158,7 @@ export const siteConfig: SiteConfig = {
     mainLinks: [
       { name: 'Home', href: '#home' },
       { name: 'Projects', href: '#projects' },
+      { name: '360° VR Tour', href: '#vr-showcase' },
       { name: 'Services', href: '#services' },
       { name: 'Design Process', href: '#process' },
       { name: 'Cost Estimator', href: '#estimator' },
