@@ -2,15 +2,15 @@ import { Project } from '../types';
 
 export const PROJECTS_DATA: Project[] = [
   {
-    id: 'kileleshwa-glass-pavilion',
-    title: 'The Glass Pavilion at Kileleshwa',
-    subtitle: 'Biophilic Luxury Private Residence',
+    id: 'Cavali-glass-pavilion',
+    title: 'The Glass Pavilion at Nyeri County',
+    subtitle: 'Biophilic Luxury Private Villa',
     category: 'Residential',
-    location: 'Nairobi, Kenya',
+    location: 'Nyeri, Kenya',
     area: '820 sq. m',
-    year: '2025',
+    year: '2026',
     servicesProvided: ['Architecture', 'Interior Design', 'Structural Engineering', '3D Visualization'],
-    client: 'Private Estate Owner',
+    client: 'Confidential',
     heroImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80',
     galleryImages: [
       'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
