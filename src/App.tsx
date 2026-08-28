@@ -11,6 +11,7 @@ import { CostEstimatorSection } from './components/CostEstimatorSection';
 import { WhyChooseSection } from './components/WhyChooseSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ResourcesSection } from './components/ResourcesSection';
+import { SeoFaqSection } from './components/SeoFaqSection';
 import { Footer } from './components/Footer';
 import { ConsultationWizardModal } from './components/ConsultationWizardModal';
 import { QuickSearchModal } from './components/QuickSearchModal';
@@ -38,7 +39,7 @@ export default function App() {
   // Track active visible section for navbar highlighting
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'projects', 'vr-showcase', 'kenya-hub', 'services', 'process', 'estimator', 'resources', 'about', 'contact'];
+      const sections = ['home', 'projects', 'vr-showcase', 'kenya-hub', 'services', 'process', 'estimator', 'resources', 'faq', 'about', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -69,6 +70,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F8F7F4] dark:bg-[#121312] text-[#1C1C1C] dark:text-[#F3F3F0] transition-colors duration-300 relative selection:bg-[#4E6B5A] selection:text-white">
+      {/* Accessible Skip Navigation Link for Screen Readers & SEO Crawlers */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-5 py-2.5 bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C] rounded-xl shadow-2xl font-medium text-xs tracking-wider uppercase border border-white/20"
+      >
+        Skip to Main Architectural Content
+      </a>
+
       {/* Sticky Header Navigation */}
       <Navbar
         darkMode={darkMode}
@@ -81,47 +90,58 @@ export default function App() {
         activeSection={activeSection}
       />
 
-      {/* Section 1: Hero */}
-      <Hero
-        onOpenConsultation={() => {
-          setSelectedServiceForConsultation(undefined);
-          setIsConsultationOpen(true);
-        }}
-      />
+      {/* Semantic Main Content Region for Search Engines & Accessibility */}
+      <main id="main-content" tabIndex={-1} className="focus:outline-none">
+        {/* Section 1: Hero */}
+        <Hero
+          onOpenConsultation={() => {
+            setSelectedServiceForConsultation(undefined);
+            setIsConsultationOpen(true);
+          }}
+        />
 
-      {/* Section 2: Studio Introduction & Render vs Reality Slider */}
-      <Introduction />
+        {/* Section 2: Studio Introduction & Render vs Reality Slider */}
+        <Introduction />
 
-      {/* Section 3: Interactive Services Grid */}
-      <ServicesSection
-        onSelectServiceForConsultation={handleOpenConsultationWithService}
-      />
+        {/* Section 3: Interactive Services Grid */}
+        <ServicesSection
+          onSelectServiceForConsultation={handleOpenConsultationWithService}
+        />
 
-      {/* Section 4: Featured Projects Portfolio & Case Studies */}
-      <ProjectsSection />
+        {/* Section 4: Featured Projects Portfolio & Case Studies */}
+        <ProjectsSection />
 
-      {/* Section 4B: 360° Virtual Reality Panoramic Room Viewer & Tour */}
-      <PanoramaShowcaseSection />
+        {/* Section 4B: 360° Virtual Reality Panoramic Room Viewer & Tour */}
+        <PanoramaShowcaseSection />
 
-      {/* Section 4C: Kenyan Built Environment & Diaspora Advisory Hub */}
-      <KenyaConstructionHub />
+        {/* Section 4C: Kenyan Built Environment & Diaspora Advisory Hub */}
+        <KenyaConstructionHub />
 
-      {/* Section 5: Interactive 7-Step Design Process */}
-      <DesignProcessSection />
+        {/* Section 5: Interactive 7-Step Design Process */}
+        <DesignProcessSection />
 
-      {/* Section 6: Construction Cost Estimator Calculator */}
-      <CostEstimatorSection
-        onSendEstimateToConsultation={handleCostEstimatorSummaryToConsultation}
-      />
+        {/* Section 6: Construction Cost Estimator Calculator */}
+        <CostEstimatorSection
+          onSendEstimateToConsultation={handleCostEstimatorSummaryToConsultation}
+        />
 
-      {/* Section 7: Why Choose Triarch & Counter Stats */}
-      <WhyChooseSection />
+        {/* Section 7: Why Choose Triarch & Counter Stats */}
+        <WhyChooseSection />
 
-      {/* Section 8: Client Testimonials & Video Interviews */}
-      <TestimonialsSection />
+        {/* Section 8: Client Testimonials & Video Interviews */}
+        <TestimonialsSection />
 
-      {/* Section 9: Architectural Knowledge Hub / Resources */}
-      <ResourcesSection />
+        {/* Section 9: Architectural Knowledge Hub / Resources */}
+        <ResourcesSection />
+
+        {/* Section 9B: Rich SEO FAQ & Kenyan Regulatory Advisory Section */}
+        <SeoFaqSection 
+          onOpenConsultation={() => {
+            setSelectedServiceForConsultation(undefined);
+            setIsConsultationOpen(true);
+          }}
+        />
+      </main>
 
       {/* Section 10: Footer & Global Office Switcher */}
       <Footer

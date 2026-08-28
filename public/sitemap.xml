@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Homepage / Primary Hub -->
+  <url>
+    <loc>https://triarchventures.co.ke/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&amp;fit=crop&amp;w=1920&amp;q=85</image:loc>
+      <image:title>Triarch Ventures Architectural Design Studio Nairobi Kenya</image:title>
+      <image:caption>Modern luxury architectural design and construction management in Nairobi, Kenya</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Architectural Portfolio / Case Studies -->
+  <url>
+    <loc>https://triarchventures.co.ke/#projects</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=1600&amp;q=85</image:loc>
+      <image:title>Karen Ridge Villa Luxury Residence Nairobi</image:title>
+    </image:image>
+  </url>
+
+  <!-- 360 Virtual Reality Panoramic Visualizer -->
+  <url>
+    <loc>https://triarchventures.co.ke/#vr-showcase</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Kenyan Built Environment & County Approvals Hub -->
+  <url>
+    <loc>https://triarchventures.co.ke/#kenya-hub</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
+  </url>
+
+  <!-- Multidisciplinary Services (Architecture, Interiors, Engineering) -->
+  <url>
+    <loc>https://triarchventures.co.ke/#services</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+
+  <!-- 7-Step Design & Construction Delivery Process -->
+  <url>
+    <loc>https://triarchventures.co.ke/#process</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Kenya Construction Cost Estimator Calculator -->
+  <url>
+    <loc>https://triarchventures.co.ke/#estimator</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.93</priority>
+  </url>
+
+  <!-- Architectural Resources & Construction Cost Breakdowns -->
+  <url>
+    <loc>https://triarchventures.co.ke/#resources</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Frequently Asked Questions & Kenya Building FAQs -->
+  <url>
+    <loc>https://triarchventures.co.ke/#faq</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- About Studio & Registration Credentials -->
+  <url>
+    <loc>https://triarchventures.co.ke/#about</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Contact & Office Locations (Nairobi, Kiambu, Nyeri) -->
+  <url>
+    <loc>https://triarchventures.co.ke/#contact</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+</urlset>

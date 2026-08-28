@@ -164,6 +164,7 @@ export const siteConfig: SiteConfig = {
       { name: 'Design Process', href: '#process' },
       { name: 'Cost Estimator', href: '#estimator' },
       { name: 'Resources', href: '#resources' },
+      { name: 'FAQ', href: '#faq' },
       { name: 'About', href: '#about' },
       { name: 'Contact', href: '#contact' },
     ],
