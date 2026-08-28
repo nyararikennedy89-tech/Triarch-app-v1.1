@@ -2,6 +2,222 @@ import { Project } from '../types';
 
 export const PROJECTS_DATA: Project[] = [
   {
+    id: 'nyeri-nanyuki-shell-stopover',
+    title: 'Nyeri-Nanyuki Shell Service & Fuel Station',
+    subtitle: 'aka "I Love Nanyuki" Highway Retail & Hospitality Stopover',
+    category: 'Commercial',
+    location: 'Nyeri-Nanyuki Highway (A2 Corridor), Kenya',
+    area: '18,500 sq. m',
+    year: '2025',
+    servicesProvided: [
+      'Architecture',
+      'Structural & Canopy Engineering',
+      'MEP & Fuel Systems Engineering',
+      'Master Planning & Traffic Flow Design',
+      'Retail & Interior Architecture',
+      'Environmental Impact Assessment (EIA)'
+    ],
+    client: 'Vivo Energy / Shell Kenya & Highway Commercial Consortium',
+    heroImage: 'https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&fit=crop&w=1600&q=80',
+    galleryImages: [
+      'https://images.unsplash.com/photo-1527018607619-a508a2be00bf?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=1200&q=80'
+    ],
+    beforeImage: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
+    afterImage: 'https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&fit=crop&w=1200&q=80',
+    overview: 'A regional benchmark in modern highway transit architecture along the bustling Nyeri-Nanyuki A2 corridor. Combining an aerodynamic cantilevered multi-pump fuel canopy, a state-of-the-art Shell Select retail hub, artisan coffee house, farm-to-table food court, spotless executive restrooms, EV charging bays, and an iconic "I Love Nanyuki" Mount Kenya rest terrace.',
+    clientBrief: 'Design and engineer an iconic highway oasis that serves north-bound safari tourists, business commuters, and local logistics operators with seamless traffic flow, high-speed fueling, premium dining amenities, and full off-grid solar resilience.',
+    designChallenge: 'Eliminating cross-traffic hazards between high-speed highway traffic, safari land-cruisers, passenger cars, and heavy commercial transit vehicles while adhering strictly to Energy and Petroleum Regulatory Authority (EPRA) buffer codes and stormwater hydrocarbon containment.',
+    designSolution: 'We engineered a segregated dual-loop master plan with an expansive front canopy for light vehicles and a separate rear bypass lane for heavy commercial trucks. The main canopy features high-yield solar PV generation, class-1 hazardous zone vapor recovery systems, and triple-chamber oil-water separators protecting the local drainage basin.',
+    floorPlanUrl: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80',
+    floorPlanHotspots: [
+      {
+        id: 'hs-shell-canopy',
+        x: 32,
+        y: 48,
+        label: 'Main Fueling Forecourt',
+        roomName: 'High-Clearance Aerodynamic Canopy',
+        description: '16 high-flow multi-product dispensers with LED canopy uplighting and automated vapor capture.',
+        imageUrl: 'https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'hs-shell-select',
+        x: 62,
+        y: 36,
+        label: 'Shell Select & Gourmet Cafe',
+        roomName: 'Retail & Food Court Pavilion',
+        description: 'Convenience mart, fresh bakeries, Mount Kenya specialty coffee bar, and grab-and-go deli counter.',
+        imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'hs-shell-rest-plaza',
+        x: 78,
+        y: 65,
+        label: '"I Love Nanyuki" Photo Terrace',
+        roomName: 'Landscaped Transit Rest Plaza',
+        description: 'Iconic selfie monument, outdoor shaded pergolas, children play lawn, and Mount Kenya viewing deck.',
+        imageUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        id: 'hs-shell-ev',
+        x: 18,
+        y: 72,
+        label: 'Solar EV Fast-Charging Hub',
+        roomName: 'Ultra-Fast DC Charging Station',
+        description: '4x 150kW ultra-rapid electric vehicle charging bays powered directly by on-site solar battery arrays.',
+        imageUrl: 'https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=800&q=80'
+      }
+    ],
+    constructionGallery: [
+      {
+        phase: 'Earthworks & Fuel Tank Pit Excavation',
+        date: 'January 2024',
+        status: 'Completed',
+        description: 'Deep subterranean excavation and reinforced concrete containment vaults for double-wall UST fuel tanks.',
+        imageUrl: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        phase: 'Canopy Steel Superstructure & Forecourt Paving',
+        date: 'July 2024',
+        status: 'Completed',
+        description: 'Erection of structural steel space-frame canopy with 24-meter clear spans and heavy-duty slab paving.',
+        imageUrl: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80'
+      },
+      {
+        phase: 'Retail Fit-Out & Solar Commissioning',
+        date: 'February 2025',
+        status: 'Completed',
+        description: 'Interior architecture for Shell Select, artisan bakery fit-out, and 65 kWp solar array interconnection.',
+        imageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80'
+      }
+    ],
+    materials: [
+      { name: 'Composite Aluminum Cladding', type: 'Canopy Fascia', finish: 'Shell Yellow & Red PVDF', source: 'Alucobond Architectural', colorHex: '#FFD100' },
+      { name: 'Reinforced Fiber Concrete Pavement', type: 'Forecourt Slabs', finish: 'Power-Troweled Broom Finish', source: 'Bamburi Special Mix', colorHex: '#8C8D8E' },
+      { name: 'Low-E Solar Glazing', type: 'Retail Storefront', finish: 'High Visible Transmittance', source: 'Saint-Gobain Glass', colorHex: '#2E4C5A' },
+      { name: 'Kenyan Volcanic Basalt Stone', type: 'Landscape Walls', finish: 'Hand-Chiseled Rustic', source: 'Nanyuki Regional Quarry', colorHex: '#4A4643' }
+    ],
+    panoramaRooms: [
+      {
+        id: 'nanyuki-shell-forecourt',
+        name: 'Forecourt & Cantilevered Canopy',
+        category: 'Exterior & Forecourt',
+        panoramaUrl: 'https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&fit=crop&w=2400&q=85',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&fit=crop&w=400&q=80',
+        floorLevel: 'Ground Forecourt',
+        areaSqM: 1450,
+        description: '24-meter clear span cantilevered steel canopy with 16 multi-product fueling bays, LED luminaires, and automated fire suppression.',
+        initialLookAt: { yaw: 30, pitch: -5 },
+        hotspots: [
+          {
+            id: 'hs-forecourt-canopy',
+            yaw: 40,
+            pitch: 15,
+            title: 'Aerodynamic Steel Space-Frame Canopy',
+            description: 'Engineered to withstand high-altitude wind shear from Mount Kenya with integrated solar PV arrays.',
+            specDetails: {
+              material: 'Hot-Dip Galvanized Structural Steel with PVDF Fascia',
+              manufacturer: 'Triarch Structural Engineering Division',
+              architecturalNote: 'Houses 65 kWp solar array providing 80% daytime energy.'
+            }
+          },
+          {
+            id: 'hs-forecourt-to-select',
+            yaw: 150,
+            pitch: -2,
+            title: 'Enter Shell Select Retail & Coffee Lounge',
+            description: 'Direct step-free pedestrian pathway to the air-conditioned convenience hub.',
+            targetRoomId: 'nanyuki-shell-retail'
+          },
+          {
+            id: 'hs-forecourt-to-terrace',
+            yaw: 280,
+            pitch: -5,
+            title: 'Walk to "I Love Nanyuki" Rest Plaza',
+            description: 'Visit the landscaped Mount Kenya outdoor viewing plaza and monument.',
+            targetRoomId: 'nanyuki-shell-plaza'
+          }
+        ]
+      },
+      {
+        id: 'nanyuki-shell-retail',
+        name: 'Shell Select & Mount Kenya Coffee Hub',
+        category: 'Retail & Hospitality',
+        panoramaUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=2400&q=85',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=400&q=80',
+        floorLevel: 'Ground Floor Pavilion',
+        areaSqM: 380,
+        description: 'Contemporary highway retail store featuring Kenyan specialty coffee bar, artisan deli, premium restrooms, and traveler essentials.',
+        initialLookAt: { yaw: 90, pitch: 0 },
+        hotspots: [
+          {
+            id: 'hs-retail-coffee',
+            yaw: 95,
+            pitch: -10,
+            title: 'Barista Specialty Coffee Bar',
+            description: 'Bespoke walnut and matte black quartz counters serving single-origin Nyeri and Nanyuki coffee beans.',
+            specDetails: {
+              material: 'Kenyan Solid Hardwood & Silestone Quartz',
+              manufacturer: 'Triarch Interior Design Studio',
+              architecturalNote: 'Acoustic slatted timber ceilings for quiet dining relaxation.'
+            }
+          },
+          {
+            id: 'hs-retail-to-forecourt',
+            yaw: 260,
+            pitch: 0,
+            title: 'Return to Main Forecourt',
+            description: 'Step back to the fueling and vehicle service lanes.',
+            targetRoomId: 'nanyuki-shell-forecourt'
+          }
+        ]
+      },
+      {
+        id: 'nanyuki-shell-plaza',
+        name: '"I Love Nanyuki" Stopover Rest Plaza',
+        category: 'Outdoor & Plaza',
+        panoramaUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2400&q=85',
+        thumbnailUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80',
+        floorLevel: 'Plaza Tier',
+        areaSqM: 850,
+        description: 'Iconic highway stopover photo landmark, shaded wooden gazebos, native botanical landscaping, and panoramic Mount Kenya viewing seats.',
+        initialLookAt: { yaw: 180, pitch: -8 },
+        hotspots: [
+          {
+            id: 'hs-plaza-monument',
+            yaw: 185,
+            pitch: -12,
+            title: '"I Love Nanyuki" Stainless Steel Landmark',
+            description: 'Architectural illuminated monument celebrating traveler journeys across the Equator and Central Highlands.',
+            specDetails: {
+              material: 'Laser-Cut Marine Grade 316 Stainless Steel with Corten Accents',
+              manufacturer: 'Triarch Custom Metal Art Workshop',
+              architecturalNote: 'Equipped with solar-powered warm LED backlight at twilight.'
+            }
+          },
+          {
+            id: 'hs-plaza-to-forecourt',
+            yaw: 20,
+            pitch: 2,
+            title: 'Back to Forecourt & EV Charging',
+            description: 'Walk toward the high-speed DC EV charging and fueling canopy.',
+            targetRoomId: 'nanyuki-shell-forecourt'
+          }
+        ]
+      }
+    ],
+    stats: [
+      { label: 'Dispenser Bays', value: '16 Multi-Product' },
+      { label: 'Solar Generation', value: '65 kWp Array' },
+      { label: 'EV Fast Chargers', value: '4x 150kW DC' },
+      { label: 'Daily Transit Traffic', value: '3,800+ Vehicles' }
+    ],
+    featured: true
+  },
+  {
     id: 'Cavali-glass-pavilion',
     title: 'The Glass Pavilion at Nyeri County',
     subtitle: 'Biophilic Luxury Private Villa',
