@@ -24,7 +24,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
 
   return (
     <footer id="contact" className="bg-[#121312] text-white pt-20 pb-12 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">

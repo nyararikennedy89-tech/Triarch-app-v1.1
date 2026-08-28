@@ -54,16 +54,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
       </div>
 
       {/* Main Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-24 md:pt-32 flex-1 flex flex-col justify-center">
+      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-16 sm:pt-24 md:pt-32 flex-1 flex flex-col justify-center">
         {/* Floating Geometry for "Architectural Render" feel */}
-        <div className="hidden xl:block absolute top-24 right-12 w-64 h-96 border-[0.5px] border-white/20 transform skew-x-12 pointer-events-none" />
-        <div className="hidden xl:block absolute top-40 right-28 w-48 h-72 border-[0.5px] border-[#B76E4A]/30 transform -skew-x-6 pointer-events-none" />
+        <div className="hidden xl:block absolute top-24 right-16 w-72 h-[420px] border-[0.5px] border-white/20 transform skew-x-12 pointer-events-none" />
+        <div className="hidden xl:block absolute top-40 right-36 w-56 h-80 border-[0.5px] border-[#B76E4A]/30 transform -skew-x-6 pointer-events-none" />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2 }}
-          className="max-w-4xl"
+          className="max-w-5xl 2xl:max-w-6xl"
         >
           {/* Eyebrow badge with rust line */}
           <div className="flex items-center space-x-3 mb-6">
@@ -80,7 +80,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
           </h1>
 
           {/* Subheading */}
-          <p className="text-base sm:text-lg md:text-xl text-gray-200/90 font-light leading-relaxed max-w-xl mb-10">
+          <p className="text-base sm:text-lg md:text-xl text-gray-200/90 font-light leading-relaxed max-w-2xl mb-10">
             {siteConfig.hero.description}
           </p>
 
@@ -115,7 +115,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
       </div>
 
       {/* Bottom Floating Stats & Slide Switcher */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-12">
+      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 mt-12">
         <div className="pt-6 border-t border-white/15 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           {/* Slide Indicators */}
           <div className="flex items-center gap-4">

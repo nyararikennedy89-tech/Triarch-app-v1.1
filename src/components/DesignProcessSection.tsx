@@ -45,7 +45,7 @@ export const DesignProcessSection: React.FC = () => {
       {/* Background Architectural Grid Overlay */}
       <div className="absolute inset-0 bg-grid-dots opacity-30 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">

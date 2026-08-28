@@ -12,7 +12,7 @@ export const WhyChooseSection: React.FC = () => {
 
   return (
     <section className="py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         
         {/* Animated Counters Banner */}
         <div className="bg-[#1C1C1C] text-white rounded-3xl p-8 md:p-12 mb-20 shadow-2xl relative overflow-hidden">

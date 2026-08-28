@@ -27,7 +27,7 @@ export const Introduction: React.FC = () => {
       {/* Background Architectural Grid Overlay */}
       <div className="absolute inset-0 bg-grid-dots opacity-40 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         
         {/* Section Header with Large Statement Typography */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
@@ -82,7 +82,7 @@ export const Introduction: React.FC = () => {
           </div>
 
           <div
-            className="relative h-[380px] sm:h-[500px] md:h-[600px] w-full rounded-2xl overflow-hidden cursor-ew-resize select-none border border-[#ECECEC] dark:border-white/10 shadow-2xl"
+            className="relative h-[380px] sm:h-[500px] md:h-[600px] lg:h-[680px] xl:h-[720px] 2xl:h-[780px] w-full rounded-2xl overflow-hidden cursor-ew-resize select-none border border-[#ECECEC] dark:border-white/10 shadow-2xl"
             onMouseMove={handleMouseMove}
             onTouchMove={handleTouchMove}
             onMouseDown={() => setIsDragging(true)}

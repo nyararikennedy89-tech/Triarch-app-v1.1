@@ -58,7 +58,7 @@ export const PanoramaShowcaseSection: React.FC = () => {
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-[#B76E4A]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#4E6B5A]/15 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
@@ -148,12 +148,12 @@ export const PanoramaShowcaseSection: React.FC = () => {
             allRooms={currentRooms}
             onSelectRoom={setSelectedRoom}
             projectName={selectedProject.title}
-            className="h-[480px] sm:h-[580px] md:h-[650px]"
+            className="h-[480px] sm:h-[580px] md:h-[650px] lg:h-[720px] xl:h-[780px]"
           />
         </div>
 
         {/* Room Thumbnails Quick-Bar */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 mt-6">
           {currentRooms.map((r) => {
             const isActive = selectedRoom.id === r.id;
             return (
