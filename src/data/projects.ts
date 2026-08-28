@@ -20,7 +20,7 @@ export const PROJECTS_DATA: Project[] = [
     client: 'Vivo Energy / Shell Kenya & Highway Commercial Consortium',
     heroImage: '/Enscape_2024-10-10-03-16-06.png',
     galleryImages: [
-      '/nanyuki-shell-hero.jpg',
+      'https://siligen-company-ltd.odoo.com/web/image/1853-36f3645a/WhatsApp%20Image%202026-01-20%20at%2020.13.43.webp',
       'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
