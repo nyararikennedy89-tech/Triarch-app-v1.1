@@ -99,3 +99,64 @@ npm run build
 ├── package.json
 └── vite.config.ts
 ```
+
+---
+
+## 🖼️ How to Embed Images on GitHub (Google Drive & Direct Upload)
+
+### Method 1: Embedding via Google Drive Link
+
+If your project renders or screenshots are stored in Google Drive:
+
+1. **Set Share Permissions in Google Drive**:
+   - Right-click your image in Google Drive → **Share** → **Share**.
+   - Under *General access*, select **"Anyone with the link"** (Viewer) → click **Copy link**.
+
+2. **Extract the `FILE_ID`**:
+   - Your link will look like:
+     ```text
+     https://drive.google.com/file/d/1A2B3C4D5E6F7G8H9I0J_kLMnOpQrStUv/view?usp=sharing
+     ```
+   - Copy only the alphanumeric string between `/d/` and `/view` (`1A2B3C4D5E6F7G8H9I0J_kLMnOpQrStUv`).
+
+3. **Format the Direct Embed URL**:
+   - Use Google's direct CDN format:
+     ```text
+     https://lh3.googleusercontent.com/d/YOUR_FILE_ID
+     ```
+
+4. **Add to your Markdown or HTML**:
+   - **Standard Markdown**:
+     ```markdown
+     ![Project Render](https://lh3.googleusercontent.com/d/YOUR_FILE_ID)
+     ```
+   - **Centered with Custom Width (HTML)**:
+     ```html
+     <p align="center">
+       <img src="https://lh3.googleusercontent.com/d/YOUR_FILE_ID" alt="Project Render" width="750" />
+     </p>
+     ```
+
+---
+
+### Method 2: Drag-and-Drop directly onto GitHub (Recommended)
+
+GitHub provides high-speed global CDN image hosting automatically:
+1. Open your repository's `README.md` in GitHub editor or open any issue / PR draft.
+2. **Drag and drop** or **paste (`Ctrl+V` / `Cmd+V`)** your image directly into the text box.
+3. GitHub will generate a permanent image link:
+   ```markdown
+   ![Image](https://github.com/user-attachments/assets/xxxx-xxxx-xxxx)
+   ```
+
+---
+
+### Method 3: Storing in this Repository (`/public` or `/assets`)
+
+You can also place images directly inside the repository:
+1. Place image files into the `/public/` directory (e.g., `public/hero-preview.jpg`).
+2. Embed in `README.md` using relative paths:
+   ```markdown
+   ![App Preview](./public/hero-preview.jpg)
+   ```
+3. When deployed on Vercel, the image is accessible at `https://your-site.vercel.app/hero-preview.jpg` and in code as `/hero-preview.jpg`.
