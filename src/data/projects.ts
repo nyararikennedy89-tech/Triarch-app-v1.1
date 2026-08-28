@@ -105,7 +105,7 @@ export const PROJECTS_DATA: Project[] = [
         id: 'nanyuki-shell-forecourt',
         name: 'Forecourt & Cantilevered Canopy',
         category: 'Exterior & Forecourt',
-        panoramaUrl: '/IMG_3089.HEIC',
+        panoramaUrl: '/IMG_3089.jpg',
         thumbnailUrl: '/Enscape_2024-10-10-03-16-06.png',
         floorLevel: 'Ground Forecourt',
         areaSqM: 1450,
