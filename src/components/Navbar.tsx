@@ -49,8 +49,8 @@ export const Navbar: React.FC<NavbarProps> = ({
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled
-            ? 'glass-nav py-3.5 border-b border-[#ECECEC]/60 dark:border-white/10 shadow-xs'
-            : 'bg-transparent py-6'
+            ? 'glass-nav py-3.5 border-b border-[#ECECEC]/80 dark:border-white/10 shadow-sm backdrop-blur-md'
+            : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5'
         }`}
       >
         <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 flex items-center justify-between">
@@ -61,7 +61,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center gap-3 group"
             id="nav-logo"
           >
-            <div className="w-9 h-9 rounded-sm bg-[#1C1C1C] dark:bg-white flex items-center justify-center text-white dark:text-[#1C1C1C] transition-transform duration-300 group-hover:scale-105">
+            <div className={`w-9 h-9 rounded-sm flex items-center justify-center transition-all duration-300 group-hover:scale-105 shadow-sm ${
+              isScrolled
+                ? 'bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C]'
+                : 'bg-white text-[#1C1C1C] ring-1 ring-white/30'
+            }`}>
               {/* Minimalist 3-Arch Vector Icon */}
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M3 21V10a4 4 0 0 1 8 0v11" />
@@ -70,10 +74,18 @@ export const Navbar: React.FC<NavbarProps> = ({
               </svg>
             </div>
             <div className="flex flex-col">
-              <span className="font-heading font-extrabold text-lg tracking-wider text-[#1C1C1C] dark:text-white uppercase leading-none">
+              <span className={`font-heading font-extrabold text-lg tracking-wider uppercase leading-none transition-colors duration-300 ${
+                isScrolled
+                  ? 'text-[#1C1C1C] dark:text-white'
+                  : 'text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]'
+              }`}>
                 {siteConfig.brand.name}
               </span>
-              <span className="text-[9px] tracking-[0.25em] text-[#B76E4A] font-semibold uppercase leading-tight mt-0.5">
+              <span className={`text-[9px] tracking-[0.25em] font-semibold uppercase leading-tight mt-0.5 transition-colors duration-300 ${
+                isScrolled
+                  ? 'text-[#B76E4A] dark:text-[#E08A62]'
+                  : 'text-[#FFA87D] drop-shadow-[0_1px_2px_rgba(0,0,0,0.6)]'
+              }`}>
                 {siteConfig.brand.subName}
               </span>
             </div>
@@ -81,27 +93,38 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Desktop Links */}
           <nav className="hidden lg:flex items-center gap-7">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className={`text-xs font-medium uppercase tracking-widest transition-colors duration-200 relative py-1 ${
-                  activeSection === link.href.substring(1)
-                    ? 'text-[#4E6B5A] dark:text-[#B76E4A] font-bold'
-                    : 'text-[#555555] dark:text-gray-300 hover:text-[#1C1C1C] dark:hover:text-white'
-                }`}
-              >
-                {link.name}
-                {activeSection === link.href.substring(1) && (
-                  <motion.div
-                    layoutId="activeNavIndicator"
-                    className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#4E6B5A] dark:bg-[#B76E4A]"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`text-xs font-medium uppercase tracking-widest transition-colors duration-200 relative py-1 ${
+                    isScrolled
+                      ? isActive
+                        ? 'text-[#4E6B5A] dark:text-[#E08A62] font-bold'
+                        : 'text-[#444444] dark:text-gray-200 hover:text-[#1C1C1C] dark:hover:text-white'
+                      : isActive
+                        ? 'text-white font-bold drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]'
+                        : 'text-white/85 hover:text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]'
+                  }`}
+                >
+                  {link.name}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNavIndicator"
+                      className={`absolute bottom-0 left-0 right-0 h-[2px] ${
+                        isScrolled
+                          ? 'bg-[#4E6B5A] dark:bg-[#E08A62]'
+                          : 'bg-[#FFA87D] shadow-[0_0_8px_rgba(255,168,125,0.8)]'
+                      }`}
+                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Right Action Controls */}
@@ -110,7 +133,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             {siteConfig.features.enableQuickSearch && (
               <button
                 onClick={onOpenSearch}
-                className="p-2 rounded-full text-[#555555] dark:text-gray-300 hover:text-[#1C1C1C] dark:hover:text-white hover:bg-gray-200/50 dark:hover:bg-white/10 transition-colors cursor-pointer"
+                className={`p-2 rounded-full transition-colors cursor-pointer ${
+                  isScrolled
+                    ? 'text-[#444444] dark:text-gray-200 hover:text-[#1C1C1C] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10'
+                    : 'text-white/90 hover:text-white hover:bg-white/15 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]'
+                }`}
                 title="Quick Search (Cmd+K)"
                 id="search-trigger-btn"
               >
@@ -122,11 +149,19 @@ export const Navbar: React.FC<NavbarProps> = ({
             {siteConfig.features.enableDarkModeToggle && (
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-full text-[#555555] dark:text-gray-300 hover:text-[#1C1C1C] dark:hover:text-white hover:bg-gray-200/50 dark:hover:bg-white/10 transition-colors cursor-pointer"
+                className={`p-2 rounded-full transition-colors cursor-pointer ${
+                  isScrolled
+                    ? 'text-[#444444] dark:text-gray-200 hover:text-[#1C1C1C] dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10'
+                    : 'text-white hover:bg-white/15 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]'
+                }`}
                 title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
                 id="theme-toggle-btn"
               >
-                {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-700" />}
+                {darkMode ? (
+                  <Sun className="w-4 h-4 text-amber-300" />
+                ) : (
+                  <Moon className={`w-4 h-4 ${isScrolled ? 'text-slate-800 dark:text-slate-200' : 'text-white'}`} />
+                )}
               </button>
             )}
 
@@ -134,7 +169,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             <button
               onClick={onOpenConsultation}
               id="start-project-cta-btn"
-              className="hidden sm:inline-flex items-center gap-2 bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C] px-5 py-2.5 text-[10px] uppercase tracking-[0.2em] font-bold hover:bg-[#4E6B5A] dark:hover:bg-[#B76E4A] dark:hover:text-white transition-all duration-300 shadow-xs active:scale-98 cursor-pointer"
+              className={`hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[10px] uppercase tracking-[0.2em] font-bold transition-all duration-300 shadow-sm active:scale-98 cursor-pointer ${
+                isScrolled
+                  ? 'bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C] hover:bg-[#4E6B5A] dark:hover:bg-[#B76E4A] dark:hover:text-white'
+                  : 'bg-white text-[#1C1C1C] hover:bg-[#B76E4A] hover:text-white shadow-lg ring-1 ring-white/40'
+              }`}
             >
               <span>{siteConfig.hero.primaryCtaText}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -143,7 +182,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-md text-[#1C1C1C] dark:text-white hover:bg-gray-200/50 dark:hover:bg-white/10 transition-colors cursor-pointer"
+              className={`lg:hidden p-2 rounded-md transition-colors cursor-pointer ${
+                isScrolled
+                  ? 'text-[#1C1C1C] dark:text-white hover:bg-black/5 dark:hover:bg-white/10'
+                  : 'text-white hover:bg-white/15 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]'
+              }`}
               id="mobile-menu-toggle-btn"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
