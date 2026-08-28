@@ -77,14 +77,14 @@ export const PROJECTS_DATA: Project[] = [
         date: 'January 2024',
         status: 'Completed',
         description: 'Deep subterranean excavation and reinforced concrete containment vaults for double-wall UST fuel tanks.',
-        imageUrl: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80'
+        imageUrl: 'https://siligen-company-ltd.odoo.com/web/image/1257-46d37aae/IMG-20250912-WA0181.webp'
       },
       {
         phase: 'Canopy Steel Superstructure & Forecourt Paving',
         date: 'July 2024',
         status: 'Completed',
         description: 'Erection of structural steel space-frame canopy with 24-meter clear spans and heavy-duty slab paving.',
-        imageUrl: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80'
+        imageUrl: 'https://siligen-company-ltd.odoo.com/web/image/1241-85d9f72a/IMG-20250912-WA0177.webp'
       },
       {
         phase: 'Retail Fit-Out & Solar Commissioning',
