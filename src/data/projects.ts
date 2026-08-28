@@ -91,7 +91,7 @@ export const PROJECTS_DATA: Project[] = [
         date: 'February 2025',
         status: 'Completed',
         description: 'Interior architecture for Shell Select, artisan bakery fit-out, and 65 kWp solar array interconnection.',
-        imageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80'
+        imageUrl: 'https://siligen-company-ltd.odoo.com/web/image/1269-aa6faec6/IMG-20250911-WA0028.webp'
       }
     ],
     materials: [
