@@ -3,12 +3,12 @@ import { motion } from 'motion/react';
 import { PROJECTS_DATA } from '../data/projects';
 import { Project, ProjectCategory } from '../types';
 import { ProjectModal } from './ProjectModal';
-import { MapPin, ArrowUpRight, Sparkles, Filter, Glasses } from 'lucide-react';
+import { MapPin, ArrowUpRight, Sparkles, Filter } from 'lucide-react';
 
 export const ProjectsSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('All');
   const [activeProject, setActiveProject] = useState<Project | null>(null);
-  const [initialModalTab, setInitialModalTab] = useState<'overview' | 'blueprint' | 'renders' | 'progress' | 'materials' | 'vr-360'>('overview');
+  const [initialModalTab, setInitialModalTab] = useState<'overview' | 'renders' | 'progress' | 'materials'>('overview');
 
   const categories: ProjectCategory[] = ['All', 'Residential', 'Commercial', 'Hospitality', 'Institutional', 'Interior'];
 
@@ -34,7 +34,7 @@ export const ProjectsSection: React.FC = () => {
             </h2>
           </div>
           <p className="text-base text-[#555555] dark:text-gray-300 max-w-md">
-            Explore our multidisciplinary portfolio across East Africa and internationally. Each project features interactive architectural plans and 360° VR room tours.
+            Explore our multidisciplinary portfolio across East Africa and internationally. Each project features swipeable 3D render galleries, construction progress milestones, and detailed material specifications.
           </p>
         </div>
 
@@ -90,12 +90,6 @@ export const ProjectsSection: React.FC = () => {
                       Flagship
                     </span>
                   )}
-                  {project.panoramaRooms && project.panoramaRooms.length > 0 && (
-                    <span className="px-2.5 py-1 rounded-full bg-[#4E6B5A]/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
-                      <Glasses className="w-3 h-3" />
-                      360° VR
-                    </span>
-                  )}
                 </div>
 
                 <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -126,21 +120,6 @@ export const ProjectsSection: React.FC = () => {
                       <span>Case Study</span>
                       <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 ml-1" />
                     </div>
-
-                    {project.panoramaRooms && project.panoramaRooms.length > 0 && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setInitialModalTab('vr-360');
-                          setActiveProject(project);
-                        }}
-                        className="px-3 py-1.5 rounded-full bg-[#B76E4A]/10 hover:bg-[#B76E4A] text-[#B76E4A] hover:text-white border border-[#B76E4A]/30 text-[11px] font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer"
-                        title="Launch 360° VR Tour"
-                      >
-                        <Glasses className="w-3.5 h-3.5" />
-                        <span>Tour 360° VR</span>
-                      </button>
-                    )}
                   </div>
                 </div>
               </div>

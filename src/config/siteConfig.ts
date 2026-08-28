@@ -24,6 +24,10 @@ export interface HeroSlide {
   title: string;
   location: string;
   tag?: string;
+  projectId?: string;
+  year?: string;
+  area?: string;
+  description?: string;
 }
 
 export interface StatCounter {
@@ -158,7 +162,6 @@ export const siteConfig: SiteConfig = {
     mainLinks: [
       { name: 'Home', href: '#home' },
       { name: 'Projects', href: '#projects' },
-      { name: '360° VR Tour', href: '#vr-showcase' },
       { name: 'Kenya Hub', href: '#kenya-hub' },
       { name: 'Services', href: '#services' },
       { name: 'Design Process', href: '#process' },
@@ -187,22 +190,54 @@ export const siteConfig: SiteConfig = {
     sideRailText: 'AUTHENTICITY — SYMMETRY — FUNCTION — PRECISION',
     slides: [
       {
+        image: '/Enscape_2024-10-10-03-16-06.png',
+        title: 'Nyeri-Nanyuki Shell Stopover',
+        location: 'Mount Kenya Corridor • A2 Highway',
+        tag: 'Commercial Highway Oasis',
+        projectId: 'nyeri-nanyuki-shell-stopover',
+        year: '2025',
+        area: '18,500 sq. m',
+        description: 'Iconic cantilevered fueling canopy with Mount Kenya panoramic terrace & retail hub.'
+      },
+      {
         image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85',
         title: 'The Glass Pavilion Villa',
         location: 'Kileleshwa • Nairobi',
         tag: 'Residential Luxury',
+        projectId: 'Cavali-glass-pavilion',
+        year: '2024',
+        area: '850 sq. m',
+        description: 'Double-height frameless glass walls with basalt finishes and infinity water courtyard.'
       },
       {
         image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85',
         title: 'Nexus Financial HQ Tower',
-        location: 'Westlands • Commercial',
+        location: 'Westlands • Nairobi',
         tag: 'Commercial Landmark',
+        projectId: 'nexus-financial-tower',
+        year: '2025',
+        area: '24,000 sq. m',
+        description: 'Biophilic 18-floor curtain-wall corporate headquarters with automated solar shading fins.'
       },
       {
         image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85',
-        title: 'Aethel Eco Lodge',
-        location: 'Maasai Mara • Hospitality',
-        tag: 'Eco-Hospitality',
+        title: 'Aethel Eco Safari Lodge',
+        location: 'Maasai Mara • Narok',
+        tag: 'Sustainable Hospitality',
+        projectId: 'serengeti-safari-lodge',
+        year: '2023',
+        area: '3,200 sq. m',
+        description: 'Rammed earth luxury suites seamlessly integrated into the savannah conservancy.'
+      },
+      {
+        image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85',
+        title: 'Lavington Solarium Penthouse',
+        location: 'Lavington • Nairobi',
+        tag: 'Bespoke Interior & Living',
+        projectId: 'lavington-penthouse-suite',
+        year: '2024',
+        area: '420 sq. m',
+        description: 'Curved Venetian plaster with integrated smart ambient lighting and custom joinery.'
       },
     ],
     stats: [

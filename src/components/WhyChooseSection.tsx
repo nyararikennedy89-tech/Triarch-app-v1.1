@@ -22,7 +22,7 @@ export const WhyChooseSection: React.FC = () => {
           <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
             {stats.map((st, idx) => (
               <motion.div
-                key={idx}
+                key={st.label}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
@@ -71,8 +71,8 @@ export const WhyChooseSection: React.FC = () => {
                 'In-house Structural & MEP Engineering Certification',
                 '100% Approval Success Rate with Statutory Authorities',
                 'Dedicated Site Project Manager Assigned to Every Project'
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3">
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-[#4E6B5A] dark:text-[#B76E4A] shrink-0" />
                   <span className="text-xs font-bold text-[#1C1C1C] dark:text-white">
                     {item}

@@ -60,7 +60,7 @@ export const TestimonialsSection: React.FC = () => {
                 {/* Rating Stars */}
                 <div className="flex items-center gap-1 text-amber-400 mb-4">
                   {[...Array(t.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-current" />
+                    <Star key={`star-${t.id}-${i}`} className="w-4 h-4 fill-current" />
                   ))}
                 </div>
 

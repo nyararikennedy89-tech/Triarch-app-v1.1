@@ -344,7 +344,7 @@ export const SeoFaqSection: React.FC<SeoFaqSectionProps> = ({ onOpenConsultation
                               {faq.detailedPoints && faq.detailedPoints.length > 0 && (
                                 <ul className="space-y-2.5 pt-2">
                                   {faq.detailedPoints.map((pt, idx) => (
-                                    <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#555555] dark:text-gray-300 leading-relaxed">
+                                    <li key={`faq-${faq.id}-pt-${idx}`} className="flex items-start gap-3 text-xs sm:text-sm text-[#555555] dark:text-gray-300 leading-relaxed">
                                       <CheckCircle2 className="w-4 h-4 text-[#4E6B5A] shrink-0 mt-0.5" />
                                       <span>{pt}</span>
                                     </li>
@@ -445,10 +445,10 @@ export const SeoFaqSection: React.FC<SeoFaqSectionProps> = ({ onOpenConsultation
                   <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100" />
                 </a>
                 <a 
-                  href="#vr-showcase" 
+                  href="#projects" 
                   className="flex items-center justify-between p-2.5 rounded-xl hover:bg-white dark:hover:bg-white/5 text-[#555555] dark:text-gray-300 transition-colors group"
                 >
-                  <span className="group-hover:text-[#B76E4A] transition-colors">Interactive 360° VR Architectural Tours</span>
+                  <span className="group-hover:text-[#B76E4A] transition-colors">Architectural Portfolio & Case Studies</span>
                   <ExternalLink className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100" />
                 </a>
                 <a 

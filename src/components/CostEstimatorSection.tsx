@@ -237,7 +237,7 @@ export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({ onSe
                   className="w-full p-3 rounded-xl bg-[#F8F7F4] dark:bg-[#121312] border border-gray-200 dark:border-white/10 text-xs font-medium text-[#1C1C1C] dark:text-white"
                 >
                   {[1, 2, 3, 4, 5, 6, 8, 10].map((num) => (
-                    <option key={num} value={num}>{num} Bedrooms</option>
+                    <option key={`opt-bed-${num}`} value={num}>{num} Bedrooms</option>
                   ))}
                 </select>
               </div>
@@ -252,7 +252,7 @@ export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({ onSe
                   className="w-full p-3 rounded-xl bg-[#F8F7F4] dark:bg-[#121312] border border-gray-200 dark:border-white/10 text-xs font-medium text-[#1C1C1C] dark:text-white"
                 >
                   {[1, 2, 3, 4, 5, 8, 12, 18].map((num) => (
-                    <option key={num} value={num}>{num} Levels / Floors</option>
+                    <option key={`opt-floor-${num}`} value={num}>{num} Levels / Floors</option>
                   ))}
                 </select>
               </div>

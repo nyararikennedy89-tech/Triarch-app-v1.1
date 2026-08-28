@@ -156,7 +156,7 @@ export const DesignProcessSection: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {currentStage.deliverables.map((item, idx) => (
-                    <div key={idx} className="p-3.5 rounded-xl bg-white dark:bg-[#1C1D1C] border border-[#ECECEC] dark:border-white/10 flex items-start gap-3">
+                    <div key={`stage-${currentStage.step}-deliv-${idx}`} className="p-3.5 rounded-xl bg-white dark:bg-[#1C1D1C] border border-[#ECECEC] dark:border-white/10 flex items-start gap-3">
                       <div className="w-5 h-5 rounded-full bg-[#4E6B5A]/10 text-[#4E6B5A] flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
                         ✓
                       </div>

@@ -94,17 +94,17 @@ export const SERVICES_DATA: Service[] = [
   {
     id: '3d-visualization',
     title: '3D Visualization',
-    shortDesc: 'Photorealistic architectural rendering, virtual reality walkthroughs, and cinematic animation production.',
-    fullDesc: 'Experience your project before ground is broken. We produce hyper-realistic 3D exterior/interior renders, cinematic 4K video animations, interactive 360-degree panoramas, and immersive VR simulations for decision making and marketing.',
+    shortDesc: 'Photorealistic architectural rendering, cinematic animations, and interactive BIM walkthroughs.',
+    fullDesc: 'Experience your project before ground is broken. We produce hyper-realistic 3D exterior and interior renders, cinematic 4K video animations, and real-time architectural walkthroughs for precise design decision making and client presentations.',
     iconName: 'Eye',
     bgImage: 'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=80',
     deliverables: [
       'Photorealistic Exterior & Interior Renders',
       'Cinematic Architectural Fly-Through Animations',
-      'Interactive Web 360-Degree Virtual Tours',
-      'Unreal Engine 5 Real-Time Walkthroughs',
+      'Real-Time BIM Spatial Walkthroughs',
+      'Unreal Engine 5 Real-Time Environments',
       'Sun Study & Shadow Analysis Animations',
-      'Marketing Brochure & Sales Render Packages'
+      'Marketing Brochure & Presentation Render Packages'
     ],
     methodology: 'Unreal Engine 5 path tracing combined with V-Ray for true-to-life lighting, textures, and foliage.',
     technologies: ['Unreal Engine 5.4', '3ds Max', 'V-Ray 6', 'Corona Renderer', 'DaVinci Resolve']

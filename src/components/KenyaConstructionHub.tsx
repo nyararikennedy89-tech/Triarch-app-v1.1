@@ -101,7 +101,7 @@ export const KenyaConstructionHub: React.FC = () => {
         <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none border-b border-[#ECECEC] dark:border-white/10">
           {[
             { id: 'approvals', label: 'County Approvals & Permits', icon: FileCheck, count: '5 Counties' },
-            { id: 'diaspora', label: 'Diaspora Escrow & 360° Portal', icon: Globe2, highlight: 'Remote Investor' },
+            { id: 'diaspora', label: 'Diaspora Escrow & Remote Portal', icon: Globe2, highlight: 'Remote Investor' },
             { id: 'materials', label: 'Kenya Material & BOQ Rates', icon: TrendingUp, count: '10 Benchmarks' },
             { id: 'soils', label: 'Soil & Foundation Advisory', icon: Layers, count: '4 Soil Types' },
           ].map((tab) => {
@@ -253,7 +253,7 @@ export const KenyaConstructionHub: React.FC = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {selectedCounty.regulatoryBodies.map((reg, idx) => (
-                        <div key={idx} className="p-4 rounded-2xl bg-[#F8F7F4] dark:bg-white/5 border border-[#ECECEC] dark:border-white/10 flex flex-col justify-between">
+                        <div key={`reg-${selectedCounty.countyId}-${reg.acronym}-${idx}`} className="p-4 rounded-2xl bg-[#F8F7F4] dark:bg-white/5 border border-[#ECECEC] dark:border-white/10 flex flex-col justify-between">
                           <div>
                             <div className="flex items-center justify-between gap-2 mb-1.5">
                               <span className="font-bold text-sm text-[#1C1C1C] dark:text-white">
@@ -289,13 +289,13 @@ export const KenyaConstructionHub: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       {selectedCounty.submissionChecklists.map((chk, i) => (
-                        <div key={i} className="p-4 rounded-2xl bg-[#F8F7F4] dark:bg-white/5 border border-[#ECECEC] dark:border-white/10">
+                        <div key={`chk-${selectedCounty.countyId}-${chk.category}-${i}`} className="p-4 rounded-2xl bg-[#F8F7F4] dark:bg-white/5 border border-[#ECECEC] dark:border-white/10">
                           <div className="text-xs font-bold text-[#1C1C1C] dark:text-white mb-2 pb-1 border-b border-gray-200 dark:border-white/10">
                             {chk.category}
                           </div>
                           <ul className="space-y-1.5">
                             {chk.items.map((item, j) => (
-                              <li key={j} className="text-[11px] text-gray-600 dark:text-gray-400 flex items-start gap-1.5 leading-snug">
+                              <li key={`chk-item-${selectedCounty.countyId}-${i}-${j}`} className="text-[11px] text-gray-600 dark:text-gray-400 flex items-start gap-1.5 leading-snug">
                                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
                                 <span>{item}</span>
                               </li>
@@ -314,7 +314,7 @@ export const KenyaConstructionHub: React.FC = () => {
                     </div>
                     <ul className="space-y-1 text-xs text-amber-900/80 dark:text-amber-200/80">
                       {selectedCounty.localZoningHighlights.map((z, k) => (
-                        <li key={k} className="flex items-start gap-1.5">
+                        <li key={`zoning-${selectedCounty.countyId}-${k}`} className="flex items-start gap-1.5">
                           <span className="text-[#B76E4A] font-bold">•</span>
                           <span>{z}</span>
                         </li>
@@ -355,7 +355,7 @@ export const KenyaConstructionHub: React.FC = () => {
                 </h3>
 
                 <p className="text-sm sm:text-base text-gray-300 mt-4 leading-relaxed">
-                  Never send blind wire transfers or rely on informal third-party updates. Triarch Ventures implements a legally binding, milestone-governed escrow framework with 360° VR site inspections and lab-certified engineer sign-offs.
+                  Never send blind wire transfers or rely on informal third-party updates. Triarch Ventures implements a legally binding, milestone-governed escrow framework with high-resolution site inspections and lab-certified engineer sign-offs.
                 </p>
 
                 {/* 3 Core Trust Pillars */}
@@ -375,8 +375,8 @@ export const KenyaConstructionHub: React.FC = () => {
                       <Camera className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-white uppercase tracking-wider">360° VR & 4K Drone</h4>
-                      <p className="text-[11px] text-gray-300 mt-0.5">Bi-weekly spherical virtual site walkthroughs on your phone/PC.</p>
+                      <h4 className="text-xs font-bold text-white uppercase tracking-wider">4K Drone & Site Audits</h4>
+                      <p className="text-[11px] text-gray-300 mt-0.5">Bi-weekly high-definition progress audits on your phone/PC.</p>
                     </div>
                   </div>
 
@@ -433,7 +433,7 @@ export const KenyaConstructionHub: React.FC = () => {
                         <div className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Key Deliverables:</div>
                         <ul className="space-y-1">
                           {stage.deliverables.map((item, idx) => (
-                            <li key={idx} className="text-xs text-gray-600 dark:text-gray-300 flex items-start gap-1.5">
+                            <li key={`diaspora-${stage.stageNumber}-deliv-${idx}`} className="text-xs text-gray-600 dark:text-gray-300 flex items-start gap-1.5">
                               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
                               <span>{item}</span>
                             </li>
@@ -599,7 +599,7 @@ export const KenyaConstructionHub: React.FC = () => {
                 const isSelected = selectedSoilIndex === idx;
                 return (
                   <div
-                    key={idx}
+                    key={`soil-profile-${soil.soilType}`}
                     onClick={() => setSelectedSoilIndex(idx)}
                     className={`p-5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
                       isSelected
@@ -682,7 +682,7 @@ export const KenyaConstructionHub: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {selectedSoil.recommendedFoundations.map((found, idx) => (
-                    <div key={idx} className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-500/30">
+                    <div key={`rec-foundation-${selectedSoil.soilType}-${idx}`} className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-500/30">
                       <div className="text-xs font-bold text-emerald-900 dark:text-emerald-300 flex items-center gap-2">
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                         <span>{found}</span>

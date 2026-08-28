@@ -4,7 +4,6 @@ import { Hero } from './components/Hero';
 import { Introduction } from './components/Introduction';
 import { ServicesSection } from './components/ServicesSection';
 import { ProjectsSection } from './components/ProjectsSection';
-import { PanoramaShowcaseSection } from './components/PanoramaShowcaseSection';
 import { KenyaConstructionHub } from './components/KenyaConstructionHub';
 import { DesignProcessSection } from './components/DesignProcessSection';
 import { CostEstimatorSection } from './components/CostEstimatorSection';
@@ -39,7 +38,7 @@ export default function App() {
   // Track active visible section for navbar highlighting
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'projects', 'vr-showcase', 'kenya-hub', 'services', 'process', 'estimator', 'resources', 'faq', 'about', 'contact'];
+      const sections = ['home', 'projects', 'kenya-hub', 'services', 'process', 'estimator', 'resources', 'faq', 'about', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -98,6 +97,7 @@ export default function App() {
             setSelectedServiceForConsultation(undefined);
             setIsConsultationOpen(true);
           }}
+          onSelectProject={(project) => setSelectedProjectForModal(project)}
         />
 
         {/* Section 2: Studio Introduction & Render vs Reality Slider */}
@@ -111,10 +111,7 @@ export default function App() {
         {/* Section 4: Featured Projects Portfolio & Case Studies */}
         <ProjectsSection />
 
-        {/* Section 4B: 360° Virtual Reality Panoramic Room Viewer & Tour */}
-        <PanoramaShowcaseSection />
-
-        {/* Section 4C: Kenyan Built Environment & Diaspora Advisory Hub */}
+        {/* Section 4B: Kenyan Built Environment & Diaspora Advisory Hub */}
         <KenyaConstructionHub />
 
         {/* Section 5: Interactive 7-Step Design Process */}

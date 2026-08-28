@@ -107,12 +107,12 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                     <span>Kenya Advisory</span>
                   </a>
                   <a
-                    href="#vr-showcase"
+                    href="#projects"
                     onClick={onClose}
                     className="p-3 rounded-xl bg-[#F8F7F4] dark:bg-[#121312] border border-gray-200 dark:border-white/10 flex items-center gap-2 font-medium hover:border-[#4E6B5A]"
                   >
                     <Building className="w-4 h-4 text-[#B76E4A]" />
-                    <span>360° VR Tour</span>
+                    <span>Projects</span>
                   </a>
                   <a
                     href="#estimator"

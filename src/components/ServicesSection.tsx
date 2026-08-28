@@ -159,7 +159,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                   </h4>
                   <ul className="space-y-2.5 text-xs text-[#555555] dark:text-gray-300">
                     {selectedService.deliverables.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
+                      <li key={`srv-deliv-${selectedService.id}-${idx}`} className="flex items-start gap-2">
                         <span className="text-[#B76E4A] font-bold">•</span>
                         <span>{item}</span>
                       </li>
@@ -186,7 +186,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                     <div className="flex flex-wrap gap-1.5">
                       {selectedService.technologies.map((tech, idx) => (
                         <span
-                          key={idx}
+                          key={`srv-tech-${selectedService.id}-${tech}-${idx}`}
                           className="px-2.5 py-1 rounded-md bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 text-[11px] font-mono text-[#1C1C1C] dark:text-gray-200"
                         >
                           {tech}
