@@ -21,10 +21,10 @@ export const PROJECTS_DATA: Project[] = [
     heroImage: '/Enscape_2024-10-10-03-16-06.png',
     galleryImages: [
       'https://siligen-company-ltd.odoo.com/web/image/1853-36f3645a/WhatsApp%20Image%202026-01-20%20at%2020.13.43.webp',
-      'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=1200&q=80'
+      'https://siligen-company-ltd.odoo.com/web/image/1841-74f6d7c9/WhatsApp%20Image%202026-01-20%20at%2020.13.44%20%281%29.webp',
+      'https://siligen-company-ltd.odoo.com/web/image/1840-84a18c0e/WhatsApp%20Image%202026-01-20%20at%2020.13.43%20%282%29.webp',
+      'https://siligen-company-ltd.odoo.com/web/image/1844-c256b66e/WhatsApp%20Image%202026-01-20%20at%2020.13.44.webp',
+      'https://siligen-company-ltd.odoo.com/web/image/1848-0cf2236d/WhatsApp%20Image%202026-01-20%20at%2020.13.43%20%284%29.webp'
     ],
     beforeImage: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
     afterImage: '/nanyuki-shell-hero.jpg',
