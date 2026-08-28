@@ -18,7 +18,7 @@ export const PROJECTS_DATA: Project[] = [
       'Environmental Impact Assessment (EIA)'
     ],
     client: 'Vivo Energy / Shell Kenya & Highway Commercial Consortium',
-    heroImage: 'https://images.unsplash.com/photo-1545459720-aac8509eb02c?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://drive.google.com/file/d/1BR8UvN6lu81fnYXt49qERFuGV5eUPV9n/view?usp=drive_link',
     galleryImages: [
       'https://images.unsplash.com/photo-1527018607619-a508a2be00bf?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
