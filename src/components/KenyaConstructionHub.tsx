@@ -253,7 +253,7 @@ export const KenyaConstructionHub: React.FC = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {selectedCounty.regulatoryBodies.map((reg, idx) => (
-                        <div key={`reg-${selectedCounty.countyId}-${reg.acronym}-${idx}`} className="p-4 rounded-2xl bg-[#F8F7F4] dark:bg-white/5 border border-[#ECECEC] dark:border-white/10 flex flex-col justify-between">
+                        <div key={idx} className="p-4 rounded-2xl bg-[#F8F7F4] dark:bg-white/5 border border-[#ECECEC] dark:border-white/10 flex flex-col justify-between">
                           <div>
                             <div className="flex items-center justify-between gap-2 mb-1.5">
                               <span className="font-bold text-sm text-[#1C1C1C] dark:text-white">
@@ -289,13 +289,13 @@ export const KenyaConstructionHub: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       {selectedCounty.submissionChecklists.map((chk, i) => (
-                        <div key={`chk-${selectedCounty.countyId}-${chk.category}-${i}`} className="p-4 rounded-2xl bg-[#F8F7F4] dark:bg-white/5 border border-[#ECECEC] dark:border-white/10">
+                        <div key={i} className="p-4 rounded-2xl bg-[#F8F7F4] dark:bg-white/5 border border-[#ECECEC] dark:border-white/10">
                           <div className="text-xs font-bold text-[#1C1C1C] dark:text-white mb-2 pb-1 border-b border-gray-200 dark:border-white/10">
                             {chk.category}
                           </div>
                           <ul className="space-y-1.5">
                             {chk.items.map((item, j) => (
-                              <li key={`chk-item-${selectedCounty.countyId}-${i}-${j}`} className="text-[11px] text-gray-600 dark:text-gray-400 flex items-start gap-1.5 leading-snug">
+                              <li key={j} className="text-[11px] text-gray-600 dark:text-gray-400 flex items-start gap-1.5 leading-snug">
                                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
                                 <span>{item}</span>
                               </li>
@@ -314,7 +314,7 @@ export const KenyaConstructionHub: React.FC = () => {
                     </div>
                     <ul className="space-y-1 text-xs text-amber-900/80 dark:text-amber-200/80">
                       {selectedCounty.localZoningHighlights.map((z, k) => (
-                        <li key={`zoning-${selectedCounty.countyId}-${k}`} className="flex items-start gap-1.5">
+                        <li key={k} className="flex items-start gap-1.5">
                           <span className="text-[#B76E4A] font-bold">•</span>
                           <span>{z}</span>
                         </li>
@@ -433,7 +433,7 @@ export const KenyaConstructionHub: React.FC = () => {
                         <div className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">Key Deliverables:</div>
                         <ul className="space-y-1">
                           {stage.deliverables.map((item, idx) => (
-                            <li key={`diaspora-${stage.stageNumber}-deliv-${idx}`} className="text-xs text-gray-600 dark:text-gray-300 flex items-start gap-1.5">
+                            <li key={idx} className="text-xs text-gray-600 dark:text-gray-300 flex items-start gap-1.5">
                               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
                               <span>{item}</span>
                             </li>
@@ -599,7 +599,7 @@ export const KenyaConstructionHub: React.FC = () => {
                 const isSelected = selectedSoilIndex === idx;
                 return (
                   <div
-                    key={`soil-profile-${soil.soilType}`}
+                    key={idx}
                     onClick={() => setSelectedSoilIndex(idx)}
                     className={`p-5 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
                       isSelected
@@ -682,7 +682,7 @@ export const KenyaConstructionHub: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {selectedSoil.recommendedFoundations.map((found, idx) => (
-                    <div key={`rec-foundation-${selectedSoil.soilType}-${idx}`} className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-500/30">
+                    <div key={idx} className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-500/30">
                       <div className="text-xs font-bold text-emerald-900 dark:text-emerald-300 flex items-center gap-2">
                         <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                         <span>{found}</span>

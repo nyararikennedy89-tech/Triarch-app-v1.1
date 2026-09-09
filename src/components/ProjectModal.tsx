@@ -199,7 +199,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     <span className="text-xs text-gray-400 uppercase tracking-wider block">Disciplines</span>
                     <div className="flex flex-wrap gap-1 mt-1">
                       {project.servicesProvided.map((s, idx) => (
-                        <span key={`service-${project.id}-${s}-${idx}`} className="text-[10px] bg-gray-100 dark:bg-white/10 px-2 py-0.5 rounded text-[#1C1C1C] dark:text-gray-200">
+                        <span key={idx} className="text-[10px] bg-gray-100 dark:bg-white/10 px-2 py-0.5 rounded text-[#1C1C1C] dark:text-gray-200">
                           {s}
                         </span>
                       ))}
@@ -259,7 +259,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                       {project.stats.map((st, idx) => (
-                        <div key={`stat-${project.id}-${st.label}-${idx}`} className="p-4 rounded-xl bg-white dark:bg-[#1C1D1C] border border-[#ECECEC] dark:border-white/10 text-center">
+                        <div key={idx} className="p-4 rounded-xl bg-white dark:bg-[#1C1D1C] border border-[#ECECEC] dark:border-white/10 text-center">
                           <div className="text-2xl font-heading font-extrabold text-[#4E6B5A] dark:text-[#B76E4A]">
                             {st.value}
                           </div>
@@ -362,7 +362,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700">
                       {gallery.map((img, idx) => (
                         <button
-                          key={`thumb-${project.id}-${idx}`}
+                          key={idx}
                           onClick={() => setActiveCarouselIndex(idx)}
                           className={`relative h-20 w-28 sm:h-24 sm:w-36 rounded-xl overflow-hidden shrink-0 border-2 transition-all cursor-pointer ${
                             activeCarouselIndex === idx
@@ -396,7 +396,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 ) : (
                   <div className="space-y-6">
                     {project.constructionGallery.map((milestone, idx) => (
-                      <div key={`milestone-${project.id}-${milestone.phase}-${idx}`} className="p-6 rounded-2xl bg-white dark:bg-[#1C1D1C] border border-[#ECECEC] dark:border-white/10 flex flex-col md:flex-row gap-6 items-center">
+                      <div key={idx} className="p-6 rounded-2xl bg-white dark:bg-[#1C1D1C] border border-[#ECECEC] dark:border-white/10 flex flex-col md:flex-row gap-6 items-center">
                         <img src={milestone.imageUrl} alt={milestone.phase} className="w-full md:w-48 h-32 object-cover rounded-xl" />
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-1">
@@ -427,7 +427,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {project.materials.map((mat, idx) => (
-                    <div key={`mat-${project.id}-${mat.name}-${idx}`} className="p-5 rounded-2xl bg-white dark:bg-[#1C1D1C] border border-[#ECECEC] dark:border-white/10 flex items-center gap-4">
+                    <div key={idx} className="p-5 rounded-2xl bg-white dark:bg-[#1C1D1C] border border-[#ECECEC] dark:border-white/10 flex items-center gap-4">
                       <div
                         className="w-12 h-12 rounded-xl border border-black/10 shrink-0 shadow-inner"
                         style={{ backgroundColor: mat.colorHex }}

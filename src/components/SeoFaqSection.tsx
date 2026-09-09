@@ -344,7 +344,7 @@ export const SeoFaqSection: React.FC<SeoFaqSectionProps> = ({ onOpenConsultation
                               {faq.detailedPoints && faq.detailedPoints.length > 0 && (
                                 <ul className="space-y-2.5 pt-2">
                                   {faq.detailedPoints.map((pt, idx) => (
-                                    <li key={`faq-${faq.id}-pt-${idx}`} className="flex items-start gap-3 text-xs sm:text-sm text-[#555555] dark:text-gray-300 leading-relaxed">
+                                    <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#555555] dark:text-gray-300 leading-relaxed">
                                       <CheckCircle2 className="w-4 h-4 text-[#4E6B5A] shrink-0 mt-0.5" />
                                       <span>{pt}</span>
                                     </li>

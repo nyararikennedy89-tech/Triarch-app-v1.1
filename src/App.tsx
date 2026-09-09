@@ -97,7 +97,6 @@ export default function App() {
             setSelectedServiceForConsultation(undefined);
             setIsConsultationOpen(true);
           }}
-          onSelectProject={(project) => setSelectedProjectForModal(project)}
         />
 
         {/* Section 2: Studio Introduction & Render vs Reality Slider */}
