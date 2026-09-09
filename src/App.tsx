@@ -15,6 +15,7 @@ import { Footer } from './components/Footer';
 import { ConsultationWizardModal } from './components/ConsultationWizardModal';
 import { QuickSearchModal } from './components/QuickSearchModal';
 import { ProjectModal } from './components/ProjectModal';
+import { MpesaPaymentModal } from './components/MpesaPaymentModal';
 import { Project } from './types';
 import { PROJECTS_DATA } from './data/projects';
 
@@ -25,6 +26,25 @@ export default function App() {
   const [selectedServiceForConsultation, setSelectedServiceForConsultation] = useState<string | undefined>(undefined);
   const [selectedProjectForModal, setSelectedProjectForModal] = useState<Project | null>(null);
   const [activeSection, setActiveSection] = useState('home');
+
+  // M-Pesa Daraja Payment Gateway Modal State
+  const [isMpesaModalOpen, setIsMpesaModalOpen] = useState<boolean>(false);
+  const [mpesaPaymentConfig, setMpesaPaymentConfig] = useState<{
+    amount?: number;
+    description?: string;
+    phone?: string;
+    clientName?: string;
+  }>({});
+
+  const handleOpenMpesa = (details?: {
+    amount?: number;
+    description?: string;
+    phone?: string;
+    clientName?: string;
+  }) => {
+    setMpesaPaymentConfig(details || {});
+    setIsMpesaModalOpen(true);
+  };
 
   // Handle dark mode class toggle on root document
   useEffect(() => {
@@ -86,6 +106,7 @@ export default function App() {
           setIsConsultationOpen(true);
         }}
         onOpenSearch={() => setIsSearchOpen(true)}
+        onOpenMpesa={() => handleOpenMpesa()}
         activeSection={activeSection}
       />
 
@@ -119,6 +140,7 @@ export default function App() {
         {/* Section 6: Construction Cost Estimator Calculator */}
         <CostEstimatorSection
           onSendEstimateToConsultation={handleCostEstimatorSummaryToConsultation}
+          onOpenMpesaWithDetails={handleOpenMpesa}
         />
 
         {/* Section 7: Why Choose Triarch & Counter Stats */}
@@ -152,6 +174,7 @@ export default function App() {
         isOpen={isConsultationOpen}
         onClose={() => setIsConsultationOpen(false)}
         initialService={selectedServiceForConsultation}
+        onOpenMpesaWithDetails={handleOpenMpesa}
       />
 
       {/* Quick Search Cmd+K Modal */}
@@ -168,6 +191,16 @@ export default function App() {
         onClose={() => setSelectedProjectForModal(null)}
         onSelectProject={(p) => setSelectedProjectForModal(p)}
         allProjects={PROJECTS_DATA}
+      />
+
+      {/* Daraja Lipa Na M-Pesa Payment Gateway Modal */}
+      <MpesaPaymentModal
+        isOpen={isMpesaModalOpen}
+        onClose={() => setIsMpesaModalOpen(false)}
+        initialAmount={mpesaPaymentConfig.amount}
+        initialDescription={mpesaPaymentConfig.description}
+        initialPhone={mpesaPaymentConfig.phone}
+        initialClientName={mpesaPaymentConfig.clientName}
       />
     </div>
   );

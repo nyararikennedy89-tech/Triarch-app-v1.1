@@ -8,6 +8,7 @@ interface NavbarProps {
   setDarkMode: (val: boolean) => void;
   onOpenConsultation: () => void;
   onOpenSearch: () => void;
+  onOpenMpesa: () => void;
   activeSection: string;
 }
 
@@ -16,6 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   setDarkMode,
   onOpenConsultation,
   onOpenSearch,
+  onOpenMpesa,
   activeSection
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -165,6 +167,21 @@ export const Navbar: React.FC<NavbarProps> = ({
               </button>
             )}
 
+            {/* M-Pesa Retainer Quick Action Button */}
+            <button
+              onClick={onOpenMpesa}
+              id="mpesa-quick-pay-btn"
+              className={`hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-[10px] font-mono uppercase tracking-wider font-bold transition-all shadow-sm border cursor-pointer hover:scale-105 active:scale-95 ${
+                isScrolled
+                  ? 'bg-emerald-50 dark:bg-emerald-950/30 text-[#00843D] dark:text-emerald-400 border-[#00843D]/30 hover:border-[#00843D]'
+                  : 'bg-black/40 text-emerald-300 border-emerald-500/40 hover:bg-black/60 backdrop-blur-md'
+              }`}
+              title="Pay Retainer via Lipa Na M-Pesa"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#00843D] animate-pulse" />
+              <span>M-PESA</span>
+            </button>
+
             {/* Consultation CTA */}
             <button
               onClick={onOpenConsultation}
@@ -227,6 +244,16 @@ export const Navbar: React.FC<NavbarProps> = ({
                 >
                   <span>Start Your Project Consultation</span>
                   <ArrowUpRight className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenMpesa();
+                  }}
+                  className="w-full bg-[#00843D] text-white py-3 rounded-xl font-bold text-sm tracking-wide flex items-center justify-center gap-2 shadow-md cursor-pointer"
+                >
+                  <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
+                  <span>Lipa Na M-PESA (Retainer Deposit)</span>
                 </button>
                 <div className="flex items-center justify-center gap-2 text-xs text-[#555555] dark:text-gray-400 pt-2">
                   <PhoneCall className="w-3.5 h-3.5 text-[#B76E4A]" />

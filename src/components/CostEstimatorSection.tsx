@@ -7,9 +7,13 @@ import { generateCostEstimatePDF } from '../utils/pdfGenerator';
 
 interface CostEstimatorSectionProps {
   onSendEstimateToConsultation: (details: string) => void;
+  onOpenMpesaWithDetails?: (details: { amount: number; description: string; phone?: string; clientName?: string }) => void;
 }
 
-export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({ onSendEstimateToConsultation }) => {
+export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({
+  onSendEstimateToConsultation,
+  onOpenMpesaWithDetails
+}) => {
   const [currency, setCurrency] = useState<'KES' | 'USD'>(siteConfig.estimator.currencyDefault);
   const [inputs, setInputs] = useState<EstimatorInput>({
     projectType: 'residential_villa',
@@ -367,6 +371,21 @@ export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({ onSe
                 <Mail className="w-3.5 h-3.5 text-[#B76E4A]" />
                 <span>Personalize & Email Estimate PDF</span>
               </button>
+
+              {/* M-Pesa Feasibility Retainer Button */}
+              {onOpenMpesaWithDetails && (
+                <button
+                  type="button"
+                  onClick={() => onOpenMpesaWithDetails({
+                    amount: 15000,
+                    description: `Site Reconnaissance Deposit: ${inputs.projectType.replace('_', ' ')}`
+                  })}
+                  className="w-full bg-[#00843D] hover:bg-[#007033] text-white py-3.5 px-6 rounded-full font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer hover:scale-[1.01]"
+                >
+                  <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
+                  <span>Lock In Feasibility via M-Pesa (KES 15,000)</span>
+                </button>
+              )}
 
               {/* Instant Download Success Banner */}
               <AnimatePresence>

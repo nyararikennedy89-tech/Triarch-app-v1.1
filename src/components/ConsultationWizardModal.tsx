@@ -24,12 +24,14 @@ interface ConsultationWizardModalProps {
   isOpen: boolean;
   onClose: () => void;
   initialService?: string;
+  onOpenMpesaWithDetails?: (details: { amount: number; description: string; phone?: string; clientName?: string }) => void;
 }
 
 export const ConsultationWizardModal: React.FC<ConsultationWizardModalProps> = ({
   isOpen,
   onClose,
-  initialService
+  initialService,
+  onOpenMpesaWithDetails
 }) => {
   const [step, setStep] = useState<number>(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -140,6 +142,35 @@ export const ConsultationWizardModal: React.FC<ConsultationWizardModalProps> = (
                 <div>• <strong>Budget:</strong> {formData.budgetRange}</div>
                 <div>• <strong>Services:</strong> {formData.servicesRequired.join(', ')}</div>
                 <div>• <strong>Land Status:</strong> {formData.ownsLand}</div>
+              </div>
+
+              {/* M-Pesa Priority Retainer Callout */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-emerald-50/80 dark:bg-emerald-950/25 border border-emerald-200 dark:border-emerald-800/40 text-left flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#00843D] dark:text-emerald-400 flex items-center gap-1.5 font-mono">
+                    <span className="w-2 h-2 rounded-full bg-[#00843D] animate-pulse" />
+                    Priority Scheduling via M-Pesa
+                  </span>
+                  <p className="text-xs text-[#1C1C1C] dark:text-gray-200 mt-1 font-medium leading-snug">
+                    Secure an immediate priority slot or on-site land reconnaissance with a KES 5,000 retainer deposit.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClose();
+                    onOpenMpesaWithDetails?.({
+                      amount: 5000,
+                      description: `Consultation Retainer: ${formData.projectType}`,
+                      phone: formData.phone,
+                      clientName: formData.fullName
+                    });
+                  }}
+                  className="w-full sm:w-auto shrink-0 bg-[#00843D] hover:bg-[#007033] text-white px-5 py-3 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md cursor-pointer transition-transform hover:scale-105"
+                >
+                  <span>Pay KES 5,000 via M-Pesa</span>
+                  <Sparkles className="w-3.5 h-3.5" />
+                </button>
               </div>
 
               <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">

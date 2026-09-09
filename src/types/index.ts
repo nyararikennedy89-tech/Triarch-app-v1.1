@@ -161,3 +161,16 @@ export interface ConsultationFormData {
   projectDetails: string;
   preferredTimeline: string;
 }
+
+export interface MpesaPaymentState {
+  checkoutRequestId?: string;
+  merchantRequestId?: string;
+  phoneNumber: string;
+  amount: number;
+  accountReference: string;
+  status: 'IDLE' | 'INITIATING' | 'WAITING_PIN' | 'COMPLETED' | 'CANCELLED' | 'FAILED';
+  receiptNumber?: string;
+  transactionDate?: string;
+  resultDesc?: string;
+  isSimulated?: boolean;
+}
