@@ -8,7 +8,7 @@ export const PROJECTS_DATA: Project[] = [
     category: 'Commercial',
     location: 'Nyeri-Nanyuki Highway (A2 Corridor), Kenya',
     area: '18,500 sq. m',
-    year: '2025',
+    year: '2026',
     servicesProvided: [
       'Architecture',
       'Structural & Canopy Engineering',
