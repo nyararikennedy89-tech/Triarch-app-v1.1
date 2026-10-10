@@ -68,11 +68,12 @@ export const ProjectsSection: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
               onClick={() => {
                 setInitialModalTab('overview');
                 setActiveProject(project);
               }}
-              className="group relative bg-white dark:bg-[#1C1D1C] rounded-2xl overflow-hidden border border-[#ECECEC] dark:border-white/10 shadow-xs hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-between"
+              className="group relative bg-white dark:bg-[#1C1D1C] rounded-2xl overflow-hidden border border-[#ECECEC] dark:border-white/10 shadow-xs hover:shadow-2xl hover:border-[#B76E4A]/30 dark:hover:border-white/20 transition-all duration-300 cursor-pointer flex flex-col justify-between"
             >
               {/* Card Image Banner */}
               <div className="relative h-72 sm:h-80 w-full overflow-hidden bg-stone-900">
@@ -85,7 +86,7 @@ export const ProjectsSection: React.FC = () => {
                       target.src = project.galleryImages[0];
                     }
                   }}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-500 ease-out transform-gpu will-change-transform"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
