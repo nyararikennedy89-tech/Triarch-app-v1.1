@@ -90,7 +90,7 @@ export const ConsultationWizardModal: React.FC<ConsultationWizardModalProps> = (
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-2 xs:p-3 sm:p-6 overflow-y-auto">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -105,14 +105,15 @@ export const ConsultationWizardModal: React.FC<ConsultationWizardModalProps> = (
           initial={{ opacity: 0, scale: 0.95, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 30 }}
-          className="relative w-full max-w-2xl bg-white dark:bg-[#1A1B1A] rounded-3xl p-6 sm:p-10 z-10 border border-[#ECECEC] dark:border-white/10 shadow-2xl overflow-hidden max-h-[92vh] overflow-y-auto flex flex-col justify-between"
+          className="relative w-full max-w-2xl bg-white dark:bg-[#1A1B1A] rounded-2xl sm:rounded-3xl p-4 xs:p-6 sm:p-10 z-10 border border-[#ECECEC] dark:border-white/10 shadow-2xl overflow-hidden max-h-[96vh] sm:max-h-[92vh] overflow-y-auto flex flex-col justify-between"
         >
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 p-2 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-200 hover:bg-gray-200 cursor-pointer"
+            className="absolute top-4 xs:top-6 right-4 xs:right-6 p-2 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-200 hover:bg-gray-200 cursor-pointer"
+            title="Close"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 xs:w-5 xs:h-5" />
           </button>
 
           {isSubmitted ? (
@@ -213,13 +214,13 @@ export const ConsultationWizardModal: React.FC<ConsultationWizardModalProps> = (
                     <Building className="w-5 h-5 text-[#4E6B5A]" />
                     <span>What type of project are you planning?</span>
                   </h2>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-2.5 sm:gap-3">
                     {projectTypes.map((type) => (
                       <button
                         key={type}
                         type="button"
                         onClick={() => setFormData({ ...formData, projectType: type })}
-                        className={`p-4 rounded-2xl text-left border text-xs font-bold transition-all ${
+                        className={`p-3.5 sm:p-4 rounded-2xl text-left border text-xs font-bold transition-all cursor-pointer ${
                           formData.projectType === type
                             ? 'bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C] border-transparent shadow-lg'
                             : 'bg-[#F8F7F4] dark:bg-[#121312] text-[#555555] dark:text-gray-300 border-gray-200 dark:border-white/10 hover:border-[#4E6B5A]'
@@ -311,7 +312,7 @@ export const ConsultationWizardModal: React.FC<ConsultationWizardModalProps> = (
                     <CheckSquare className="w-5 h-5 text-[#4E6B5A]" />
                     <span>Select required Triarch disciplines:</span>
                   </h2>
-                  <div className="grid grid-cols-2 gap-2.5">
+                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-2.5">
                     {allServices.map((srv) => {
                       const isSelected = formData.servicesRequired.includes(srv);
                       return (

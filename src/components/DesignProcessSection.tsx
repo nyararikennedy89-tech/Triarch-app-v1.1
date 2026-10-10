@@ -45,46 +45,46 @@ export const DesignProcessSection: React.FC = () => {
       {/* Background Architectural Grid Overlay */}
       <div className="absolute inset-0 bg-grid-dots opacity-30 pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
+      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-3 xs:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-12 sm:mb-16">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="h-[1px] w-12 bg-[#B76E4A]" />
-              <span className="text-[#B76E4A] text-[11px] uppercase tracking-[0.3em] font-bold">
+              <div className="h-[1px] w-8 sm:w-12 bg-[#B76E4A]" />
+              <span className="text-[#B76E4A] text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] font-bold">
                 Structured Workflow
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white tracking-tight leading-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white tracking-tight leading-tight">
               Interactive Design & Construction Process.
             </h2>
           </div>
-          <p className="text-base text-[#555555] dark:text-gray-300 max-w-md">
+          <p className="text-sm sm:text-base text-[#555555] dark:text-gray-300 max-w-md">
             Our 7-stage methodology eliminates ambiguity, ensuring full transparency on milestones, client inputs, statutory permits, and site execution.
           </p>
         </div>
 
-        {/* Horizontal Process Steps Bar */}
-        <div className="relative mb-12">
+        {/* Horizontal Process Steps Bar with Mobile Horizontal Scroll */}
+        <div className="relative mb-8 sm:mb-12">
           {/* Connecting Line */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-[#ECECEC] dark:bg-white/10 -translate-y-1/2 z-0" />
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 relative z-10">
+          <div className="flex overflow-x-auto sm:grid sm:grid-cols-4 lg:grid-cols-7 gap-2.5 sm:gap-3 relative z-10 pb-3 sm:pb-0 scrollbar-none -mx-3 px-3 xs:-mx-4 xs:px-4 sm:mx-0 sm:px-0 overscroll-contain">
             {PROCESS_STAGES.map((stage) => {
               const isActive = activeStep === stage.step;
               return (
                 <button
                   key={stage.step}
                   onClick={() => setActiveStep(stage.step)}
-                  className={`p-4 rounded-2xl flex flex-col items-center text-center transition-all duration-300 border ${
+                  className={`w-32 xs:w-36 sm:w-auto shrink-0 p-3 sm:p-4 rounded-2xl flex flex-col items-center text-center transition-all duration-300 border cursor-pointer ${
                     isActive
-                      ? 'bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C] border-transparent shadow-xl scale-105'
+                      ? 'bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C] border-transparent shadow-xl scale-102 sm:scale-105'
                       : 'bg-white dark:bg-[#1C1D1C] text-[#555555] dark:text-gray-300 border-[#ECECEC] dark:border-white/10 hover:border-[#4E6B5A]'
                   }`}
                 >
                   <div
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center mb-2 font-bold text-xs ${
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center mb-2 font-bold text-xs ${
                       isActive
                         ? 'bg-[#4E6B5A] text-white dark:bg-[#B76E4A]'
                         : 'bg-gray-100 dark:bg-white/10 text-[#1C1C1C] dark:text-white'
@@ -92,10 +92,10 @@ export const DesignProcessSection: React.FC = () => {
                   >
                     0{stage.step}
                   </div>
-                  <span className="text-xs font-heading font-bold line-clamp-1">
+                  <span className="text-[11px] sm:text-xs font-heading font-bold line-clamp-1">
                     {stage.title}
                   </span>
-                  <span className="text-[10px] opacity-70 mt-0.5">
+                  <span className="text-[9px] sm:text-[10px] opacity-70 mt-0.5">
                     {stage.duration}
                   </span>
                 </button>
@@ -112,7 +112,7 @@ export const DesignProcessSection: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-white dark:bg-[#1C1D1C] rounded-3xl p-8 md:p-12 border border-[#ECECEC] dark:border-white/10 shadow-xl"
+            className="bg-white dark:bg-[#1C1D1C] rounded-2xl sm:rounded-3xl p-5 xs:p-8 md:p-12 border border-[#ECECEC] dark:border-white/10 shadow-xl"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               {/* Left Column: Stage Badge & Summary */}

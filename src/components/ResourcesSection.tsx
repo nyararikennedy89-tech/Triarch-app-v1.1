@@ -8,29 +8,29 @@ export const ResourcesSection: React.FC = () => {
   const [selectedArticle, setSelectedArticle] = useState<BlogPost | null>(null);
 
   return (
-    <section id="resources" className="py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10">
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
+    <section id="resources" className="py-16 sm:py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10">
+      <div className="w-full max-w-[1920px] mx-auto px-3 xs:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-12 sm:mb-16">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="h-[1px] w-12 bg-[#B76E4A]" />
-              <span className="text-[#B76E4A] text-[11px] uppercase tracking-[0.3em] font-bold">
+              <div className="h-[1px] w-8 sm:w-12 bg-[#B76E4A]" />
+              <span className="text-[#B76E4A] text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] font-bold">
                 Knowledge Hub & Insights
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white tracking-tight leading-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white tracking-tight leading-tight">
               Knowledge Hub for Developers & Homeowners.
             </h2>
           </div>
-          <p className="text-base text-[#555555] dark:text-gray-300 max-w-md">
+          <p className="text-sm sm:text-base text-[#555555] dark:text-gray-300 max-w-md">
             Expert insights on construction budgets, statutory planning approvals, structural performance, and design aesthetics.
           </p>
         </div>
 
         {/* Blog Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
           {BLOG_POSTS.map((post) => (
             <div
               key={post.id}
@@ -85,7 +85,7 @@ export const ResourcesSection: React.FC = () => {
       {/* Article Reader Modal */}
       <AnimatePresence>
         {selectedArticle && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-2 xs:p-4 sm:p-6 overflow-y-auto">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -98,22 +98,23 @@ export const ResourcesSection: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-3xl bg-white dark:bg-[#1A1B1A] rounded-3xl p-6 sm:p-10 z-10 border border-[#ECECEC] dark:border-white/10 shadow-2xl max-h-[90vh] overflow-y-auto"
+              className="relative w-full max-w-3xl bg-white dark:bg-[#1A1B1A] rounded-2xl sm:rounded-3xl p-4 xs:p-6 sm:p-10 z-10 border border-[#ECECEC] dark:border-white/10 shadow-2xl max-h-[94vh] sm:max-h-[90vh] overflow-y-auto"
             >
               <button
                 onClick={() => setSelectedArticle(null)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-200 hover:bg-gray-200"
+                className="absolute top-4 xs:top-6 right-4 xs:right-6 p-2 rounded-full bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-200 hover:bg-gray-200 cursor-pointer"
+                title="Close"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4 xs:w-5 xs:h-5" />
               </button>
 
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#B76E4A] mb-3">
+              <div className="flex items-center gap-2 text-[10px] xs:text-xs font-bold uppercase tracking-widest text-[#B76E4A] mb-3">
                 <span>{selectedArticle.category}</span>
                 <span>•</span>
                 <span>{selectedArticle.readTime}</span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl font-heading font-extrabold text-[#1C1C1C] dark:text-white mb-6 leading-tight">
+              <h1 className="text-xl xs:text-2xl sm:text-3xl font-heading font-extrabold text-[#1C1C1C] dark:text-white mb-4 sm:mb-6 leading-tight">
                 {selectedArticle.title}
               </h1>
 

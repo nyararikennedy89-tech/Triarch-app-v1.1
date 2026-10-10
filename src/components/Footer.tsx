@@ -23,11 +23,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
   };
 
   return (
-    <footer id="contact" className="bg-[#121312] text-white pt-20 pb-12 border-t border-white/10">
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
+    <footer id="contact" className="bg-[#121312] text-white pt-16 sm:pt-20 pb-12 border-t border-white/10">
+      <div className="w-full max-w-[1920px] mx-auto px-3 xs:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-12 pb-12 sm:pb-16 border-b border-white/10">
           
           {/* Brand Column */}
           <div className="lg:col-span-4 space-y-6">
@@ -184,13 +184,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
         </div>
 
         {/* Bottom Credits & Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-gray-500">
-          <div>
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] xs:text-[11px] text-gray-500 text-center sm:text-left">
+          <div className="max-w-xl">
             © {new Date().getFullYear()} {siteConfig.brand.legalName} All rights reserved. {siteConfig.brand.practiceRegistration}
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6">
             {siteConfig.navigation.legalLinks.map((link) => (
-              <a key={link.name} href={link.href} className="hover:text-gray-300">
+              <a key={link.name} href={link.href} className="hover:text-gray-300 transition-colors">
                 {link.name}
               </a>
             ))}

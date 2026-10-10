@@ -75,18 +75,18 @@ export const KenyaConstructionHub: React.FC = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-[#4E6B5A]/5 dark:bg-[#4E6B5A]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#B76E4A]/5 dark:bg-[#B76E4A]/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 relative z-10">
+      <div className="w-full max-w-[1920px] mx-auto px-3 xs:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-10 sm:mb-12">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <span className="px-3 py-1 rounded-full bg-[#4E6B5A]/10 dark:bg-[#4E6B5A]/20 border border-[#4E6B5A]/30 text-[#4E6B5A] dark:text-[#A3B899] text-[11px] uppercase tracking-[0.25em] font-bold flex items-center gap-1.5">
+              <span className="px-3 py-1 rounded-full bg-[#4E6B5A]/10 dark:bg-[#4E6B5A]/20 border border-[#4E6B5A]/30 text-[#4E6B5A] dark:text-[#A3B899] text-[10px] sm:text-[11px] uppercase tracking-[0.25em] font-bold flex items-center gap-1.5">
                 <span>🇰🇪</span>
                 Kenyan Built Environment & Advisory Hub
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-heading font-extrabold tracking-tight leading-tight text-[#1C1C1C] dark:text-white">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold tracking-tight leading-tight text-[#1C1C1C] dark:text-white">
               Built for Kenya's Soil, Laws, <br className="hidden sm:inline" />
               <span className="text-[#B76E4A]">& Overseas Investors.</span>
             </h2>
@@ -98,7 +98,7 @@ export const KenyaConstructionHub: React.FC = () => {
         </div>
 
         {/* Feature Tab Navigation Bar */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none border-b border-[#ECECEC] dark:border-white/10">
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none border-b border-[#ECECEC] dark:border-white/10 -mx-3 px-3 xs:-mx-4 xs:px-4 sm:mx-0 sm:px-0 overscroll-contain">
           {[
             { id: 'approvals', label: 'County Approvals & Permits', icon: FileCheck, count: '5 Counties' },
             { id: 'diaspora', label: 'Diaspora Escrow & Remote Portal', icon: Globe2, highlight: 'Remote Investor' },
@@ -111,13 +111,13 @@ export const KenyaConstructionHub: React.FC = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
-                className={`px-5 py-3 rounded-2xl text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-2.5 cursor-pointer border ${
+                className={`px-4 xs:px-5 py-2.5 sm:py-3 rounded-2xl text-[11px] xs:text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap shrink-0 flex items-center gap-2 cursor-pointer border ${
                   isActive
                     ? 'bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C] border-[#1C1C1C] dark:border-white shadow-lg'
                     : 'bg-white dark:bg-[#1A1B1A] text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 border-[#ECECEC] dark:border-white/10'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? (activeTab === 'diaspora' ? 'text-[#B76E4A]' : 'text-emerald-400') : 'text-gray-400'}`} />
+                <Icon className={`w-4 h-4 shrink-0 ${isActive ? (activeTab === 'diaspora' ? 'text-[#B76E4A]' : 'text-emerald-400') : 'text-gray-400'}`} />
                 <span>{tab.label}</span>
                 {tab.count && (
                   <span className={`text-[10px] px-2 py-0.5 rounded-full ${isActive ? 'bg-white/20 dark:bg-black/20 text-white dark:text-black font-normal' : 'bg-gray-100 dark:bg-white/10 text-gray-500'}`}>

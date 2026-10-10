@@ -110,36 +110,36 @@ export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({
   };
 
   return (
-    <section id="estimator" className="py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10">
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
+    <section id="estimator" className="py-16 sm:py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10">
+      <div className="w-full max-w-[1920px] mx-auto px-3 xs:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-12 sm:mb-16">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="h-[1px] w-12 bg-[#B76E4A]" />
-              <span className="text-[#B76E4A] text-[11px] uppercase tracking-[0.3em] font-bold">
+              <div className="h-[1px] w-8 sm:w-12 bg-[#B76E4A]" />
+              <span className="text-[#B76E4A] text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] font-bold">
                 Interactive Budget Planning
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white tracking-tight leading-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white tracking-tight leading-tight">
               Construction Cost & Professional Fee Estimator.
             </h2>
           </div>
 
-          <div className="flex items-center gap-2 bg-white dark:bg-[#1C1D1C] p-1.5 rounded-full border border-[#ECECEC] dark:border-white/10">
+          <div className="flex items-center gap-2 bg-white dark:bg-[#1C1D1C] p-1.5 rounded-full border border-[#ECECEC] dark:border-white/10 self-start md:self-auto">
             <button
               onClick={() => setCurrency('KES')}
-              className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase transition-colors ${
-                currency === 'KES' ? 'bg-[#4E6B5A] text-white' : 'text-gray-500'
+              className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-bold uppercase transition-colors cursor-pointer ${
+                currency === 'KES' ? 'bg-[#4E6B5A] text-white shadow-xs' : 'text-gray-500 hover:text-black dark:hover:text-white'
               }`}
             >
               KES
             </button>
             <button
               onClick={() => setCurrency('USD')}
-              className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase transition-colors ${
-                currency === 'USD' ? 'bg-[#4E6B5A] text-white' : 'text-gray-500'
+              className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-bold uppercase transition-colors cursor-pointer ${
+                currency === 'USD' ? 'bg-[#4E6B5A] text-white shadow-xs' : 'text-gray-500 hover:text-black dark:hover:text-white'
               }`}
             >
               USD ($)
@@ -148,17 +148,17 @@ export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({
         </div>
 
         {/* Calculator Widget Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           
           {/* Inputs Column */}
-          <div className="lg:col-span-7 bg-white dark:bg-[#1C1D1C] rounded-3xl p-6 sm:p-8 border border-[#ECECEC] dark:border-white/10 shadow-lg space-y-6">
+          <div className="lg:col-span-7 bg-white dark:bg-[#1C1D1C] rounded-2xl sm:rounded-3xl p-4 xs:p-6 sm:p-8 border border-[#ECECEC] dark:border-white/10 shadow-lg space-y-6">
             
             {/* 1. Project Type */}
             <div>
               <label className="block text-xs font-heading font-bold uppercase tracking-wider text-[#1C1C1C] dark:text-white mb-2">
                 1. Select Project Type
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-2">
                 {[
                   { id: 'residential_villa', label: 'Luxury Villa / House' },
                   { id: 'apartment_complex', label: 'Apartment Block' },
@@ -186,7 +186,7 @@ export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({
               <label className="block text-xs font-heading font-bold uppercase tracking-wider text-[#1C1C1C] dark:text-white mb-2">
                 2. Construction Quality & Finishes Level
               </label>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 {[
                   { id: 'standard', title: 'Standard', desc: 'Quality ceramic & aluminum' },
                   { id: 'premium', title: 'Premium', desc: 'Porcelain, hardwood, quartz' },
@@ -296,20 +296,20 @@ export const CostEstimatorSection: React.FC<CostEstimatorSectionProps> = ({
           </div>
 
           {/* Live Calculation Output Card */}
-          <div className="lg:col-span-5 bg-[#1C1C1C] text-white rounded-3xl p-6 sm:p-8 shadow-2xl flex flex-col justify-between space-y-8 border border-white/10">
+          <div className="lg:col-span-5 bg-[#1C1C1C] text-white rounded-2xl sm:rounded-3xl p-5 xs:p-6 sm:p-8 shadow-2xl flex flex-col justify-between space-y-6 sm:space-y-8 border border-white/10">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-200 text-xs font-bold uppercase tracking-widest mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-amber-200 text-xs font-bold uppercase tracking-widest mb-4 sm:mb-6">
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>Estimated Budget Output</span>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-5 sm:space-y-6">
                 <div>
                   <span className="text-xs text-gray-400 uppercase tracking-wider block">Estimated Construction Cost</span>
-                  <div className="text-3xl sm:text-4xl font-heading font-extrabold text-white mt-1">
+                  <div className="text-2xl xs:text-3xl sm:text-4xl font-heading font-extrabold text-white mt-1 break-words leading-tight">
                     {formatMoney(totalAreaCost * 0.95)} - {formatMoney(totalAreaCost * 1.05)}
                   </div>
-                  <span className="text-[11px] text-gray-400 mt-1 block">
+                  <span className="text-[10px] xs:text-[11px] text-gray-400 mt-1 block">
                     Based on {inputs.builtAreaSqM} m² @ {inputs.qualityLevel} specification.
                   </span>
                 </div>

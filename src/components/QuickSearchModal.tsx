@@ -62,7 +62,7 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4">
+      <div className="fixed inset-0 z-50 flex items-start justify-center pt-8 xs:pt-12 sm:pt-20 px-2.5 sm:px-4 overflow-y-auto">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -75,7 +75,7 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
           initial={{ opacity: 0, scale: 0.95, y: -20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: -20 }}
-          className="relative w-full max-w-2xl bg-white dark:bg-[#1A1B1A] rounded-2xl z-10 border border-[#ECECEC] dark:border-white/10 shadow-2xl overflow-hidden"
+          className="relative w-full max-w-2xl bg-white dark:bg-[#1A1B1A] rounded-2xl z-10 border border-[#ECECEC] dark:border-white/10 shadow-2xl overflow-hidden max-h-[88dvh] flex flex-col"
         >
           {/* Search Input Bar */}
           <div className="p-4 border-b border-[#ECECEC] dark:border-white/10 flex items-center gap-3">

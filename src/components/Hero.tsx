@@ -54,7 +54,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
       </div>
 
       {/* Main Hero Content */}
-      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-16 sm:pt-24 md:pt-32 flex-1 flex flex-col justify-center">
+      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-3 xs:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 pt-16 sm:pt-24 md:pt-32 flex-1 flex flex-col justify-center">
         {/* Floating Geometry for "Architectural Render" feel */}
         <div className="hidden xl:block absolute top-24 right-16 w-72 h-[420px] border-[0.5px] border-white/20 transform skew-x-12 pointer-events-none" />
         <div className="hidden xl:block absolute top-40 right-36 w-56 h-80 border-[0.5px] border-[#B76E4A]/30 transform -skew-x-6 pointer-events-none" />
@@ -66,30 +66,30 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
           className="max-w-5xl 2xl:max-w-6xl"
         >
           {/* Eyebrow badge with rust line */}
-          <div className="flex items-center space-x-3 mb-6">
-            <div className="h-[1px] w-12 bg-[#B76E4A]" />
-            <span className="text-[#B76E4A] text-[11px] uppercase tracking-[0.3em] font-bold">
+          <div className="flex items-center space-x-3 mb-4 sm:mb-6">
+            <div className="h-[1px] w-8 sm:w-12 bg-[#B76E4A]" />
+            <span className="text-[#B76E4A] text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] font-bold">
               {siteConfig.hero.eyebrow}
             </span>
           </div>
 
-          {/* Headline with Artistic Flair Serif Accent */}
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-[108px] font-light text-white tracking-tighter leading-[0.9] mb-8">
+          {/* Headline with Artistic Flair Serif Accent - Fully Responsive */}
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-[100px] font-light text-white tracking-tight sm:tracking-tighter leading-[1.08] sm:leading-[0.95] mb-6 sm:mb-8 break-words">
             {siteConfig.hero.headingLine1}<br />
             <span className="italic font-serif text-[#4E6B5A] dark:text-[#769b82] font-light">{siteConfig.hero.headingAccent}</span> {siteConfig.hero.headingLine2}
           </h1>
 
           {/* Subheading */}
-          <p className="text-base sm:text-lg md:text-xl text-gray-200/90 font-light leading-relaxed max-w-2xl mb-10">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-200/90 font-light leading-relaxed max-w-2xl mb-8 sm:mb-10">
             {siteConfig.hero.description}
           </p>
 
           {/* Action CTAs */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-5">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5">
             <button
               onClick={onOpenConsultation}
               id="hero-start-project-btn"
-              className="bg-[#1C1C1C] hover:bg-[#4E6B5A] text-white px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-bold transition-all duration-300 shadow-xl border border-white/20 flex items-center justify-center gap-3 group active:scale-98 cursor-pointer"
+              className="w-full sm:w-auto min-h-[48px] bg-[#1C1C1C] hover:bg-[#4E6B5A] text-white px-6 sm:px-8 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-bold transition-all duration-300 shadow-xl border border-white/20 flex items-center justify-center gap-3 group active:scale-98 cursor-pointer"
             >
               <span>{siteConfig.hero.primaryCtaText}</span>
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -98,7 +98,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
             <button
               onClick={handleExploreClick}
               id="hero-explore-work-btn"
-              className="bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-bold transition-all duration-300 flex items-center justify-center gap-3 active:scale-98 cursor-pointer"
+              className="w-full sm:w-auto min-h-[48px] bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md px-6 sm:px-8 py-3.5 sm:py-4 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] font-bold transition-all duration-300 flex items-center justify-center gap-3 active:scale-98 cursor-pointer"
             >
               <span>{siteConfig.hero.secondaryCtaText}</span>
               <ArrowDown className="w-4 h-4" />
@@ -115,10 +115,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
       </div>
 
       {/* Bottom Floating Stats & Slide Switcher */}
-      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 mt-12">
-        <div className="pt-6 border-t border-white/15 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-3 xs:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 mt-8 sm:mt-12">
+        <div className="pt-6 border-t border-white/15 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           {/* Slide Indicators */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4 shrink-0 flex-wrap">
             <span className="text-xs font-mono text-gray-400">
               0{currentSlide + 1} / 0{slides.length}
             </span>
@@ -127,7 +127,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
                 <button
                   key={idx}
                   onClick={() => setCurrentSlide(idx)}
-                  className={`h-1 rounded-full transition-all duration-500 cursor-pointer ${
+                  className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
                     currentSlide === idx ? 'w-8 bg-[#B76E4A]' : 'w-2 bg-white/30 hover:bg-white/60'
                   }`}
                   title={slide.title}
@@ -135,23 +135,23 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation }) => {
               ))}
             </div>
             {slides[currentSlide] && (
-              <span className="text-xs text-white/80 font-medium hidden sm:inline ml-2">
+              <span className="text-xs text-white/80 font-medium hidden sm:inline ml-2 truncate max-w-xs md:max-w-md">
                 {slides[currentSlide].title} ({slides[currentSlide].location})
               </span>
             )}
           </div>
 
           {/* Quick Stats Banner */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10 text-white">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 lg:gap-8 text-white w-full lg:w-auto">
             {siteConfig.hero.stats.map((stat, idx) => {
               const Icon = STAT_ICON_MAP[stat.iconName] || Building2;
               const accentColor = idx % 2 === 0 ? 'text-[#B76E4A]' : 'text-[#4E6B5A]';
               return (
-                <div key={idx} className="flex items-center gap-3">
-                  <Icon className={`w-5 h-5 ${accentColor} shrink-0`} />
-                  <div>
-                    <div className="text-lg font-heading font-bold">{stat.value}</div>
-                    <div className="text-[11px] text-gray-300 uppercase tracking-wider">{stat.label}</div>
+                <div key={idx} className="flex items-center gap-2.5 sm:gap-3">
+                  <Icon className={`w-4 h-4 sm:w-5 sm:h-5 ${accentColor} shrink-0`} />
+                  <div className="min-w-0">
+                    <div className="text-base sm:text-lg font-heading font-bold truncate">{stat.value}</div>
+                    <div className="text-[10px] sm:text-[11px] text-gray-300 uppercase tracking-wider truncate">{stat.label}</div>
                   </div>
                 </div>
               );

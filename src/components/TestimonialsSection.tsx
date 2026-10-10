@@ -8,29 +8,29 @@ export const TestimonialsSection: React.FC = () => {
   const [activeVideo, setActiveVideo] = useState<Testimonial | null>(null);
 
   return (
-    <section className="py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10">
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
+    <section className="py-16 sm:py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10">
+      <div className="w-full max-w-[1920px] mx-auto px-3 xs:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-12 sm:mb-16">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="h-[1px] w-12 bg-[#B76E4A]" />
-              <span className="text-[#B76E4A] text-[11px] uppercase tracking-[0.3em] font-bold">
+              <div className="h-[1px] w-8 sm:w-12 bg-[#B76E4A]" />
+              <span className="text-[#B76E4A] text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] font-bold">
                 Client Endorsements
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white tracking-tight leading-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white tracking-tight leading-tight">
               Trusted by Discerning Homeowners & Institutional Developers.
             </h2>
           </div>
-          <p className="text-base text-[#555555] dark:text-gray-300 max-w-md">
+          <p className="text-sm sm:text-base text-[#555555] dark:text-gray-300 max-w-md">
             Hear directly from our clients about their experience building with Triarch Ventures.
           </p>
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
           {TESTIMONIALS_DATA.map((t) => (
             <div
               key={t.id}

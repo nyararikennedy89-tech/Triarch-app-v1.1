@@ -274,7 +274,7 @@ export const MpesaPaymentModal: React.FC<MpesaPaymentModalProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-2 xs:p-3 sm:p-6 overflow-y-auto">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -289,22 +289,22 @@ export const MpesaPaymentModal: React.FC<MpesaPaymentModalProps> = ({
           initial={{ opacity: 0, scale: 0.95, y: 25 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 25 }}
-          className="relative w-full max-w-xl bg-white dark:bg-[#1A1B1A] rounded-3xl z-10 border border-[#ECECEC] dark:border-white/10 shadow-2xl overflow-hidden max-h-[94vh] flex flex-col justify-between"
+          className="relative w-full max-w-xl bg-white dark:bg-[#1A1B1A] rounded-2xl sm:rounded-3xl z-10 border border-[#ECECEC] dark:border-white/10 shadow-2xl overflow-hidden max-h-[96vh] sm:max-h-[94vh] flex flex-col justify-between"
         >
           {/* Top Bar with Safaricom Brand Identity */}
-          <div className="bg-[#00843D] text-white px-6 py-4 flex items-center justify-between shadow-md">
-            <div className="flex items-center gap-3">
+          <div className="bg-[#00843D] text-white px-4 xs:px-6 py-3.5 sm:py-4 flex items-center justify-between shadow-md">
+            <div className="flex items-center gap-2.5 xs:gap-3 min-w-0">
               {/* Safaricom M-Pesa Emblem */}
-              <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#00843D] font-extrabold text-sm shadow-inner tracking-tighter">
+              <div className="w-8 h-8 xs:w-9 xs:h-9 rounded-full bg-white flex items-center justify-center text-[#00843D] font-extrabold text-xs xs:text-sm shadow-inner tracking-tighter shrink-0">
                 M
               </div>
-              <div>
-                <div className="text-xs font-bold uppercase tracking-widest text-emerald-100 flex items-center gap-1.5">
+              <div className="min-w-0">
+                <div className="text-[10px] xs:text-xs font-bold uppercase tracking-widest text-emerald-100 flex items-center gap-1.5 truncate">
                   <span>Lipa Na M-PESA</span>
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
-                  <span className="text-[10px] bg-white/20 px-2 py-0.2 rounded-full">Online STK Push</span>
+                  <span className="text-[9px] xs:text-[10px] bg-white/20 px-1.5 xs:px-2 py-0.2 rounded-full">Online STK Push</span>
                 </div>
-                <h3 className="text-sm sm:text-base font-heading font-extrabold tracking-tight text-white leading-tight">
+                <h3 className="text-xs xs:text-sm sm:text-base font-heading font-extrabold tracking-tight text-white leading-tight truncate">
                   Daraja Payment Gateway
                 </h3>
               </div>
@@ -313,14 +313,14 @@ export const MpesaPaymentModal: React.FC<MpesaPaymentModalProps> = ({
             <button
               onClick={onClose}
               disabled={status === 'INITIATING'}
-              className="p-1.5 rounded-full bg-black/20 hover:bg-black/35 text-white transition-all cursor-pointer"
+              className="p-1.5 rounded-full bg-black/20 hover:bg-black/35 text-white transition-all cursor-pointer shrink-0 ml-2"
               title="Close"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4 xs:w-5 xs:h-5" />
             </button>
           </div>
 
-          <div className="p-6 sm:p-8 overflow-y-auto space-y-6 text-left">
+          <div className="p-4 xs:p-6 sm:p-8 overflow-y-auto space-y-5 sm:space-y-6 text-left">
             {/* STATE 1: IDLE / FORM INPUT */}
             {(status === 'IDLE' || status === 'INITIATING') && (
               <form onSubmit={handleInitiateSTK} className="space-y-5">

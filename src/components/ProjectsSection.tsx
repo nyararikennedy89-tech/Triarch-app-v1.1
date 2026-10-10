@@ -17,38 +17,38 @@ export const ProjectsSection: React.FC = () => {
     : PROJECTS_DATA.filter((p) => p.category === selectedCategory);
 
   return (
-    <section id="projects" data-section="gallery" className="relative py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10">
+    <section id="projects" data-section="gallery" className="relative py-16 sm:py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10">
       {/* Anchor for direct #gallery navigation */}
       <div id="gallery" className="absolute -top-24 left-0 w-full pointer-events-none" />
 
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
+      <div className="w-full max-w-[1920px] mx-auto px-3 xs:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-10 sm:mb-12">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="h-[1px] w-12 bg-[#B76E4A]" />
-              <span className="text-[#B76E4A] text-[11px] uppercase tracking-[0.3em] font-bold">
+              <div className="h-[1px] w-8 sm:w-12 bg-[#B76E4A]" />
+              <span className="text-[#B76E4A] text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] font-bold">
                 Portfolio & 3D Render Gallery
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white tracking-tight leading-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white tracking-tight leading-tight">
               Featured Built Legacy Projects.
             </h2>
           </div>
-          <p className="text-base text-[#555555] dark:text-gray-300 max-w-md">
+          <p className="text-sm sm:text-base text-[#555555] dark:text-gray-300 max-w-md">
             Explore our multidisciplinary portfolio across East Africa and internationally. Each project features swipeable 3D render galleries, construction progress milestones, and detailed material specifications.
           </p>
         </div>
 
         {/* Category Filter Controls */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none">
-          <Filter className="w-4 h-4 text-gray-400 shrink-0 mr-2" />
+        <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-8 sm:mb-12 scrollbar-none -mx-3 px-3 xs:-mx-4 xs:px-4 sm:mx-0 sm:px-0 overscroll-contain">
+          <Filter className="w-4 h-4 text-gray-400 shrink-0 mr-1" />
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 whitespace-nowrap cursor-pointer ${
+              className={`px-3.5 xs:px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[10px] xs:text-[11px] sm:text-xs font-semibold uppercase tracking-wider transition-all duration-300 whitespace-nowrap cursor-pointer min-h-[38px] ${
                 selectedCategory === cat
                   ? 'bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C] shadow-md'
                   : 'bg-white dark:bg-[#1C1D1C] text-[#555555] dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-white/10 border border-[#ECECEC] dark:border-white/10'
@@ -60,7 +60,7 @@ export const ProjectsSection: React.FC = () => {
         </div>
 
         {/* Project Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 sm:gap-6 lg:gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.id}

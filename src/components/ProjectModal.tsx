@@ -232,7 +232,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-0 xs:p-2 sm:p-4 md:p-6 overflow-hidden">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -249,19 +249,19 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 30 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="relative w-full max-w-7xl 2xl:max-w-[1600px] bg-[#F8F7F4] dark:bg-[#141514] rounded-3xl z-10 border border-[#ECECEC] dark:border-white/10 shadow-2xl overflow-y-auto max-h-[92vh] sm:max-h-[95vh] flex flex-col scroll-smooth overscroll-contain focus:outline-none"
+          className="relative w-full max-w-7xl 2xl:max-w-[1600px] bg-[#F8F7F4] dark:bg-[#141514] rounded-none xs:rounded-2xl sm:rounded-3xl z-10 border-0 xs:border border-[#ECECEC] dark:border-white/10 shadow-2xl overflow-y-auto max-h-[100dvh] xs:max-h-[94vh] sm:max-h-[95vh] flex flex-col scroll-smooth overscroll-contain focus:outline-none"
         >
           {/* Close Floating Button on Hero */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 z-20 p-2.5 rounded-full bg-black/60 hover:bg-black/80 text-white backdrop-blur-md transition-all shadow-xl cursor-pointer hover:scale-105 active:scale-95"
+            className="absolute top-4 xs:top-6 right-4 xs:right-6 z-20 p-2 sm:p-2.5 rounded-full bg-black/60 hover:bg-black/80 text-white backdrop-blur-md transition-all shadow-xl cursor-pointer hover:scale-105 active:scale-95"
             title="Close Case Study (Esc)"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
 
           {/* Modal Header Hero Image Banner */}
-          <div className="relative h-[280px] sm:h-[380px] md:h-[420px] w-full shrink-0 overflow-hidden bg-[#121312]">
+          <div className="relative h-[200px] xs:h-[240px] sm:h-[340px] md:h-[420px] w-full shrink-0 overflow-hidden bg-[#121312]">
             <img
               src={project.heroImage}
               alt={project.title}
@@ -269,25 +269,25 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#F8F7F4] dark:from-[#141514] via-black/40 to-transparent" />
 
-            <div className="absolute bottom-6 left-6 right-6 z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div className="absolute bottom-4 xs:bottom-6 left-3.5 xs:left-6 right-3.5 xs:right-6 z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-3 sm:gap-4">
               <div>
-                <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <span className="px-3 py-1 rounded-full bg-[#4E6B5A] text-white text-xs font-semibold uppercase tracking-wider">
+                <div className="flex flex-wrap items-center gap-1.5 xs:gap-2 mb-1.5 xs:mb-2">
+                  <span className="px-2.5 xs:px-3 py-0.5 xs:py-1 rounded-full bg-[#4E6B5A] text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wider">
                     {project.category}
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-medium flex items-center gap-1">
+                  <span className="px-2.5 xs:px-3 py-0.5 xs:py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] xs:text-xs font-medium flex items-center gap-1">
                     <MapPin className="w-3 h-3" />
                     {project.location}
                   </span>
-                  <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-medium">
+                  <span className="px-2.5 xs:px-3 py-0.5 xs:py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-[10px] xs:text-xs font-medium">
                     {project.area}
                   </span>
                 </div>
 
-                <h1 className="text-2xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white tracking-tight drop-shadow-md">
+                <h1 className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white tracking-tight drop-shadow-md">
                   {project.title}
                 </h1>
-                <p className="text-sm sm:text-lg text-gray-200 font-light mt-1">
+                <p className="text-xs xs:text-sm sm:text-lg text-gray-200 font-light mt-0.5 xs:mt-1 line-clamp-1 xs:line-clamp-none">
                   {project.subtitle}
                 </p>
               </div>
@@ -296,10 +296,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               <button
                 type="button"
                 onClick={scrollToGallery}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/25 hover:bg-white/40 text-white text-xs font-semibold uppercase tracking-wider backdrop-blur-md transition-all shadow-lg hover:scale-105 active:scale-95 cursor-pointer shrink-0 self-start sm:self-auto"
+                className="inline-flex items-center gap-1.5 xs:gap-2 px-3 xs:px-4 py-1.5 xs:py-2 rounded-full bg-white/25 hover:bg-white/40 text-white text-[10px] xs:text-xs font-semibold uppercase tracking-wider backdrop-blur-md transition-all shadow-lg hover:scale-105 active:scale-95 cursor-pointer shrink-0 self-start sm:self-auto"
                 title="Scroll down to 3D Render Gallery"
               >
-                <ImageIcon className="w-4 h-4 text-[#FFA87D]" />
+                <ImageIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFA87D]" />
                 <span>3D Gallery ({gallery.length}) ↓</span>
               </button>
             </div>
@@ -308,19 +308,19 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           {/* Sticky Tab Navigation Ribbon */}
           <div
             ref={tabNavRef}
-            className="sticky top-0 z-30 bg-white/95 dark:bg-[#1A1B1A]/95 border-b border-[#ECECEC] dark:border-white/10 px-4 sm:px-6 py-3 flex items-center justify-between gap-3 backdrop-blur-md shadow-xs"
+            className="sticky top-0 z-30 bg-white/95 dark:bg-[#1A1B1A]/95 border-b border-[#ECECEC] dark:border-white/10 px-3 xs:px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-3 backdrop-blur-md shadow-xs"
           >
-            <div className="flex items-center gap-2 overflow-x-auto scrollbar-none py-0.5">
+            <div className="flex items-center gap-1.5 xs:gap-2 overflow-x-auto scrollbar-none py-0.5">
               {[
                 { id: 'overview', label: 'Case Overview' },
-                { id: 'renders', label: `3D Renders & Gallery (${gallery.length})` },
+                { id: 'renders', label: `3D Renders (${gallery.length})` },
                 { id: 'progress', label: 'Construction Log' },
                 { id: 'materials', label: 'Material Specs' },
               ].map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => handleTabChange(tab.id as any)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer ${
+                  className={`px-3 xs:px-4 py-1.5 xs:py-2 rounded-full text-[10px] xs:text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5 cursor-pointer ${
                     activeTab === tab.id
                       ? 'bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C] shadow-sm'
                       : 'text-[#555555] dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10'
@@ -332,7 +332,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             </div>
 
             {/* Sticky Actions: Quick Scroll to Top & Sticky Close */}
-            <div className="flex items-center gap-2 shrink-0">
+            <div className="flex items-center gap-1.5 xs:gap-2 shrink-0">
               <button
                 type="button"
                 onClick={scrollToTop}
@@ -345,7 +345,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/20 text-[#1C1C1C] dark:text-white transition-all cursor-pointer"
+                className="p-1.5 xs:p-2 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/20 text-[#1C1C1C] dark:text-white transition-all cursor-pointer"
                 title="Close Modal (Esc)"
               >
                 <X className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
@@ -354,12 +354,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           </div>
 
           {/* Modal Tab Content */}
-          <div className="p-6 sm:p-8 flex-1">
+          <div className="p-4 xs:p-6 sm:p-8 flex-1">
             {/* TAB 1: OVERVIEW */}
             {activeTab === 'overview' && (
-              <div className="space-y-10">
+              <div className="space-y-8 sm:space-y-10">
                 {/* Stats Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 rounded-2xl bg-white dark:bg-[#1C1D1C] border border-[#ECECEC] dark:border-white/10">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 p-4 xs:p-6 rounded-2xl bg-white dark:bg-[#1C1D1C] border border-[#ECECEC] dark:border-white/10">
                   <div>
                     <span className="text-xs text-gray-400 uppercase tracking-wider block">Client</span>
                     <span className="text-sm font-heading font-bold text-[#1C1C1C] dark:text-white flex items-center gap-1.5 mt-1">
@@ -515,9 +515,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 {gallery.length > 0 ? (
                   galleryViewMode === 'carousel' ? (
                     <div className="space-y-4">
-                      {/* Featured Interactive Carousel Viewer with Expanded Viewport */}
+                      {/* Featured Interactive Carousel Viewer with Responsive Viewport */}
                       <div
-                        className="relative h-[380px] sm:h-[480px] md:h-[580px] lg:h-[640px] rounded-2xl overflow-hidden bg-black border border-[#ECECEC] dark:border-white/10 shadow-xl select-none"
+                        className="relative h-[260px] xs:h-[320px] sm:h-[440px] md:h-[540px] lg:h-[620px] rounded-2xl overflow-hidden bg-black border border-[#ECECEC] dark:border-white/10 shadow-xl select-none"
                         onTouchStart={handleTouchStart}
                         onTouchMove={handleTouchMove}
                         onTouchEnd={handleTouchEnd}

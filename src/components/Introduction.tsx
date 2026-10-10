@@ -23,28 +23,28 @@ export const Introduction: React.FC = () => {
   };
 
   return (
-    <section id="about" className="relative py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10 transition-colors overflow-hidden">
+    <section id="about" className="relative py-16 sm:py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10 transition-colors overflow-hidden">
       {/* Background Architectural Grid Overlay */}
       <div className="absolute inset-0 bg-grid-dots opacity-40 pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
+      <div className="relative z-10 w-full max-w-[1920px] mx-auto px-3 xs:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         
         {/* Section Header with Large Statement Typography */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mb-12 sm:mb-20">
           <div className="lg:col-span-5">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="h-[1px] w-12 bg-[#B76E4A]" />
-              <span className="text-[#B76E4A] text-[11px] uppercase tracking-[0.3em] font-bold">
+              <div className="h-[1px] w-8 sm:w-12 bg-[#B76E4A]" />
+              <span className="text-[#B76E4A] text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] font-bold">
                 Studio Philosophy
               </span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white leading-[1.1] tracking-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white leading-[1.12] sm:leading-[1.1] tracking-tight">
               Multidisciplinary Mastery Under One Roof.
             </h2>
           </div>
 
           <div className="lg:col-span-7 flex flex-col justify-between">
-            <blockquote className="text-2xl sm:text-3xl md:text-4xl font-heading font-medium text-[#1C1C1C] dark:text-gray-100 leading-snug tracking-tight mb-8">
+            <blockquote className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-heading font-medium text-[#1C1C1C] dark:text-gray-100 leading-snug tracking-tight mb-6 sm:mb-8">
               "We design spaces that balance{' '}
               <span className="font-serif italic text-[#4E6B5A] dark:text-[#769b82] underline decoration-[#B76E4A]/40 underline-offset-8">
                 beauty
@@ -56,25 +56,25 @@ export const Introduction: React.FC = () => {
               and buildability."
             </blockquote>
 
-            <p className="text-base sm:text-lg text-[#555555] dark:text-gray-300 font-normal leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-[#555555] dark:text-gray-300 font-normal leading-relaxed">
               Founded on the belief that world-class architecture emerges from seamless collaboration between designers, structural engineers, and project managers. Triarch Ventures eliminates friction between artistic concept and site reality.
             </p>
           </div>
         </div>
 
         {/* Interactive Before & After Render vs Reality Slider */}
-        <div className="my-16">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div className="my-10 sm:my-16">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
             <div>
-              <h3 className="text-xl font-heading font-bold text-[#1C1C1C] dark:text-white flex items-center gap-2">
-                <SlidersHorizontal className="w-5 h-5 text-[#B76E4A]" />
+              <h3 className="text-lg sm:text-xl font-heading font-bold text-[#1C1C1C] dark:text-white flex items-center gap-2">
+                <SlidersHorizontal className="w-4 h-4 sm:w-5 sm:h-5 text-[#B76E4A]" />
                 <span>Render vs. Completed Reality</span>
               </h3>
-              <p className="text-sm text-[#555555] dark:text-gray-400">
+              <p className="text-xs sm:text-sm text-[#555555] dark:text-gray-400 mt-0.5">
                 Drag the divider below to compare our 3D parametric visualization with the finished villa in Kileleshwa.
               </p>
             </div>
-            <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-wider text-[#555555] dark:text-gray-300">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-[#555555] dark:text-gray-300">
               <span className="px-2.5 py-1 rounded bg-[#1C1C1C] text-white">3D Render (Left)</span>
               <span>vs</span>
               <span className="px-2.5 py-1 rounded bg-[#4E6B5A] text-white">Built Reality (Right)</span>
@@ -82,9 +82,11 @@ export const Introduction: React.FC = () => {
           </div>
 
           <div
-            className="relative h-[380px] sm:h-[500px] md:h-[600px] lg:h-[680px] xl:h-[720px] 2xl:h-[780px] w-full rounded-2xl overflow-hidden cursor-ew-resize select-none border border-[#ECECEC] dark:border-white/10 shadow-2xl"
+            className="relative h-[220px] xs:h-[280px] sm:h-[400px] md:h-[520px] lg:h-[620px] xl:h-[700px] w-full rounded-2xl overflow-hidden cursor-ew-resize select-none border border-[#ECECEC] dark:border-white/10 shadow-2xl touch-none"
             onMouseMove={handleMouseMove}
+            onTouchStart={() => setIsDragging(true)}
             onTouchMove={handleTouchMove}
+            onTouchEnd={() => setIsDragging(false)}
             onMouseDown={() => setIsDragging(true)}
             onMouseUp={() => setIsDragging(false)}
           >

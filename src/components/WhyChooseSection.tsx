@@ -11,15 +11,15 @@ export const WhyChooseSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10">
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
+    <section className="py-16 sm:py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10">
+      <div className="w-full max-w-[1920px] mx-auto px-3 xs:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         
         {/* Animated Counters Banner */}
-        <div className="bg-[#1C1C1C] text-white rounded-3xl p-8 md:p-12 mb-20 shadow-2xl relative overflow-hidden">
+        <div className="bg-[#1C1C1C] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 mb-12 sm:mb-20 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#4E6B5A]/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#B76E4A]/20 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+          <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 text-center lg:divide-x divide-white/10">
             {stats.map((st, idx) => (
               <motion.div
                 key={idx}
@@ -27,15 +27,15 @@ export const WhyChooseSection: React.FC = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="pt-4 md:pt-0 px-4"
+                className="pt-2 sm:pt-4 lg:pt-0 px-2 sm:px-4"
               >
-                <div className="text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-stone-200 to-[#B76E4A]">
+                <div className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-stone-200 to-[#B76E4A] truncate">
                   {st.value}
                 </div>
-                <div className="text-sm font-heading font-bold text-white mt-2">
+                <div className="text-xs sm:text-sm font-heading font-bold text-white mt-1 sm:mt-2 truncate">
                   {st.label}
                 </div>
-                <div className="text-[11px] text-gray-400 mt-1">
+                <div className="text-[10px] sm:text-[11px] text-gray-400 mt-0.5 sm:mt-1 truncate">
                   {st.sub}
                 </div>
               </motion.div>
@@ -44,16 +44,16 @@ export const WhyChooseSection: React.FC = () => {
         </div>
 
         {/* Why Choose Triarch Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-6 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="lg:col-span-6 space-y-5 sm:space-y-6">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="h-[1px] w-12 bg-[#B76E4A]" />
-              <span className="text-[#B76E4A] text-[11px] uppercase tracking-[0.3em] font-bold">
+              <div className="h-[1px] w-8 sm:w-12 bg-[#B76E4A]" />
+              <span className="text-[#B76E4A] text-[10px] sm:text-[11px] uppercase tracking-[0.25em] sm:tracking-[0.3em] font-bold">
                 Why Partner With Triarch
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white tracking-tight leading-tight">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white tracking-tight leading-tight">
               A Single Studio for Your Entire Building Journey.
             </h2>
 

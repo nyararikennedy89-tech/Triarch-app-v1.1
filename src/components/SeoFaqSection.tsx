@@ -154,7 +154,7 @@ export const SeoFaqSection: React.FC<SeoFaqSectionProps> = ({ onOpenConsultation
     <section 
       id="faq" 
       aria-labelledby="faq-heading"
-      className="py-24 md:py-32 bg-[#FFFFFF] dark:bg-[#0D0E0D] border-b border-[#ECECEC] dark:border-white/10 relative overflow-hidden"
+      className="py-16 sm:py-24 md:py-32 bg-[#FFFFFF] dark:bg-[#0D0E0D] border-b border-[#ECECEC] dark:border-white/10 relative overflow-hidden"
       itemScope 
       itemType="https://schema.org/FAQPage"
     >
@@ -162,20 +162,20 @@ export const SeoFaqSection: React.FC<SeoFaqSectionProps> = ({ onOpenConsultation
       <div className="absolute top-1/2 -right-20 w-[500px] h-[500px] bg-[#B76E4A]/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 -left-20 w-[500px] h-[500px] bg-[#4E6B5A]/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 relative z-10">
+      <div className="w-full max-w-[1920px] mx-auto px-3 xs:px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24 relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 mb-12 sm:mb-16">
           <div>
             <div className="flex items-center space-x-3 mb-4">
               <span className="w-8 h-[2px] bg-[#B76E4A]" />
-              <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#B76E4A]">
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] font-semibold text-[#B76E4A]">
                 Architectural Knowledge &amp; Regulatory Hub
               </span>
             </div>
             <h2 
               id="faq-heading"
-              className="text-3xl sm:text-4xl md:text-5xl font-syne font-bold tracking-tight text-[#1C1C1C] dark:text-white"
+              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-syne font-bold tracking-tight text-[#1C1C1C] dark:text-white leading-tight"
             >
               Frequently Asked Questions &amp; <br />
               <span className="italic font-normal font-serif text-[#4E6B5A] dark:text-[#7EA08B]">
@@ -184,14 +184,14 @@ export const SeoFaqSection: React.FC<SeoFaqSectionProps> = ({ onOpenConsultation
             </h2>
           </div>
 
-          <p className="text-[#555555] dark:text-gray-400 max-w-xl text-base sm:text-lg leading-relaxed">
+          <p className="text-[#555555] dark:text-gray-400 max-w-xl text-sm sm:text-base leading-relaxed">
             Essential statutory guidelines, cost benchmarks, soil foundation engineering, and diaspora safeguards directly answered by our licensed BORAQS architects.
           </p>
         </div>
 
         {/* Search & Category Filter Controls */}
-        <div className="bg-[#F8F7F4] dark:bg-[#161716] p-4 sm:p-6 rounded-2xl border border-[#ECECEC] dark:border-white/10 mb-12 shadow-sm">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+        <div className="bg-[#F8F7F4] dark:bg-[#161716] p-3.5 sm:p-6 rounded-2xl border border-[#ECECEC] dark:border-white/10 mb-8 sm:mb-12 shadow-sm">
+          <div className="flex flex-col md:flex-row gap-3 sm:gap-4 items-center justify-between">
             {/* Search input */}
             <div className="relative w-full md:w-96">
               <Search className="w-4 h-4 text-[#888888] absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -200,12 +200,12 @@ export const SeoFaqSection: React.FC<SeoFaqSectionProps> = ({ onOpenConsultation
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search permit steps, black cotton soil, rates..."
-                className="w-full bg-white dark:bg-[#202120] text-[#1C1C1C] dark:text-white text-sm pl-11 pr-4 py-3 rounded-xl border border-[#ECECEC] dark:border-white/10 focus:outline-none focus:border-[#4E6B5A] transition-colors"
+                className="w-full bg-white dark:bg-[#202120] text-[#1C1C1C] dark:text-white text-xs sm:text-sm pl-11 pr-4 py-2.5 sm:py-3 rounded-xl border border-[#ECECEC] dark:border-white/10 focus:outline-none focus:border-[#4E6B5A] transition-colors"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#888888] hover:text-[#1C1C1C] dark:hover:text-white px-1.5 py-0.5 rounded"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#888888] hover:text-[#1C1C1C] dark:hover:text-white px-1.5 py-0.5 rounded cursor-pointer"
                 >
                   Clear
                 </button>
@@ -213,14 +213,14 @@ export const SeoFaqSection: React.FC<SeoFaqSectionProps> = ({ onOpenConsultation
             </div>
 
             {/* Category pills */}
-            <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
+            <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 scrollbar-none">
               {CATEGORIES.map((cat) => {
                 const isSelected = activeCategory === cat;
                 return (
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
-                    className={`text-xs px-3.5 py-2 rounded-full whitespace-nowrap transition-all font-medium ${
+                    className={`text-[11px] sm:text-xs px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full whitespace-nowrap shrink-0 transition-all font-medium cursor-pointer ${
                       isSelected
                         ? 'bg-[#1C1C1C] text-white dark:bg-white dark:text-[#1C1C1C] shadow-sm'
                         : 'bg-white/80 dark:bg-white/5 text-[#666666] dark:text-gray-300 hover:bg-white dark:hover:bg-white/10 border border-[#ECECEC] dark:border-white/5'
