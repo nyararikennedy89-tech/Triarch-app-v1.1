@@ -43,7 +43,7 @@ export const SERVICES_DATA: Service[] = [
     shortDesc: 'Innovative structural systems optimizing concrete, timber, and steel for safety, longevity, and cost efficiency.',
     fullDesc: 'Our in-house structural engineering team works alongside our architects to ensure structural elements enhance the spatial vision rather than hinder it. We specialize in post-tensioned slabs, long-span steel trusses, rammed earth walls, and deep foundation engineering.',
     iconName: 'Layers',
-    bgImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1200&q=80',
+    bgImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
     deliverables: [
       'Geotechnical & Soil Load Analysis',
       'Structural Calculation Reports & Calculations',

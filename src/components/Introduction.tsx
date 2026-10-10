@@ -104,7 +104,7 @@ export const Introduction: React.FC = () => {
               style={{ clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)` }}
             >
               <img
-                src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1800&q=85"
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=85"
                 alt="Initial Construction Phase"
                 className="absolute inset-0 w-full h-full object-cover"
               />

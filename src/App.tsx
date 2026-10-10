@@ -25,6 +25,7 @@ export default function App() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [selectedServiceForConsultation, setSelectedServiceForConsultation] = useState<string | undefined>(undefined);
   const [selectedProjectForModal, setSelectedProjectForModal] = useState<Project | null>(null);
+  const [projectModalTab, setProjectModalTab] = useState<'overview' | 'renders' | 'progress' | 'materials'>('overview');
   const [activeSection, setActiveSection] = useState('home');
 
   // M-Pesa Daraja Payment Gateway Modal State
@@ -181,7 +182,10 @@ export default function App() {
       <QuickSearchModal
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
-        onSelectProject={(project) => setSelectedProjectForModal(project)}
+        onSelectProject={(project, tab) => {
+          setProjectModalTab(tab || 'overview');
+          setSelectedProjectForModal(project);
+        }}
         onSelectService={handleOpenConsultationWithService}
       />
 
@@ -191,6 +195,7 @@ export default function App() {
         onClose={() => setSelectedProjectForModal(null)}
         onSelectProject={(p) => setSelectedProjectForModal(p)}
         allProjects={PROJECTS_DATA}
+        initialTab={projectModalTab}
       />
 
       {/* Daraja Lipa Na M-Pesa Payment Gateway Modal */}

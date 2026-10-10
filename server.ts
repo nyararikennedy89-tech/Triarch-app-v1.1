@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import fs from "fs";
 import { createServer as createViteServer } from "vite";
 import dotenv from "dotenv";
 
@@ -7,6 +8,21 @@ dotenv.config();
 
 const app = express();
 const PORT = 3000;
+
+// Enable reverse proxy trust for Cloud Run, Cloudflare, and custom domain SSL headers
+app.set("trust proxy", true);
+
+// Enable Cross-Origin Resource Sharing (CORS)
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  if (req.method === "OPTIONS") {
+    res.sendStatus(200);
+    return;
+  }
+  next();
+});
 
 app.use(express.json());
 
@@ -43,7 +59,7 @@ function cleanEnvVal(val: string | undefined): string {
 }
 
 // Configuration
-function getMpesaConfig() {
+function getMpesaConfig(req?: express.Request) {
   const env = cleanEnvVal(process.env.MPESA_ENVIRONMENT || 'sandbox').toLowerCase();
   const isProduction = env === 'production';
   const consumerKey = cleanEnvVal(process.env.MPESA_CONSUMER_KEY);
@@ -54,13 +70,38 @@ function getMpesaConfig() {
     ? 'https://api.safaricom.co.ke'
     : 'https://sandbox.safaricom.co.ke';
 
+  // Compute a valid absolute HTTPS callback URL for Safaricom Daraja
   let callbackUrl = cleanEnvVal(process.env.MPESA_CALLBACK_URL);
   const appUrl = cleanEnvVal(process.env.APP_URL).replace(/\/$/, '');
+
+  // If callbackUrl contains template variable ${APP_URL}
   if (callbackUrl.includes('${APP_URL}') || callbackUrl.includes('$APP_URL')) {
     callbackUrl = callbackUrl.replace(/\$\{APP_URL\}|\$APP_URL/g, appUrl);
   }
-  if (!callbackUrl && appUrl) {
+
+  // If callbackUrl is relative or not an http url, try using APP_URL
+  if ((!callbackUrl || callbackUrl.startsWith('/')) && appUrl && appUrl.startsWith('http')) {
     callbackUrl = `${appUrl}/api/mpesa/callback`;
+  }
+
+  // If still invalid, unresolved, or empty, dynamically infer from the incoming request domain
+  if (!callbackUrl || callbackUrl.includes('$') || callbackUrl.includes('{') || !callbackUrl.startsWith('http')) {
+    if (req) {
+      const host = (req.headers['x-forwarded-host'] as string) || req.headers.host || '';
+      if (host && !host.includes('localhost') && !host.includes('127.0.0.1')) {
+        callbackUrl = `https://${host}/api/mpesa/callback`;
+      }
+    }
+  }
+
+  // Final fallback: Safaricom strictly requires a valid, well-formed HTTPS URL
+  if (!callbackUrl || callbackUrl.includes('$') || callbackUrl.includes('{') || !callbackUrl.startsWith('http')) {
+    callbackUrl = 'https://triarchventures.co.ke/api/mpesa/callback';
+  }
+
+  // Enforce https unless strictly testing on localhost
+  if (callbackUrl.startsWith('http://') && !callbackUrl.includes('localhost')) {
+    callbackUrl = callbackUrl.replace('http://', 'https://');
   }
 
   const isConfigured = Boolean(consumerKey && consumerSecret);
@@ -188,8 +229,8 @@ app.get("/api/health", (_req, res) => {
 });
 
 // API: Check Daraja Gateway Configuration Status
-app.get("/api/mpesa/config", (_req, res) => {
-  const config = getMpesaConfig();
+app.get("/api/mpesa/config", (req, res) => {
+  const config = getMpesaConfig(req);
   res.json({
     configured: config.isConfigured,
     environment: config.env,
@@ -200,8 +241,8 @@ app.get("/api/mpesa/config", (_req, res) => {
 });
 
 // API: Diagnostic tool to verify live connectivity with Safaricom Daraja
-app.get("/api/mpesa/diagnostics", async (_req, res) => {
-  const config = getMpesaConfig();
+app.get("/api/mpesa/diagnostics", async (req, res) => {
+  const config = getMpesaConfig(req);
 
   const diagnostics: Record<string, any> = {
     configuredEnvironment: config.env,
@@ -271,7 +312,7 @@ app.post("/api/mpesa/stkpush", async (req, res) => {
     }
 
     const numericAmount = Math.max(1, Math.round(Number(amount)));
-    const config = getMpesaConfig();
+    const config = getMpesaConfig(req);
 
     // IF DARAJA CREDENTIALS ARE PROVIDED: Call Safaricom Live / Sandbox Daraja API
     if (config.isConfigured) {
@@ -513,10 +554,27 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), 'dist');
+    const candidate1 = path.join(process.cwd(), 'dist');
+    const candidate2 = path.join(__dirname, '..', 'dist');
+    const candidate3 = __dirname;
+    
+    let distPath = candidate1;
+    if (fs.existsSync(path.join(candidate1, 'index.html'))) {
+      distPath = candidate1;
+    } else if (fs.existsSync(path.join(candidate2, 'index.html'))) {
+      distPath = candidate2;
+    } else if (fs.existsSync(path.join(candidate3, 'index.html'))) {
+      distPath = candidate3;
+    }
+
     app.use(express.static(distPath));
     app.get('*', (_req, res) => {
-      res.sendFile(path.join(distPath, 'index.html'));
+      const indexPath = path.join(distPath, 'index.html');
+      if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+      } else {
+        res.status(404).send("Application index.html not found. Please verify production build output in dist/.");
+      }
     });
   }
 

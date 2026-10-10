@@ -8,7 +8,7 @@ import { BLOG_POSTS } from '../data/blog';
 interface QuickSearchModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSelectProject: (project: any) => void;
+  onSelectProject: (project: any, initialTab?: 'overview' | 'renders' | 'progress' | 'materials') => void;
   onSelectService: (serviceTitle: string) => void;
 }
 
@@ -39,20 +39,25 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
 
   if (!isOpen) return null;
 
+  const queryLower = query.toLowerCase().trim();
+  const isGallerySearch = queryLower === 'gallery' || queryLower === 'galleries' || queryLower === 'render' || queryLower === 'renders' || queryLower === 'photo' || queryLower === 'photos';
+
   const filteredProjects = PROJECTS_DATA.filter(p =>
-    p.title.toLowerCase().includes(query.toLowerCase()) ||
-    p.category.toLowerCase().includes(query.toLowerCase()) ||
-    p.location.toLowerCase().includes(query.toLowerCase())
+    isGallerySearch ||
+    p.title.toLowerCase().includes(queryLower) ||
+    p.category.toLowerCase().includes(queryLower) ||
+    p.location.toLowerCase().includes(queryLower) ||
+    p.overview.toLowerCase().includes(queryLower)
   );
 
   const filteredServices = SERVICES_DATA.filter(s =>
-    s.title.toLowerCase().includes(query.toLowerCase()) ||
-    s.shortDesc.toLowerCase().includes(query.toLowerCase())
+    s.title.toLowerCase().includes(queryLower) ||
+    s.shortDesc.toLowerCase().includes(queryLower)
   );
 
   const filteredBlogs = BLOG_POSTS.filter(b =>
-    b.title.toLowerCase().includes(query.toLowerCase()) ||
-    b.category.toLowerCase().includes(query.toLowerCase())
+    b.title.toLowerCase().includes(queryLower) ||
+    b.category.toLowerCase().includes(queryLower)
   );
 
   return (
@@ -146,7 +151,7 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                       key={p.id}
                       onClick={() => {
                         onClose();
-                        onSelectProject(p);
+                        onSelectProject(p, isGallerySearch ? 'renders' : 'overview');
                       }}
                       className="p-2.5 rounded-xl hover:bg-[#F8F7F4] dark:hover:bg-white/10 transition-colors cursor-pointer flex items-center justify-between group"
                     >

@@ -22,6 +22,7 @@ import {
   triggerSimulatedAction,
   MpesaConfigResponse
 } from '../services/mpesaApi';
+import { validateMpesaPhoneNumber, formatPhoneDisplay } from '../utils/mpesaValidation';
 import { siteConfig } from '../config/siteConfig';
 
 interface MpesaPaymentModalProps {
@@ -75,6 +76,10 @@ export const MpesaPaymentModal: React.FC<MpesaPaymentModalProps> = ({
   const [phone, setPhone] = useState<string>(initialPhone);
   const [clientName, setClientName] = useState<string>(initialClientName);
   const [accountRef, setAccountRef] = useState<string>('TriarchStudio');
+  const [confirmedPhone, setConfirmedPhone] = useState<string>('');
+
+  // Real-time phone validation check
+  const phoneValidation = React.useMemo(() => validateMpesaPhoneNumber(phone), [phone]);
 
   // Gateway status
   const [gatewayConfig, setGatewayConfig] = useState<MpesaConfigResponse | null>(null);
@@ -187,10 +192,12 @@ export const MpesaPaymentModal: React.FC<MpesaPaymentModalProps> = ({
     e.preventDefault();
     setErrorMessage(null);
 
-    // Basic format validation
-    const cleanedPhone = phone.replace(/[^0-9]/g, '');
-    if (cleanedPhone.length < 9) {
-      setErrorMessage('Please enter a valid Kenyan Safaricom phone number (e.g. 0712 345 678).');
+    // Enforce real-time validation check before initiating payment
+    if (!phoneValidation.isValid) {
+      setErrorMessage(
+        phoneValidation.message ||
+        'Please enter a valid Safaricom phone number in format 254XXXXXXXXX or 07XXXXXXXX.'
+      );
       return;
     }
 
@@ -200,10 +207,12 @@ export const MpesaPaymentModal: React.FC<MpesaPaymentModalProps> = ({
     }
 
     setStatus('INITIATING');
+    const targetPhone = phoneValidation.normalized;
+    setConfirmedPhone(targetPhone);
 
     try {
       const response = await initiateMpesaStkPush({
-        phoneNumber: phone,
+        phoneNumber: targetPhone,
         amount,
         accountReference: accountRef || 'TriarchStudio',
         transactionDesc: initialDescription || 'Architectural Retainer'
@@ -231,8 +240,9 @@ export const MpesaPaymentModal: React.FC<MpesaPaymentModalProps> = ({
   };
 
   const handleWhatsAppReceipt = () => {
+    const activePhone = confirmedPhone || phoneValidation.normalized || phone;
     const text = encodeURIComponent(
-      `Hello Triarch Ventures,\n\nI have just completed an M-Pesa retainer payment:\n- Name: ${clientName || 'Private Client'}\n- Receipt Code: ${receiptNumber}\n- Amount: KES ${amount.toLocaleString()}\n- Reference: ${accountRef}\n- Phone: ${phone}\n\nPlease confirm our architectural consultation booking.`
+      `Hello Triarch Ventures,\n\nI have just completed an M-Pesa retainer payment:\n- Name: ${clientName || 'Private Client'}\n- Receipt Code: ${receiptNumber}\n- Amount: KES ${amount.toLocaleString()}\n- Reference: ${accountRef}\n- Phone: ${activePhone}\n\nPlease confirm our architectural consultation booking.`
     );
     window.open(`https://wa.me/${siteConfig.contact.whatsAppPhone.replace(/[^0-9]/g, '')}?text=${text}`, '_blank');
   };
@@ -385,23 +395,98 @@ export const MpesaPaymentModal: React.FC<MpesaPaymentModalProps> = ({
                   <div>
                     <label className="block text-xs font-bold text-[#1C1C1C] dark:text-gray-200 uppercase tracking-wider mb-1.5 flex items-center justify-between">
                       <span>M-Pesa Phone Number *</span>
+                      {phoneValidation.isValid && (
+                        <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                          <Check className="w-3 h-3 text-[#00843D] dark:text-emerald-400" />
+                          {phoneValidation.networkName}
+                        </span>
+                      )}
                     </label>
                     <div className="relative">
-                      <div className="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-mono font-bold text-[#00843D] flex items-center gap-1">
-                        <Smartphone className="w-3.5 h-3.5" />
+                      <div className={`absolute left-3 top-1/2 -translate-y-1/2 text-xs font-mono font-bold flex items-center gap-1 transition-colors ${
+                        phoneValidation.isValid
+                          ? 'text-[#00843D]'
+                          : phone && phoneValidation.status === 'invalid'
+                          ? 'text-amber-500'
+                          : 'text-gray-400'
+                      }`}>
+                        {phoneValidation.isValid ? (
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#00843D]" />
+                        ) : phone && phoneValidation.status === 'invalid' ? (
+                          <AlertCircle className="w-3.5 h-3.5 text-amber-500" />
+                        ) : (
+                          <Smartphone className="w-3.5 h-3.5" />
+                        )}
                       </div>
                       <input
                         type="tel"
                         required
                         value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
+                        onChange={(e) => {
+                          setPhone(e.target.value);
+                          if (errorMessage) setErrorMessage(null);
+                        }}
                         placeholder="0712 345 678 or 254..."
-                        className="w-full pl-9 pr-3 py-3 rounded-xl bg-gray-50 dark:bg-[#141514] border border-gray-200 dark:border-white/10 text-xs font-mono font-semibold text-[#1C1C1C] dark:text-white focus:outline-none focus:ring-2 focus:ring-[#00843D]"
+                        aria-invalid={!phoneValidation.isValid && Boolean(phone)}
+                        className={`w-full pl-9 pr-24 py-3 rounded-xl bg-gray-50 dark:bg-[#141514] text-xs font-mono font-semibold text-[#1C1C1C] dark:text-white focus:outline-none transition-all ${
+                          phoneValidation.isValid
+                            ? 'border-2 border-[#00843D] dark:border-emerald-500 bg-emerald-50/10 focus:ring-2 focus:ring-[#00843D]/20'
+                            : phone && phoneValidation.status === 'invalid'
+                            ? 'border-2 border-amber-400 dark:border-amber-500/80 bg-amber-50/10 focus:ring-2 focus:ring-amber-400/20'
+                            : 'border border-gray-200 dark:border-white/10 focus:ring-2 focus:ring-[#00843D]'
+                        }`}
                       />
+
+                      {/* Right-aligned action badge: click to normalize to 254... */}
+                      <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center">
+                        {phoneValidation.isValid && phone !== phoneValidation.normalized ? (
+                          <button
+                            type="button"
+                            onClick={() => setPhone(phoneValidation.normalized)}
+                            title="Format to standard 254XXXXXXXXX"
+                            className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 text-[10px] font-mono font-bold hover:bg-emerald-200 cursor-pointer transition-colors"
+                          >
+                            <Check className="w-3 h-3 text-[#00843D]" />
+                            <span>Set 254</span>
+                          </button>
+                        ) : phoneValidation.isValid ? (
+                          <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-100/70 dark:bg-emerald-950/50">
+                            <Check className="w-2.5 h-2.5" />
+                            Valid
+                          </span>
+                        ) : phone && phoneValidation.status === 'invalid' ? (
+                          <span className="text-[10px] font-mono text-amber-600 dark:text-amber-400 px-1.5 py-0.5 rounded bg-amber-100 dark:bg-amber-950/60 font-medium">
+                            Check Format
+                          </span>
+                        ) : null}
+                      </div>
                     </div>
-                    <span className="text-[10px] text-gray-500 mt-1 block">
-                      Supports formats: 07XX, 01XX, or +254...
-                    </span>
+
+                    {/* Real-time validation message below input */}
+                    <div className="mt-1.5 min-h-[18px]">
+                      {phoneValidation.status === 'empty' && (
+                        <span className="text-[10px] text-gray-500 block">
+                          Format: 07XX, 01XX, or +254 (Standard 254XXXXXXXXX)
+                        </span>
+                      )}
+                      {phone && phoneValidation.status === 'invalid' && (
+                        <span className="text-[11px] text-amber-600 dark:text-amber-400 flex items-center gap-1 font-medium">
+                          <AlertCircle className="w-3 h-3 shrink-0" />
+                          <span>{phoneValidation.message}</span>
+                        </span>
+                      )}
+                      {phoneValidation.status === 'valid' && (
+                        <div className="flex items-center justify-between text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
+                          <span className="flex items-center gap-1">
+                            <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-[#00843D]" />
+                            <span>Target: <strong className="font-mono">{phoneValidation.normalized}</strong></span>
+                          </span>
+                          <span className="text-[10px] font-mono text-gray-500 dark:text-gray-400">
+                            {phoneValidation.formattedDisplay}
+                          </span>
+                        </div>
+                      )}
+                    </div>
                   </div>
 
                   <div>
@@ -442,21 +527,37 @@ export const MpesaPaymentModal: React.FC<MpesaPaymentModalProps> = ({
                   </div>
                 </div>
 
-                {/* Submit STK Button */}
+                {/* Submit STK Button with Real-Time Validation Guard */}
                 <button
                   type="submit"
-                  disabled={status === 'INITIATING' || !phone || amount <= 0}
-                  className="w-full py-4 rounded-full bg-[#00843D] hover:bg-[#007033] disabled:opacity-50 text-white text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 transition-all shadow-xl hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                  disabled={status === 'INITIATING' || !phoneValidation.isValid || amount < 10}
+                  className={`w-full py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 transition-all shadow-xl ${
+                    status === 'INITIATING'
+                      ? 'bg-[#00843D] text-white opacity-80 cursor-wait'
+                      : phoneValidation.isValid && amount >= 10
+                      ? 'bg-[#00843D] hover:bg-[#007033] text-white hover:scale-[1.01] active:scale-[0.99] cursor-pointer'
+                      : 'bg-gray-300 dark:bg-white/10 text-gray-500 dark:text-gray-400 cursor-not-allowed opacity-75'
+                  }`}
                 >
                   {status === 'INITIATING' ? (
                     <>
                       <RotateCw className="w-4 h-4 animate-spin" />
                       <span>Contacting Safaricom Daraja...</span>
                     </>
+                  ) : !phone ? (
+                    <>
+                      <Smartphone className="w-4 h-4" />
+                      <span>Enter Safaricom Number to Pay</span>
+                    </>
+                  ) : !phoneValidation.isValid ? (
+                    <>
+                      <AlertCircle className="w-4 h-4 text-amber-500" />
+                      <span>Enter Valid Safaricom Number (254...)</span>
+                    </>
                   ) : (
                     <>
                       <Smartphone className="w-4 h-4" />
-                      <span>Send M-Pesa STK Push (KES {amount.toLocaleString()})</span>
+                      <span>Send M-Pesa STK Push ({phoneValidation.normalized})</span>
                     </>
                   )}
                 </button>
@@ -507,7 +608,7 @@ export const MpesaPaymentModal: React.FC<MpesaPaymentModalProps> = ({
                     Check Your Phone Screen Now
                   </h4>
                   <p className="text-xs text-[#555555] dark:text-gray-300 mt-1 max-w-sm mx-auto leading-relaxed">
-                    Safaricom has sent an STK prompt to <strong className="font-mono text-[#00843D]">{phone}</strong>. Enter your secret M-Pesa PIN to authorize <strong>KES {amount.toLocaleString()}</strong>.
+                    Safaricom has sent an STK prompt to <strong className="font-mono text-[#00843D]">{confirmedPhone || phoneValidation.normalized || phone}</strong>. Enter your secret M-Pesa PIN to authorize <strong>KES {amount.toLocaleString()}</strong>.
                   </p>
                 </div>
 
@@ -592,7 +693,9 @@ export const MpesaPaymentModal: React.FC<MpesaPaymentModalProps> = ({
 
                   <div className="flex items-center justify-between">
                     <span className="text-gray-500">Phone Number:</span>
-                    <span className="font-mono text-[#1C1C1C] dark:text-white">{phone}</span>
+                    <span className="font-mono text-[#1C1C1C] dark:text-white">
+                      {confirmedPhone ? formatPhoneDisplay(confirmedPhone) : phoneValidation.isValid ? phoneValidation.formattedDisplay : phone}
+                    </span>
                   </div>
 
                   <div className="flex items-center justify-between">

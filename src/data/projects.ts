@@ -68,7 +68,7 @@ export const PROJECTS_DATA: Project[] = [
         label: 'Solar EV Fast-Charging Hub',
         roomName: 'Ultra-Fast DC Charging Station',
         description: '4x 150kW ultra-rapid electric vehicle charging bays powered directly by on-site solar battery arrays.',
-        imageUrl: 'https://images.unsplash.com/photo-1508873696983-2df5293cb32f?auto=format&fit=crop&w=800&q=80'
+        imageUrl: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&q=80'
       }
     ],
     constructionGallery: [
@@ -234,7 +234,7 @@ export const PROJECTS_DATA: Project[] = [
       'https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=80'
     ],
-    beforeImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1200&q=80',
+    beforeImage: 'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=1200&q=80',
     afterImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
     overview: 'The Glass Pavilion is a masterclass in modern biophilic residence design. Situated on a lush sloped plot, the home seamlessly integrates cantilevered concrete slabs, double-height Low-E curtain walls, and central courtyard waterfalls.',
     clientBrief: 'The client requested a subterranean light-filled estate that felt like an oasis within the bustling city, prioritizing private family wellness spaces, energy self-sufficiency, and seamless indoor-outdoor hosting capabilities.',
@@ -276,7 +276,7 @@ export const PROJECTS_DATA: Project[] = [
         date: 'March 2024',
         status: 'Completed',
         description: 'Deep foundation drilling and soil stabilization using soil nailing techniques.',
-        imageUrl: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80'
+        imageUrl: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80'
       },
       {
         phase: 'Post-Tensioned Superstructure',
@@ -685,8 +685,10 @@ export const PROJECTS_DATA: Project[] = [
     year: '2025',
     servicesProvided: ['Architecture', 'Master Planning', 'Structural Engineering', 'Project Management'],
     client: 'East Africa Science Foundation',
-    heroImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80',
     galleryImages: [
+      'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80'
     ],
@@ -718,8 +720,10 @@ export const PROJECTS_DATA: Project[] = [
     client: 'International Delegation',
     heroImage: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=80',
     galleryImages: [
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80'
     ],
     overview: 'An uncompromising diplomatic residence combining stringent perimeter ballistics and blast mitigation with light-filled contemporary Kenyan craftsmanship.',
     clientBrief: 'Create a state residence capable of hosting international dignitaries with discrete multi-tiered security zones.',

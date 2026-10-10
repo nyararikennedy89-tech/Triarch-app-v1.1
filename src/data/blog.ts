@@ -62,7 +62,7 @@ export const BLOG_POSTS: BlogPost[] = [
       avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80'
     },
     summary: 'A complete checklist of required documents, statutory fees, and timelines for obtaining County Architectural Permits, NEMA EIA Licenses, and NCA Registration.',
-    coverImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1200&q=80',
+    coverImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80',
     content: `Securing all statutory permits before commencing site mobilization is non-negotiable. Unapproved construction risks enforcement notices, heavy fines, or demolition orders.
 
 ### The 4 Required Statutory Clearances

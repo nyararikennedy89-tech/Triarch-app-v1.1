@@ -63,9 +63,18 @@ export async function initiateMpesaStkPush(params: {
     body: JSON.stringify(params)
   });
 
-  const data = await res.json();
+  const rawText = await res.text();
+  let data: any;
+  try {
+    data = JSON.parse(rawText);
+  } catch {
+    throw new Error(
+      `Gateway response (${res.status}): ${rawText.slice(0, 180) || 'Unable to parse server response'}`
+    );
+  }
+
   if (!res.ok) {
-    throw new Error(data.error || 'Failed to initiate M-Pesa STK Push');
+    throw new Error(data.error || data.message || 'Failed to initiate M-Pesa STK Push');
   }
 
   return data;
@@ -73,7 +82,13 @@ export async function initiateMpesaStkPush(params: {
 
 export async function checkMpesaTransactionStatus(checkoutRequestId: string): Promise<MpesaStatusResponse> {
   const res = await fetch(`/api/mpesa/status/${encodeURIComponent(checkoutRequestId)}`);
-  const data = await res.json();
+  const rawText = await res.text();
+  let data: any;
+  try {
+    data = JSON.parse(rawText);
+  } catch {
+    throw new Error(`Status check failed (${res.status})`);
+  }
 
   if (!res.ok) {
     throw new Error(data.error || 'Failed to check transaction status');

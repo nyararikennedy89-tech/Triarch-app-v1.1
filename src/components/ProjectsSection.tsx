@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { PROJECTS_DATA } from '../data/projects';
 import { Project, ProjectCategory } from '../types';
 import { ProjectModal } from './ProjectModal';
-import { MapPin, ArrowUpRight, Sparkles, Filter } from 'lucide-react';
+import { MapPin, ArrowUpRight, Sparkles, Filter, Images } from 'lucide-react';
 
 export const ProjectsSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('All');
@@ -17,7 +17,10 @@ export const ProjectsSection: React.FC = () => {
     : PROJECTS_DATA.filter((p) => p.category === selectedCategory);
 
   return (
-    <section id="projects" className="py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10">
+    <section id="projects" data-section="gallery" className="relative py-24 md:py-32 bg-[#F8F7F4] dark:bg-[#121312] border-b border-[#ECECEC] dark:border-white/10">
+      {/* Anchor for direct #gallery navigation */}
+      <div id="gallery" className="absolute -top-24 left-0 w-full pointer-events-none" />
+
       <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         
         {/* Section Header */}
@@ -26,7 +29,7 @@ export const ProjectsSection: React.FC = () => {
             <div className="flex items-center space-x-3 mb-4">
               <div className="h-[1px] w-12 bg-[#B76E4A]" />
               <span className="text-[#B76E4A] text-[11px] uppercase tracking-[0.3em] font-bold">
-                Portfolio & Case Studies
+                Portfolio & 3D Render Gallery
               </span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-heading font-extrabold text-[#1C1C1C] dark:text-white tracking-tight leading-tight">
@@ -38,14 +41,14 @@ export const ProjectsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Category Filter Pills */}
+        {/* Category Filter Controls */}
         <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none">
           <Filter className="w-4 h-4 text-gray-400 shrink-0 mr-2" />
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 whitespace-nowrap ${
+              className={`px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all duration-300 whitespace-nowrap cursor-pointer ${
                 selectedCategory === cat
                   ? 'bg-[#1C1C1C] dark:bg-white text-white dark:text-[#1C1C1C] shadow-md'
                   : 'bg-white dark:bg-[#1C1D1C] text-[#555555] dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-white/10 border border-[#ECECEC] dark:border-white/10'
@@ -76,11 +79,17 @@ export const ProjectsSection: React.FC = () => {
                 <img
                   src={project.heroImage}
                   alt={project.title}
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (project.galleryImages?.[0] && target.src !== project.galleryImages[0]) {
+                      target.src = project.galleryImages[0];
+                    }
+                  }}
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                {/* Category & Featured Badge */}
+                {/* Category & Featured Badges */}
                 <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2">
                   <span className="px-3 py-1 rounded-full bg-[#1C1C1C]/80 backdrop-blur-md text-white text-[11px] font-semibold uppercase tracking-wider">
                     {project.category}
@@ -91,6 +100,21 @@ export const ProjectsSection: React.FC = () => {
                     </span>
                   )}
                 </div>
+
+                {/* Direct Gallery Action Button on Image */}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setInitialModalTab('renders');
+                    setActiveProject(project);
+                  }}
+                  className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-black/60 hover:bg-black/85 backdrop-blur-md text-white text-[11px] font-mono font-medium flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-md"
+                  title="View 3D render gallery"
+                >
+                  <Images className="w-3.5 h-3.5 text-[#FFA87D]" />
+                  <span>{project.galleryImages?.length || 1} Renders</span>
+                </button>
 
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <div className="flex items-center gap-1.5 text-xs text-amber-200 mb-1">
@@ -115,11 +139,25 @@ export const ProjectsSection: React.FC = () => {
                     <span>Year: <strong className="text-[#1C1C1C] dark:text-white">{project.year}</strong></span>
                   </div>
 
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center text-xs font-semibold uppercase tracking-wider text-[#4E6B5A] dark:text-[#B76E4A]">
+                  <div className="flex items-center justify-between gap-2 pt-1">
+                    <div className="flex items-center text-xs font-semibold uppercase tracking-wider text-[#4E6B5A] dark:text-[#B76E4A] group-hover:text-[#3e5648]">
                       <span>Case Study</span>
                       <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 ml-1" />
                     </div>
+
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setInitialModalTab('renders');
+                        setActiveProject(project);
+                      }}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-stone-100 hover:bg-stone-200 dark:bg-white/10 dark:hover:bg-white/15 text-stone-700 dark:text-stone-200 text-xs font-semibold tracking-wide transition-colors cursor-pointer"
+                      title="Open full photo & 3D render gallery"
+                    >
+                      <Images className="w-3.5 h-3.5 text-[#B76E4A]" />
+                      <span>Gallery ({project.galleryImages?.length || 1})</span>
+                    </button>
                   </div>
                 </div>
               </div>
