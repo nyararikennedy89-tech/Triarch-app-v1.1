@@ -254,10 +254,8 @@ export const PROJECTS_DATA: Project[] = [
       'Environmental & Stormwater Hydrocarbon Mitigation'
     ],
     client: 'Vivo Energy / Shell Kenya & Oleleshwa Transit Consortium',
-    heroImage: '/file_000000009448820891ad3c52e8e24f60.png',
+    heroImage: '/file_00000000873482088472ea13c0bc4919.png',
     galleryImages: [
-      '/file_000000009448820891ad3c52e8e24f60.png',
-      '/file_00000000b6b08208b1d2668f9c186ed1.png',
       '/file_00000000f9b48208a818b8e591618141.png',
       '/file_00000000873482088472ea13c0bc4919.png'
     ],
