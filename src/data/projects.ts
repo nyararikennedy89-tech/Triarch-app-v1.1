@@ -238,6 +238,130 @@ export const PROJECTS_DATA: Project[] = [
     featured: true
   },
   {
+    id: 'oleleshwa-shell-station',
+    title: 'Shell Service & Fuel Station at Oleleshwa',
+    subtitle: 'Narok-Baringo Highway Transit & Automotive Retail Hub',
+    category: 'Commercial',
+    location: 'Oleleshwa, Narok-Baringo Road Corridor, Rift Valley, Kenya',
+    area: '14,200 sq. m',
+    year: '2026',
+    servicesProvided: [
+      'Architecture & Master Planning',
+      'Forecourt & Structural Canopy Engineering',
+      'AutoXpress Service Bay & Pit Design',
+      'MEP & Fuel Storage Vault Engineering',
+      'Retail & Food Court Interior Architecture',
+      'Environmental & Stormwater Hydrocarbon Mitigation'
+    ],
+    client: 'Vivo Energy / Shell Kenya & Oleleshwa Transit Consortium',
+    heroImage: '/file_000000009448820891ad3c52e8e24f60.png',
+    galleryImages: [
+      '/file_000000009448820891ad3c52e8e24f60.png',
+      '/file_00000000b6b08208b1d2668f9c186ed1.png',
+      '/file_00000000f9b48208a818b8e591618141.png',
+      '/file_00000000873482088472ea13c0bc4919.png'
+    ],
+    beforeImage: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
+    afterImage: '/file_000000009448820891ad3c52e8e24f60.png',
+    overview: 'Strategically positioned at Oleleshwa along the critical Narok-Baringo commercial artery, this modern Shell highway transit flagship combines an illuminated curved-wing structural canopy, a state-of-the-art AutoXpress tyre and express service centre, Shell Select Super Store, food court pavilion (featuring Java House / Chicken Inn), automated high-flow fueling forecourts, and comprehensive solar backup resilience.',
+    clientBrief: 'Deliver a high-visibility, full-service automotive oasis catering to heavy agricultural logistics, safari tour operators connecting the Maasai Mara with the Great Rift Valley lakes, and local community transit with zero traffic friction and world-class forecourt retail.',
+    designChallenge: 'Accommodating heavy commercial transport trucks alongside high-volume tourist passenger vehicles with safe separated turning radii, while integrating high-altitude Rift Valley crosswind engineering, EPRA forecourt buffer compliances, and localized soil filtration.',
+    designSolution: 'We engineered an open dual-axis traffic layout featuring tree-form reinforced column piers supporting an expansive aerodynamic yellow-and-red canopy. The site integrates dedicated AutoXpress service bays for tyre replacement, wheel alignment, oil changes, and car washes, alongside an 8-bay multi-product electronic dispenser forecourt powered by rooftop solar PV arrays and heavy-duty broom-finished concrete slabs.',
+    floorPlanUrl: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80',
+    floorPlanHotspots: [
+      {
+        id: 'hs-oleleshwa-canopy',
+        x: 48,
+        y: 42,
+        label: 'Sculptural Canopy Forecourt',
+        roomName: 'High-Clearance Canopy Forecourt',
+        description: 'Aerodynamic steel canopy with tree-column branches, energy-efficient recessed LED illumination, and 8 multi-product dispenser islands.',
+        imageUrl: '/file_000000009448820891ad3c52e8e24f60.png'
+      },
+      {
+        id: 'hs-oleleshwa-autoxpress',
+        x: 18,
+        y: 52,
+        label: 'AutoXpress Service Centre',
+        roomName: 'Automotive Tyre & Quick Service Centre',
+        description: 'Fully equipped 3-bay AutoXpress facility providing computerized wheel alignment, tyre replacement, battery testing, suspension tuning, and automated car wash.',
+        imageUrl: '/file_00000000b6b08208b1d2668f9c186ed1.png'
+      },
+      {
+        id: 'hs-oleleshwa-select',
+        x: 74,
+        y: 50,
+        label: 'Shell Select & Gourmet Deli',
+        roomName: 'Super Store & Highway Food Court',
+        description: '24-hour air-conditioned convenience super store, fresh artisan bakeries, barista coffee bar, traveler essentials, and modern clean washroom suites.',
+        imageUrl: '/file_000000009448820891ad3c52e8e24f60.png'
+      },
+      {
+        id: 'hs-oleleshwa-pylon',
+        x: 90,
+        y: 65,
+        label: 'Digital Pylon Price Signage',
+        roomName: 'High-Visibility Highway Monolith',
+        description: '12-meter illuminated LED digital rate pylon guiding northbound and southbound Narok-Baringo travelers from up to 2 kilometers away.',
+        imageUrl: '/file_000000009448820891ad3c52e8e24f60.png'
+      }
+    ],
+    constructionGallery: [
+      {
+        phase: 'Earthworks, Grading & Fuel Tank Vaults',
+        date: 'March 2025',
+        status: 'Completed',
+        description: 'Precision cut-and-fill grading along the Narok-Baringo highway corridor and installation of double-wall UST underground fuel reservoirs with leak detection sensors.',
+        imageUrl: 'https://siligen-company-ltd.odoo.com/web/image/1257-46d37aae/IMG-20250912-WA0181.webp'
+      },
+      {
+        phase: 'Tree-Column Canopy Superstructure & AutoXpress Bays',
+        date: 'October 2025',
+        status: 'Completed',
+        description: 'Structural steel erection of the branching architectural canopy piers and reinforced masonry AutoXpress service bays.',
+        imageUrl: 'https://siligen-company-ltd.odoo.com/web/image/1241-85d9f72a/IMG-20250912-WA0177.webp'
+      },
+      {
+        phase: 'Forecourt Concrete Paving, Fit-Out & Solar Commissioning',
+        date: 'January 2026',
+        status: 'Completed',
+        description: 'Power-troweled concrete slab casting, Shell Select retail interior finishes, and 50 kWp solar PV canopy array interconnection.',
+        imageUrl: 'https://siligen-company-ltd.odoo.com/web/image/1269-aa6faec6/IMG-20250911-WA0028.webp'
+      }
+    ],
+    materials: [
+      { name: 'PVDF Architectural Canopy Cladding', type: 'Fascia & Roof', finish: 'Shell Yellow & Red High-Gloss', source: 'Alucobond Architectural', colorHex: '#FFD100' },
+      { name: 'Fiber-Reinforced Concrete Forecourt Pavement', type: 'Traffic Slab', finish: 'Heavy-Duty Power Broomed', source: 'Bamburi Special Mix', colorHex: '#9E9E9E' },
+      { name: 'Thermally Broken Low-E Storefront Glazing', type: 'Retail Facade', finish: 'Acoustic Tinted', source: 'Saint-Gobain Glass', colorHex: '#2E4C5A' },
+      { name: 'Textured Charcoal Engineered Blockwork', type: 'AutoXpress Workshop', finish: 'Matte Architectural Masonry', source: 'Rift Valley Block Systems', colorHex: '#2C2D30' }
+    ],
+    sustainabilityImpact: {
+      standard: 'EDGE',
+      certificationLevel: 'EDGE Certified Commercial Stopover',
+      energySavingsPercent: 49,
+      waterSavingsPercent: 46,
+      embodiedCarbonReductionPercent: 31,
+      solarOffsetPercent: 78,
+      solarInstalledKwp: 52.0,
+      annualCarbonOffsetTons: 44.8,
+      annualCostSavingsKES: 2180000,
+      edgeCertificationRef: 'EDGE-KE-COMM-2026-009',
+      greenFeatures: [
+        '52.0 kWp rooftop solar PV canopy array offsetting 78% of daylight forecourt and retail power',
+        'AutoXpress water reclamation system recycling 65% of car wash washdown water',
+        'Triple-stage hydrocarbon fuel interceptors preventing runoff into the Narok basin',
+        'Ultra-low power LED directional canopy floodlights eliminating highway light pollution'
+      ]
+    },
+    stats: [
+      { label: 'Dispenser Positions', value: '16 Multi-Product' },
+      { label: 'Service Bays', value: '3x AutoXpress' },
+      { label: 'Solar Generation', value: '52 kWp Array' },
+      { label: 'Site Footprint', value: '14,200 m²' }
+    ],
+    featured: true
+  },
+  {
     id: '4 Bedroom Maisonette',
     title: 'The Serene Residence in Kiambu County',
     subtitle: 'Biophilic Luxury Private Maisonette',
