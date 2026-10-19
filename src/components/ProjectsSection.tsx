@@ -15,7 +15,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenConsulta
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [initialModalTab, setInitialModalTab] = useState<'overview' | 'renders' | 'progress' | 'materials'>('overview');
 
-  const categories: ProjectCategory[] = ['All', 'Residential', 'Commercial', 'Hospitality', 'Institutional', 'Interior'];
+  const categories: ProjectCategory[] = ['All', 'Commercial', 'Residential'];
 
   const filteredProjects = selectedCategory === 'All'
     ? PROJECTS_DATA
