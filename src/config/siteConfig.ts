@@ -21,6 +21,8 @@ export interface OfficeLocation {
 
 export interface HeroSlide {
   image: string;
+  videoUrl?: string; // Subtle looping architectural/construction walkthrough MP4
+  videoType?: 'construction_progress' | 'walkthrough_3d' | 'drone_aerial';
   title: string;
   location: string;
   tag?: string;
@@ -187,18 +189,24 @@ export const siteConfig: SiteConfig = {
     slides: [
       {
         image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85',
+        videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-buildings-under-construction-aerial-view-4010-large.mp4',
+        videoType: 'construction_progress',
         title: 'The Glass Pavilion Villa',
         location: 'Kileleshwa • Nairobi',
         tag: 'Residential Luxury',
       },
       {
         image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85',
+        videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-daytime-city-traffic-aerial-view-56-large.mp4',
+        videoType: 'walkthrough_3d',
         title: 'Nexus Financial HQ Tower',
         location: 'Westlands • Commercial',
         tag: 'Commercial Landmark',
       },
       {
         image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85',
+        videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-buildings-under-construction-aerial-view-4010-large.mp4',
+        videoType: 'drone_aerial',
         title: 'Aethel Eco Lodge',
         location: 'Maasai Mara • Hospitality',
         tag: 'Eco-Hospitality',

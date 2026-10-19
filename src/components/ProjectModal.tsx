@@ -16,7 +16,12 @@ import {
   Images as ImageIcon,
   LayoutGrid,
   Film,
-  ArrowUp
+  ArrowUp,
+  Leaf,
+  Sun,
+  ShieldCheck,
+  Zap,
+  CheckCircle2
 } from 'lucide-react';
 
 interface ProjectModalProps {
@@ -436,6 +441,88 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     </p>
                   </div>
                 </div>
+
+                {/* Sustainability & Energy Efficiency Rating Card (LEED / EDGE) */}
+                {project.sustainabilityImpact && (
+                  <div className="p-6 rounded-2xl bg-gradient-to-br from-emerald-950/40 via-stone-900/40 to-stone-900/40 border border-emerald-500/30 space-y-5">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-emerald-500/20">
+                      <div className="flex items-center gap-2.5">
+                        <span className="p-2 rounded-xl bg-emerald-500/20 text-emerald-400">
+                          <Leaf className="w-5 h-5" />
+                        </span>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                              Certified Sustainability Rating
+                            </span>
+                            <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">
+                              {project.sustainabilityImpact.standard}
+                            </span>
+                          </div>
+                          <h4 className="text-lg font-heading font-bold text-white">
+                            {project.sustainabilityImpact.certificationLevel}
+                          </h4>
+                        </div>
+                      </div>
+
+                      {project.sustainabilityImpact.solarInstalledKwp && (
+                        <div className="flex items-center gap-2 text-xs text-amber-300 bg-amber-500/10 px-3 py-1.5 rounded-xl border border-amber-500/20">
+                          <Sun className="w-4 h-4 text-amber-400" />
+                          <span>{project.sustainabilityImpact.solarInstalledKwp} kWp Solar Array Installed</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Performance Benchmarks */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+                      <div className="p-3 rounded-xl bg-black/30 border border-white/5">
+                        <span className="text-[10px] uppercase text-gray-400 block">Energy Savings</span>
+                        <span className="text-xl font-bold font-heading text-emerald-400 mt-1 block">
+                          +{project.sustainabilityImpact.energySavingsPercent}%
+                        </span>
+                        <span className="text-[10px] text-gray-400">vs baseline code</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-black/30 border border-white/5">
+                        <span className="text-[10px] uppercase text-gray-400 block">Water Savings</span>
+                        <span className="text-xl font-bold font-heading text-cyan-400 mt-1 block">
+                          +{project.sustainabilityImpact.waterSavingsPercent}%
+                        </span>
+                        <span className="text-[10px] text-gray-400">rain & greywater</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-black/30 border border-white/5">
+                        <span className="text-[10px] uppercase text-gray-400 block">Embodied Carbon</span>
+                        <span className="text-xl font-bold font-heading text-amber-400 mt-1 block">
+                          -{project.sustainabilityImpact.embodiedCarbonReductionPercent}%
+                        </span>
+                        <span className="text-[10px] text-gray-400">materials lifecycle</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-black/30 border border-white/5">
+                        <span className="text-[10px] uppercase text-gray-400 block">CO₂ Offset / Yr</span>
+                        <span className="text-xl font-bold font-heading text-emerald-300 mt-1 block">
+                          {project.sustainabilityImpact.annualCarbonOffsetTons || 12.5} Tons
+                        </span>
+                        <span className="text-[10px] text-gray-400">clean solar offset</span>
+                      </div>
+                    </div>
+
+                    {/* Key Green Features */}
+                    {project.sustainabilityImpact.greenFeatures && project.sustainabilityImpact.greenFeatures.length > 0 && (
+                      <div className="space-y-2 pt-2">
+                        <span className="text-xs font-semibold text-gray-300 uppercase tracking-wider block">
+                          Passive & Active Environmental Systems:
+                        </span>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-300">
+                          {project.sustainabilityImpact.greenFeatures.map((feat, idx) => (
+                            <div key={idx} className="flex items-start gap-2 bg-black/20 p-2 rounded-lg border border-white/5">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                              <span className="leading-snug">{feat}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
 
                 {/* Key Metrics */}
                 {project.stats.length > 0 && (

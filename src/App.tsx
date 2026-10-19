@@ -130,7 +130,14 @@ export default function App() {
         />
 
         {/* Section 4: Featured Projects Portfolio & Case Studies */}
-        <ProjectsSection />
+        <ProjectsSection
+          onOpenConsultation={(msg) => {
+            if (msg) {
+              setSelectedServiceForConsultation(msg);
+            }
+            setIsConsultationOpen(true);
+          }}
+        />
 
         {/* Section 4B: Kenyan Built Environment & Diaspora Advisory Hub */}
         <KenyaConstructionHub />

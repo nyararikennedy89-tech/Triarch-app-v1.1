@@ -3,9 +3,14 @@ import { motion } from 'motion/react';
 import { PROJECTS_DATA } from '../data/projects';
 import { Project, ProjectCategory } from '../types';
 import { ProjectModal } from './ProjectModal';
-import { MapPin, ArrowUpRight, Sparkles, Filter, Images } from 'lucide-react';
+import { SustainabilityImpactWidget } from './SustainabilityImpactWidget';
+import { MapPin, ArrowUpRight, Sparkles, Filter, Images, Leaf } from 'lucide-react';
 
-export const ProjectsSection: React.FC = () => {
+interface ProjectsSectionProps {
+  onOpenConsultation?: (message?: string) => void;
+}
+
+export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onOpenConsultation }) => {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('All');
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [initialModalTab, setInitialModalTab] = useState<'overview' | 'renders' | 'progress' | 'materials'>('overview');
@@ -140,6 +145,19 @@ export const ProjectsSection: React.FC = () => {
                     <span>Year: <strong className="text-[#1C1C1C] dark:text-white">{project.year}</strong></span>
                   </div>
 
+                  {/* Sustainability Badge on Card */}
+                  {project.sustainabilityImpact && (
+                    <div className="flex items-center justify-between text-[11px] px-2.5 py-1.5 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/20 text-emerald-800 dark:text-emerald-300">
+                      <span className="flex items-center gap-1.5 font-semibold">
+                        <Leaf className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                        <span>{project.sustainabilityImpact.certificationLevel}</span>
+                      </span>
+                      <span className="font-mono text-[10px] font-bold">
+                        +{project.sustainabilityImpact.energySavingsPercent}% Energy
+                      </span>
+                    </div>
+                  )}
+
                   <div className="flex items-center justify-between gap-2 pt-1">
                     <div className="flex items-center text-xs font-semibold uppercase tracking-wider text-[#4E6B5A] dark:text-[#B76E4A] group-hover:text-[#3e5648]">
                       <span>Case Study</span>
@@ -165,6 +183,16 @@ export const ProjectsSection: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Embedded Sustainability Impact & Solar Power Engineering Widget */}
+        <SustainabilityImpactWidget
+          projects={PROJECTS_DATA}
+          onOpenConsultation={onOpenConsultation}
+          onSelectProject={(p) => {
+            setActiveProject(p);
+            setInitialModalTab('overview');
+          }}
+        />
 
       </div>
 

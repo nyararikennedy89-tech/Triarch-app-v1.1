@@ -53,6 +53,21 @@ export interface PanoramaRoom {
   initialLookAt?: { yaw: number; pitch: number };
 }
 
+export interface SustainabilityImpact {
+  standard: 'LEED' | 'EDGE' | 'Green Star' | 'BREEAM';
+  certificationLevel: string; // e.g. "LEED Platinum", "EDGE Advanced", "EDGE Certified"
+  energySavingsPercent: number; // e.g. 48
+  waterSavingsPercent: number; // e.g. 52
+  embodiedCarbonReductionPercent: number; // e.g. 38
+  solarOffsetPercent?: number; // e.g. 75
+  solarInstalledKwp?: number; // e.g. 18.5
+  annualCarbonOffsetTons?: number; // e.g. 14.2
+  annualCostSavingsKES?: number; // e.g. 640000
+  greenFeatures: string[]; // key passive/active sustainability features
+  edgeCertificationRef?: string;
+  leedScore?: number; // e.g. 84 / 110
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -76,6 +91,7 @@ export interface Project {
   constructionGallery: ConstructionMilestone[];
   materials: MaterialSpec[];
   panoramaRooms?: PanoramaRoom[];
+  sustainabilityImpact?: SustainabilityImpact;
   stats: {
     label: string;
     value: string;

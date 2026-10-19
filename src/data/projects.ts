@@ -211,6 +211,24 @@ export const PROJECTS_DATA: Project[] = [
         ]
       }
     ],
+    sustainabilityImpact: {
+      standard: 'EDGE',
+      certificationLevel: 'EDGE Certified Commercial Stopover',
+      energySavingsPercent: 52,
+      waterSavingsPercent: 44,
+      embodiedCarbonReductionPercent: 28,
+      solarOffsetPercent: 80,
+      solarInstalledKwp: 65.0,
+      annualCarbonOffsetTons: 54.2,
+      annualCostSavingsKES: 2650000,
+      edgeCertificationRef: 'EDGE-KE-COMM-2026-003',
+      greenFeatures: [
+        '65 kWp high-efficiency canopy solar array powering forecourt and Shell Select retail hub',
+        'Triple-chamber oil-water hydrocarbon separators safeguarding local drainage basins',
+        'Class-1 Stage-II vapor recovery systems mitigating volatile organic compounds (VOCs)',
+        '4x 150kW ultra-rapid DC solar EV fast-charging bays with integrated battery buffering'
+      ]
+    },
     stats: [
       { label: 'Dispenser Bays', value: '16 Multi-Product' },
       { label: 'Solar Generation', value: '65 kWp Array' },
@@ -455,6 +473,27 @@ export const PROJECTS_DATA: Project[] = [
         ]
       }
     ],
+    sustainabilityImpact: {
+      standard: 'EDGE',
+      certificationLevel: 'EDGE Advanced (Zero Carbon Ready)',
+      energySavingsPercent: 54,
+      waterSavingsPercent: 48,
+      embodiedCarbonReductionPercent: 39,
+      solarOffsetPercent: 88,
+      solarInstalledKwp: 14.8,
+      annualCarbonOffsetTons: 11.4,
+      annualCostSavingsKES: 480000,
+      edgeCertificationRef: 'EDGE-KE-RES-2025-084',
+      leedScore: 78,
+      greenFeatures: [
+        'Passive solar orientation with north-south cross-ventilation baffles',
+        'Double-glazed Low-E argon insulated curtain walls cutting cooling load by 44%',
+        '14.8 kWp Tier-1 Monocrystalline solar PV with 20 kWh LiFePO4 battery storage',
+        'Rainwater harvesting (45,000L underground cistern) with UV & sand filtration',
+        'Locally sourced volcanic basalt & FSC-certified timber minimizing embodied transit emissions',
+        'Greywater sub-surface drip irrigation for indigenous endemic landscape flora'
+      ]
+    },
     stats: [
       { label: 'Energy Reduction', value: '62%' },
       { label: 'Completion Time', value: '14 Months' },
@@ -548,6 +587,24 @@ export const PROJECTS_DATA: Project[] = [
         ]
       }
     ],
+    sustainabilityImpact: {
+      standard: 'LEED',
+      certificationLevel: 'LEED Platinum Certified',
+      energySavingsPercent: 58,
+      waterSavingsPercent: 64,
+      embodiedCarbonReductionPercent: 41,
+      solarOffsetPercent: 42,
+      solarInstalledKwp: 110.0,
+      annualCarbonOffsetTons: 94.5,
+      annualCostSavingsKES: 4200000,
+      leedScore: 88,
+      greenFeatures: [
+        'Dynamic parametric double-skin facade cutting building solar thermal gain by 41%',
+        '110 kWp building-integrated photovoltaic (BIPV) solar glass canopy',
+        'Blackwater membrane bio-reactor recycling 88% of water for flushing and sky gardens',
+        'High-efficiency magnetic bearing centrifugal chillers with smart BACnet automation'
+      ]
+    },
     stats: [
       { label: 'LEED Rating', value: 'Platinum' },
       { label: 'Water Recycling', value: '88%' },
@@ -609,6 +666,24 @@ export const PROJECTS_DATA: Project[] = [
         ]
       }
     ],
+    sustainabilityImpact: {
+      standard: 'EDGE',
+      certificationLevel: 'EDGE Zero Carbon Certified',
+      energySavingsPercent: 100,
+      waterSavingsPercent: 78,
+      embodiedCarbonReductionPercent: 62,
+      solarOffsetPercent: 100,
+      solarInstalledKwp: 45.0,
+      annualCarbonOffsetTons: 38.6,
+      annualCostSavingsKES: 1950000,
+      edgeCertificationRef: 'EDGE-KE-HOSP-2025-012',
+      greenFeatures: [
+        '100% off-grid 45 kWp solar microgrid with centralized lithium iron phosphate storage',
+        'Stabilized on-site rammed earth walls providing high diurnal thermal delay',
+        'Elevated light timber stilt foundations preserving savannah animal migration trails',
+        'Blackwater reed bed wetland filtration returning pristine water to natural aquifers'
+      ]
+    },
     stats: [
       { label: 'Off-Grid Power', value: '100%' },
       { label: 'Site Disturbance', value: '<3%' },
@@ -737,6 +812,25 @@ export const PROJECTS_DATA: Project[] = [
     materials: [
       { name: 'Reinforced Travertine & Steel', type: 'Structure', finish: 'Fine Chiseled', source: 'Kenyan Volcanic Stone', colorHex: '#A39382' }
     ],
+    sustainabilityImpact: {
+      standard: 'LEED',
+      certificationLevel: 'LEED Gold Certified',
+      energySavingsPercent: 46,
+      waterSavingsPercent: 42,
+      embodiedCarbonReductionPercent: 32,
+      solarOffsetPercent: 70,
+      solarInstalledKwp: 22.0,
+      annualCarbonOffsetTons: 16.8,
+      annualCostSavingsKES: 780000,
+      leedScore: 68,
+      greenFeatures: [
+        'Geothermal ground-source heat pump integration for high-efficiency climate moderation',
+        '22.0 kWp rooftop micro-inverter solar system with battery backup integration',
+        'Dual-flush ultra-low flow plumbing fixtures compliant with LEED baseline criteria',
+        'High-albedo cool roof thermal membrane rejecting 85% of solar radiation',
+        'Comprehensive smart automation (KNX/BACnet) with zone occupancy sensors'
+      ]
+    },
     stats: [
       { label: 'Ballistic Rating', value: 'BR7 Certified' },
       { label: 'Banquet Hall', value: '120 Guests' }
