@@ -254,7 +254,7 @@ export const PROJECTS_DATA: Project[] = [
       'Environmental & Stormwater Hydrocarbon Mitigation'
     ],
     client: 'Vivo Energy / Shell Kenya & Oleleshwa Transit Consortium',
-    heroImage: '/WhatsApp Image 2026-10-19 at 8.13.11 AM (1).jpeg',
+    heroImage: '/WhatsApp Image 2026-10-19 at 8.13.11 AM.jpeg',
     galleryImages: [
       '/WhatsApp Image 2026-10-19 at 8.13.11 AM (1).jpeg',
       '/WhatsApp Image 2026-10-19 at 8.13.11 AM.jpeg'
