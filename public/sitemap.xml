@@ -21,12 +21,23 @@
   <!-- Architectural Portfolio / Case Studies -->
   <url>
     <loc>https://triarchventures.co.ke/#projects</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=1600&amp;q=85</image:loc>
-      <image:title>Karen Ridge Villa Luxury Residence Nairobi</image:title>
+      <image:loc>https://triarchventures.co.ke/oleleshwa-shell-sunset.jpg</image:loc>
+      <image:title>Shell Service and Fuel Station Oleleshwa Narok-Baringo Road</image:title>
+      <image:caption>Modern highway fuel station and AutoXpress retail centre designed by Triarch Ventures</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://triarchventures.co.ke/file_00000000f9b48208a818b8e591618141.png</image:loc>
+      <image:title>Nyeri-Nanyuki Shell Service and Fuel Station Stopover</image:title>
+      <image:caption>I Love Nanyuki highway commercial transit stopover and solar canopy</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://triarchventures.co.ke/file_00000000444882119f8f50c71e323960.png</image:loc>
+      <image:title>The Serene Residence in Kiambu County</image:title>
+      <image:caption>Biophilic luxury private maisonette designed by Triarch Ventures</image:caption>
     </image:image>
   </url>
 
