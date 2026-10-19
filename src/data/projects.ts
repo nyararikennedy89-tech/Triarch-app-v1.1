@@ -254,13 +254,13 @@ export const PROJECTS_DATA: Project[] = [
       'Environmental & Stormwater Hydrocarbon Mitigation'
     ],
     client: 'Vivo Energy / Shell Kenya & Oleleshwa Transit Consortium',
-    heroImage: '/WhatsApp Image 2026-10-19 at 8.13.11 AM.jpeg',
+    heroImage: '/oleleshwa-shell-sunset.jpg',
     galleryImages: [
-      '/WhatsApp Image 2026-10-19 at 8.13.11 AM (1).jpeg',
-      '/WhatsApp Image 2026-10-19 at 8.13.11 AM.jpeg'
+      '/oleleshwa-shell-sunset.jpg',
+      '/oleleshwa-shell-daytime.jpg'
     ],
     beforeImage: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
-    afterImage: '/file_000000009448820891ad3c52e8e24f60.png',
+    afterImage: '/oleleshwa-shell-sunset.jpg',
     overview: 'Strategically positioned at Oleleshwa along the critical Narok-Baringo commercial artery, this modern Shell highway transit flagship combines an illuminated curved-wing structural canopy, a state-of-the-art AutoXpress tyre and express service centre, Shell Select Super Store, food court pavilion (featuring Java House / Chicken Inn), automated high-flow fueling forecourts, and comprehensive solar backup resilience.',
     clientBrief: 'Deliver a high-visibility, full-service automotive oasis catering to heavy agricultural logistics, safari tour operators connecting the Maasai Mara with the Great Rift Valley lakes, and local community transit with zero traffic friction and world-class forecourt retail.',
     designChallenge: 'Accommodating heavy commercial transport trucks alongside high-volume tourist passenger vehicles with safe separated turning radii, while integrating high-altitude Rift Valley crosswind engineering, EPRA forecourt buffer compliances, and localized soil filtration.',
@@ -274,7 +274,7 @@ export const PROJECTS_DATA: Project[] = [
         label: 'Sculptural Canopy Forecourt',
         roomName: 'High-Clearance Canopy Forecourt',
         description: 'Aerodynamic steel canopy with tree-column branches, energy-efficient recessed LED illumination, and 8 multi-product dispenser islands.',
-        imageUrl: '/file_000000009448820891ad3c52e8e24f60.png'
+        imageUrl: '/oleleshwa-shell-sunset.jpg'
       },
       {
         id: 'hs-oleleshwa-autoxpress',
@@ -283,7 +283,7 @@ export const PROJECTS_DATA: Project[] = [
         label: 'AutoXpress Service Centre',
         roomName: 'Automotive Tyre & Quick Service Centre',
         description: 'Fully equipped 3-bay AutoXpress facility providing computerized wheel alignment, tyre replacement, battery testing, suspension tuning, and automated car wash.',
-        imageUrl: '/file_00000000b6b08208b1d2668f9c186ed1.png'
+        imageUrl: '/oleleshwa-shell-daytime.jpg'
       },
       {
         id: 'hs-oleleshwa-select',
@@ -292,7 +292,7 @@ export const PROJECTS_DATA: Project[] = [
         label: 'Shell Select & Gourmet Deli',
         roomName: 'Super Store & Highway Food Court',
         description: '24-hour air-conditioned convenience super store, fresh artisan bakeries, barista coffee bar, traveler essentials, and modern clean washroom suites.',
-        imageUrl: '/file_000000009448820891ad3c52e8e24f60.png'
+        imageUrl: '/oleleshwa-shell-sunset.jpg'
       },
       {
         id: 'hs-oleleshwa-pylon',
@@ -301,7 +301,7 @@ export const PROJECTS_DATA: Project[] = [
         label: 'Digital Pylon Price Signage',
         roomName: 'High-Visibility Highway Monolith',
         description: '12-meter illuminated LED digital rate pylon guiding northbound and southbound Narok-Baringo travelers from up to 2 kilometers away.',
-        imageUrl: '/file_000000009448820891ad3c52e8e24f60.png'
+        imageUrl: '/oleleshwa-shell-sunset.jpg'
       }
     ],
     constructionGallery: [
