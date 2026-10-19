@@ -92,8 +92,8 @@ export const Introduction: React.FC = () => {
           >
             {/* After Image (Full background) */}
             <img
-              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85"
-              alt="Completed Villa Reality"
+              src="WhatsApp Image 2026-10-19 at 9.02.07 AM.jpeg"
+              alt="Completed Station Reality"
               className="absolute inset-0 w-full h-full object-cover"
             />
             <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-md text-xs font-mono">
@@ -106,8 +106,8 @@ export const Introduction: React.FC = () => {
               style={{ clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)` }}
             >
               <img
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=85"
-                alt="Initial Construction Phase"
+                src="WhatsApp Image 2026-10-19 at 9.02.29 AM.jpeg"
+                alt="3D Render"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-md text-xs font-mono">
