@@ -126,7 +126,7 @@ export const siteConfig: SiteConfig = {
       address: 'Pinetree Plaza, 4th Floor, Kaburu Drive',
       phone: '+254 (0) 714 965 505',
       email: 'nairobi@triarchventures.co.ke',
-      hours: 'Mon - Fri: 8:00 AM – 5:00 PM EAT',
+      hours: 'By appointment, Mon – Fri (EAT)',
       isPrimary: true,
     },
     Kiambu: {
