@@ -123,7 +123,7 @@ export const siteConfig: SiteConfig = {
       id: 'Nairobi',
       city: 'Nairobi, Kenya',
       country: 'Kenya',
-      address: 'Pinetree Plaza, 4th Floor, Dr Kaburu',
+      address: 'Pinetree Plaza, 4th Floor, Kaburu Drive',
       phone: '+254 (0) 714 965 505',
       email: 'nairobi@triarchventures.co.ke',
       hours: 'Mon - Fri: 8:00 AM – 5:00 PM EAT',
@@ -188,7 +188,7 @@ export const siteConfig: SiteConfig = {
     sideRailText: 'AUTHENTICITY — SYMMETRY — FUNCTION — PRECISION',
     slides: [
       {
-        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85',
+        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=75',
         videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-buildings-under-construction-aerial-view-4010-large.mp4',
         videoType: 'construction_progress',
         title: 'The Glass Pavilion Villa',
@@ -196,7 +196,7 @@ export const siteConfig: SiteConfig = {
         tag: 'Residential Luxury',
       },
       {
-        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85',
+        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=75',
         videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-daytime-city-traffic-aerial-view-56-large.mp4',
         videoType: 'walkthrough_3d',
         title: 'Nexus Financial HQ Tower',
@@ -204,7 +204,7 @@ export const siteConfig: SiteConfig = {
         tag: 'Commercial Landmark',
       },
       {
-        image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85',
+        image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=75',
         videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-buildings-under-construction-aerial-view-4010-large.mp4',
         videoType: 'drone_aerial',
         title: 'Aethel Eco Lodge',
