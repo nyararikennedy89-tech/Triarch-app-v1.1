@@ -5,7 +5,7 @@ import { Award, ShieldCheck, Compass, Users2, CheckCircle2, Cpu, Sparkles } from
 export const WhyChooseSection: React.FC = () => {
   const stats = [
     { value: '180+', label: 'Projects Completed', sub: 'Across East Africa & Region' },
-    { value: '15+', label: 'Years Experience', sub: 'Established Practice' },
+    { value: '2020', label: 'Established', sub: 'Multidisciplinary Practice' },
     { value: '99.4%', label: 'Client Satisfaction', sub: 'Verified Audit Score' },
     { value: '7', label: 'Disciplines In-House', sub: 'Zero Vendor Fragment' }
   ];

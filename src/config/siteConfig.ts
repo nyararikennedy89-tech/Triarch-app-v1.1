@@ -101,7 +101,7 @@ export const siteConfig: SiteConfig = {
   brand: {
     name: 'TRIARCH',
     subName: 'VENTURES',
-    establishedYear: 2022,
+    establishedYear: 2020,
     tagline: 'Design Spaces. Build Legacies.',
     shortDescription:
       'Multidisciplinary architecture, interior design, structural & MEP engineering, and construction consultancy studio delivering transformative built environments.',
@@ -133,19 +133,19 @@ export const siteConfig: SiteConfig = {
       id: 'Kiambu',
       city: 'Kiambu County',
       country: 'Kenya',
-      address: '12 Mayfair Architectural Chambers, Curzon St',
+      address: 'The Brick, 2nd Floor, Thindigua, Kiambu Road',
       phone: '+254 (0) 714 965 505',
       email: 'kiambu@triarchventures.co.ke',
-      hours: 'Mon - Fri: 9:00 AM – 5:30 PM GMT',
+      hours: 'By appointment, Mon – Fri (EAT)',
     },
     Nyeri: {
       id: 'Nyeri',
       city: 'Nyeri County',
       country: 'Kenya',
-      address: 'DIFC Gate Precinct Building 4, Level 5',
+      address: 'Mbaki House, Gakere Road, Nyeri Town',
       phone: '+254 (0) 714 965 505',
       email: 'nyeri@triarchventures.co.ke',
-      hours: 'Mon - Fri: 9:00 AM – 6:00 PM GST',
+      hours: 'By appointment, Mon – Fri (EAT)',
     },
   },
 
@@ -177,7 +177,7 @@ export const siteConfig: SiteConfig = {
   },
 
   hero: {
-    eyebrow: 'Est. 2014 — Multidisciplinary Studio',
+    eyebrow: 'Est. 2020 — Multidisciplinary Studio',
     headingLine1: 'Design Spaces.',
     headingAccent: 'Build',
     headingLine2: 'Legacies.',
@@ -214,7 +214,7 @@ export const siteConfig: SiteConfig = {
     ],
     stats: [
       { value: '180+', label: 'Projects Built', iconName: 'Building2' },
-      { value: '15+ Yrs', label: 'Practice', iconName: 'Compass' },
+      { value: 'Est. 2020', label: 'Practice', iconName: 'Compass' },
       { value: '7 Disciplines', label: 'Under One Roof', iconName: 'ShieldCheck' },
       { value: '100%', label: 'On-Time Approvals', iconName: 'Award' },
     ],
