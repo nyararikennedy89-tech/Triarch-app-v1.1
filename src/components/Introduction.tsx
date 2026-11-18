@@ -92,7 +92,7 @@ export const Introduction: React.FC = () => {
           >
             {/* After Image (Full background) */}
             <img
-              src="WhatsApp Image 2026-10-19 at 9.02.07 AM.jpeg"
+              src="/nanyuki-station-built.webp"
               alt="Completed Station Reality"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -106,7 +106,7 @@ export const Introduction: React.FC = () => {
               style={{ clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)` }}
             >
               <img
-                src="WhatsApp Image 2026-10-19 at 9.02.29 AM.jpeg"
+                src="/nanyuki-station-render.webp"
                 alt="3D Render"
                 className="absolute inset-0 w-full h-full object-cover"
               />

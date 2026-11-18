@@ -18,10 +18,10 @@ export const PROJECTS_DATA: Project[] = [
       'Environmental Impact Assessment (EIA)'
     ],
     client: 'Vivo Energy / Shell Kenya & Highway Commercial Consortium',
-    heroImage: '/file_00000000f9b48208a818b8e591618141.png',
+    heroImage: '/nanyuki-shell-station-1.webp',
     galleryImages: [
-      '/file_00000000873482088472ea13c0bc4919.png',
-      '/file_00000000f9b48208a818b8e591618141.png',
+      '/nanyuki-shell-station-2.webp',
+      '/nanyuki-shell-station-1.webp',
       'https://siligen-company-ltd.odoo.com/web/image/1853-36f3645a/WhatsApp%20Image%202026-01-20%20at%2020.13.43.webp',
       'https://siligen-company-ltd.odoo.com/web/image/1841-74f6d7c9/WhatsApp%20Image%202026-01-20%20at%2020.13.44%20%281%29.webp',
       'https://siligen-company-ltd.odoo.com/web/image/1840-84a18c0e/WhatsApp%20Image%202026-01-20%20at%2020.13.43%20%282%29.webp',
@@ -29,7 +29,7 @@ export const PROJECTS_DATA: Project[] = [
       'https://siligen-company-ltd.odoo.com/web/image/1848-0cf2236d/WhatsApp%20Image%202026-01-20%20at%2020.13.43%20%284%29.webp'
     ],
     beforeImage: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
-    afterImage: '/nanyuki-shell-hero.jpg',
+    afterImage: '/nanyuki-shell-hero.webp',
     overview: 'A regional benchmark in modern highway transit architecture along the bustling Nyeri-Nanyuki A2 corridor. Combining an aerodynamic cantilevered multi-pump fuel canopy, the two-story Mountain View Center housing Shell Select, Java House (24/7), and Pharmaplus, executive rest amenities, solar arrays, and an iconic Mount Kenya viewing terrace.',
     clientBrief: 'Design and engineer an iconic highway oasis that serves north-bound safari tourists, business commuters, and local logistics operators with seamless traffic flow, high-speed fueling, premium dining amenities, and full off-grid solar resilience.',
     designChallenge: 'Eliminating cross-traffic hazards between high-speed highway traffic, safari land-cruisers, passenger cars, and heavy commercial transit vehicles while adhering strictly to Energy and Petroleum Regulatory Authority (EPRA) buffer codes and stormwater hydrocarbon containment.',
@@ -107,8 +107,8 @@ export const PROJECTS_DATA: Project[] = [
         id: 'nanyuki-shell-forecourt',
         name: 'Forecourt & Cantilevered Canopy',
         category: 'Exterior & Forecourt',
-        panoramaUrl: '/IMG_3089.jpg',
-        thumbnailUrl: '/Enscape_2024-10-10-03-16-06.png',
+        panoramaUrl: '/nanyuki-shell-panorama.jpg',
+        thumbnailUrl: '/nanyuki-shell-hero.webp',
         floorLevel: 'Ground Forecourt',
         areaSqM: 1450,
         description: '24-meter clear span cantilevered steel canopy with 16 multi-product fueling bays, LED luminaires, and automated fire suppression.',
@@ -369,12 +369,12 @@ export const PROJECTS_DATA: Project[] = [
     year: '2025',
     servicesProvided: ['Architecture', 'Interior Design', 'Structural Engineering', '3D Visualization'],
     client: 'Confidential',
-    heroImage: '/file_00000000444882119f8f50c71e323960.png',
+    heroImage: '/kiambu-residence-1.webp',
     galleryImages: [
-      '/file_00000000444882119f8f50c71e323960.png',
-      '/file_00000000cd7c82119548acbf646af657.png',
-      '/file_0000000063fc82119b53846f123d16b9.png',
-      '/file_00000000444882119f8f50c71e323960.png'
+      '/kiambu-residence-1.webp',
+      '/kiambu-residence-2.webp',
+      '/kiambu-residence-3.webp',
+      '/kiambu-residence-1.webp'
     ],
     beforeImage: 'https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=1200&q=80',
     afterImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80',
