@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { BLOG_POSTS } from '../data/blog';
 import { BlogPost } from '../types';
 import { BookOpen, Clock, ArrowRight, X, User, Share2 } from 'lucide-react';
+import { guidePath } from '../seo/pages';
 
 export const ResourcesSection: React.FC = () => {
   const [selectedArticle, setSelectedArticle] = useState<BlogPost | null>(null);
@@ -137,7 +138,7 @@ export const ResourcesSection: React.FC = () => {
 
               {/* Footer */}
               <div className="mt-8 pt-6 border-t border-[#ECECEC] dark:border-white/10 flex items-center justify-between">
-                <span className="text-xs text-gray-400">Published on {selectedArticle.date}</span>
+                <span className="text-xs text-gray-400">Published on {selectedArticle.date} · <a href={guidePath(selectedArticle.slug)} className="underline hover:text-[#4E6B5A]">Open as a page</a></span>
                 <button
                   onClick={() => alert('Article link copied to clipboard!')}
                   className="px-4 py-2 rounded-full bg-gray-100 dark:bg-white/10 text-xs font-semibold flex items-center gap-2 hover:bg-gray-200"

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Moon, Sun, Menu, X, ArrowUpRight, Search, PhoneCall } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
+import { homeHref } from '../seo/links';
 
 interface NavbarProps {
   darkMode: boolean;
@@ -43,6 +44,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = homeHref(href);
     }
   };
 
@@ -58,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="w-full max-w-[1920px] mx-auto px-3 sm:px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 flex items-center justify-between">
           {/* Brand Logo */}
           <a
-            href="#home"
+            href={homeHref('#home')}
             onClick={(e) => handleNavClick(e, '#home')}
             className="flex items-center gap-2 sm:gap-3 group shrink-0"
             id="nav-logo"
@@ -100,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               return (
                 <a
                   key={link.name}
-                  href={link.href}
+                  href={homeHref(link.href)}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`text-xs font-medium uppercase tracking-widest transition-colors duration-200 relative py-1 ${
                     isScrolled
@@ -241,7 +244,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
-                    href={link.href}
+                    href={homeHref(link.href)}
                     onClick={(e) => handleNavClick(e, link.href)}
                     className="text-sm sm:text-base font-heading font-semibold text-[#1C1C1C] dark:text-white hover:text-[#4E6B5A] dark:hover:text-[#B76E4A] transition-colors py-2.5 min-h-[44px] border-b border-gray-200/40 dark:border-white/5 flex items-center justify-between"
                   >

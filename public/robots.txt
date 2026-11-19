@@ -41,5 +41,5 @@ User-agent: FacebookBot
 Allow: /
 
 # XML Sitemap
-Sitemap: https://triarchventures.co.ke/sitemap.xml
+Sitemap: https://www.triarchventures.co.ke/sitemap.xml
 

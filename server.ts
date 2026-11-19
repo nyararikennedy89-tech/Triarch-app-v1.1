@@ -96,7 +96,7 @@ function getMpesaConfig(req?: express.Request) {
 
   // Final fallback: Safaricom strictly requires a valid, well-formed HTTPS URL
   if (!callbackUrl || callbackUrl.includes('$') || callbackUrl.includes('{') || !callbackUrl.startsWith('http')) {
-    callbackUrl = 'https://triarchventures.co.ke/api/mpesa/callback';
+    callbackUrl = 'https://www.triarchventures.co.ke/api/mpesa/callback';
   }
 
   // Enforce https unless strictly testing on localhost
