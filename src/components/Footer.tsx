@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, ArrowRight, CheckCircle, MessageSquare } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
+import { homeHref } from '../seo/links';
+import { NAV_GROUPS } from '../seo/pages';
 
 interface FooterProps {
   onOpenConsultation: () => void;
@@ -110,7 +112,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
               {siteConfig.navigation.mainLinks.map((item) => (
                 <li key={item.name}>
                   <a
-                    href={item.href}
+                    href={homeHref(item.href)}
                     className="hover:text-amber-200 transition-colors"
                   >
                     {item.name}
@@ -183,6 +185,27 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
 
         </div>
 
+        {/* Explore: crawlable links to standalone service, location, project and guide pages */}
+        <nav aria-label="Explore" className="pb-10 mb-8 border-b border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-xs text-gray-400">
+          {[
+            { heading: 'Services', links: NAV_GROUPS.services() },
+            { heading: 'Offices', links: NAV_GROUPS.locations() },
+            { heading: 'Projects', links: NAV_GROUPS.projects() },
+            { heading: 'Guides', links: NAV_GROUPS.guides() },
+          ].map((group) => (
+            <div key={group.heading} className="space-y-2">
+              <h4 className="text-xs font-heading font-bold text-white uppercase tracking-widest">{group.heading}</h4>
+              <ul className="space-y-1.5">
+                {group.links.map((l) => (
+                  <li key={l.path}>
+                    <a href={l.path} className="hover:text-amber-200 transition-colors">{l.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
+
         {/* Bottom Credits & Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] xs:text-[11px] text-gray-500 text-center sm:text-left">
           <div className="max-w-xl">
@@ -190,7 +213,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenConsultation }) => {
           </div>
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6">
             {siteConfig.navigation.legalLinks.map((link) => (
-              <a key={link.name} href={link.href} className="hover:text-gray-300 transition-colors">
+              <a key={link.name} href={homeHref(link.href)} className="hover:text-gray-300 transition-colors">
                 {link.name}
               </a>
             ))}

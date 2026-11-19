@@ -4,6 +4,7 @@ import { Search, X, Building, Compass, BookOpen, Calculator, ArrowRight } from '
 import { PROJECTS_DATA } from '../data/projects';
 import { SERVICES_DATA } from '../data/services';
 import { BLOG_POSTS } from '../data/blog';
+import { homeHref } from '../seo/links';
 
 interface QuickSearchModalProps {
   isOpen: boolean;
@@ -104,7 +105,7 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
                   <a
-                    href="#kenya-hub"
+                    href={homeHref('#kenya-hub')}
                     onClick={onClose}
                     className="p-3 rounded-xl bg-[#F8F7F4] dark:bg-[#121312] border border-gray-200 dark:border-white/10 flex items-center gap-2 font-medium hover:border-[#4E6B5A]"
                   >
@@ -112,7 +113,7 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                     <span>Kenya Advisory</span>
                   </a>
                   <a
-                    href="#projects"
+                    href={homeHref('#projects')}
                     onClick={onClose}
                     className="p-3 rounded-xl bg-[#F8F7F4] dark:bg-[#121312] border border-gray-200 dark:border-white/10 flex items-center gap-2 font-medium hover:border-[#4E6B5A]"
                   >
@@ -120,7 +121,7 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                     <span>Projects</span>
                   </a>
                   <a
-                    href="#estimator"
+                    href={homeHref('#estimator')}
                     onClick={onClose}
                     className="p-3 rounded-xl bg-[#F8F7F4] dark:bg-[#121312] border border-gray-200 dark:border-white/10 flex items-center gap-2 font-medium hover:border-[#4E6B5A]"
                   >
@@ -128,7 +129,7 @@ export const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                     <span>Cost Estimator</span>
                   </a>
                   <a
-                    href="#process"
+                    href={homeHref('#process')}
                     onClick={onClose}
                     className="p-3 rounded-xl bg-[#F8F7F4] dark:bg-[#121312] border border-gray-200 dark:border-white/10 flex items-center gap-2 font-medium hover:border-[#4E6B5A]"
                   >

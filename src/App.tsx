@@ -18,8 +18,12 @@ import { ProjectModal } from './components/ProjectModal';
 import { MpesaPaymentModal } from './components/MpesaPaymentModal';
 import { Project } from './types';
 import { PROJECTS_DATA } from './data/projects';
+import { ContentPage } from './components/ContentPage';
+import { findPage } from './seo/pages';
 
 export default function App() {
+  // Standalone pages (/services/*, /locations/*, /projects/*, /resources/*)
+  const contentPage = typeof window !== 'undefined' ? findPage(window.location.pathname) : undefined;
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -108,11 +112,21 @@ export default function App() {
         }}
         onOpenSearch={() => setIsSearchOpen(true)}
         onOpenMpesa={() => handleOpenMpesa()}
-        activeSection={activeSection}
+        activeSection={contentPage ? "" : activeSection}
       />
 
       {/* Semantic Main Content Region for Search Engines & Accessibility */}
       <main id="main-content" tabIndex={-1} className="focus:outline-none">
+        {contentPage ? (
+          <ContentPage
+            page={contentPage}
+            onOpenConsultation={() => {
+              setSelectedServiceForConsultation(undefined);
+              setIsConsultationOpen(true);
+            }}
+          />
+        ) : (
+        <>
         {/* Section 1: Hero */}
         <Hero
           onOpenConsultation={() => {
@@ -167,6 +181,8 @@ export default function App() {
             setIsConsultationOpen(true);
           }}
         />
+        </>
+        )}
       </main>
 
       {/* Section 10: Footer & Global Office Switcher */}
